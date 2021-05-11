@@ -21,131 +21,7 @@
 <link rel="stylesheet" href="../css/shopick-icon.css">
 <!-- style css -->
 <link rel="stylesheet" href="../css/style.css">
-
-<style>
-	.img {
-		width: 200px;
-		height: 100px;
-		}
-
-	.wrap {
-		position: relative;
-		width: 100%;
-		height: 500px;
-		background: #FFCB9C;
-		text-align: center;
-		line-height: 100px;
-		margin: 0 auto;
-		color: #000;
-		font-size: 12px;
-		}
-
-	.over {
-		position: absolute;
-		top: 100px;
-		left: 100px;
-		width: 250px;
-		height: 300px;
-		background: #FFFFCC;
-		text-align: center;
-		line-height: 300px;
-		}
-	
-	.over2 {
-		position: absolute;
-		top: 100px;
-		left: 370px;
-		width: 250px;
-		height: 300px;
-		background: #FFFFCC;
-		text-align: center;
-		line-height: 300px;
-		}
-	
-	.over3 {
-		position: absolute;
-		top: 100px;
-		left: 640px;
-		width: 250px;
-		height: 300px;
-		background: #FFFFCC;
-		text-align: center;
-		line-height: 300px;
-		}
-	
-	.over4 {
-		position: absolute;
-		top: 100px;
-		left: 910px;
-		width: 250px;
-		height: 300px;
-		background: #FFFFCC;
-		text-align: center;
-		line-height: 300px;
-		}
-	
-	.genre {
-		display: inline-block;
-		float: left;
-		width: 200px;
-		height: 500px;
-		background: #CCCB9C;
-		color: #000;
-		font-size: 12px;
-		position: absolute;
-		}
-	
-	
-	.mainshow {
-		display: inline-block;
-		width: 1262px;
-		height: 500px;
-		background: #b064D0;
-		margin: 0 auto;
-		color: #000;
-		}
-	
-	.cal {
-		display: inline-block;
-		width: 500px;
-		height: 500px;
-		background: #c111D0;
-		margin: 0 auto;
-		color: #000;
-		}
-	
-	.message {
-		display: inline-block;
-		float:left;
-		width: 763px;
-		height: 500px;
-		background: #BBCB9C;
-		line-height: 100px;
-		color: #000;
-		}
-	
-	.Rank {
-		display: inline-block;
-		float: right;
-		width: 500px;
-		height: 500px;
-		background: #2211D0;
-		color: #000;
-		}
-		
-	.ticketing {
-		background:pink;
-		border: 1px dotted red;
-		width: 50px;
-		height: 30px;
-		line-height:30px;
-	}
-		
-	footer {
-		clear: both;
-		background-color: red;
-	}
-</style>
+    <link rel="stylesheet" href="css.css">
 
 </head>
 
@@ -219,70 +95,81 @@
 	</header>
 	<!-- HEADER-AREA END -->
 
-
+<body>
 	<!-- body Start -->
 
-	<!--  (relative, absolute, fixed 로 위치 변경하기 -->
-	<section>
-	<!-- Top 공연 포스터 div -->
-		<div class="wrap">
-			<h3>공연 배경 레이어</h3>
-			<div class="over">
-				<img src=''>공연 1
-			</div>
-			<div class="over2">
-				<img src=''>공연 2
-			</div>
-			<div class="over3">
-				<img src=''>공연 3
-			</div>
-			<div class="over4">
-				<img src=''>공연 4
-			</div>
-		</div>
-		<!-- Top 공연 포스터 div End -->
-	</section>
-	<!-- 왼쪽 콘서트 장르 -->
-	<div class="wrap">
-		   <div class="genre">
-            	<ul style="display:Flexbox;justify-content: center">
-                	<li>test</li>
-                	<li>test</li>
-                	<li>test</li>
-                	<li>test</li>
-           		</ul>
-     
-				<button value="예매" img src="" class="ticketing">예매</button>
-			</div>
-	<!-- 왼쪽 콘서트 장르 End -->
+	   <div class="bobox">
+ 
+  	<!-- Top 공연 포스터 div -->
+        <div class="top">
+        	<div class="over"><img class="img" alt="num1" src="img/popular-1.jpg"></div>
+			<div class="over2"><img class="img" alt="num2" src="img/popular-2.jpg"></div>
+			<div class="over3"><img class="img" alt="num3" src="img/popular-3.jpg"></div>
+			<div class="over4"><img class="img" alt="num4" src="img/popular-4.jpg"></div>
+        </div>
+        <!-- Top 공연 포스터 div End -->
+        
+        <!-- 왼쪽 콘서트 장르 -->
+        <div class="genre">genre
+        	<ul>
+        		<li>test</li>
+        		<li>test</li>
+        		<li>test</li>
+        		<li>test</li>
+        		
+        		
+        	</ul>
+        <button type="button"><img src="" alt="">예매하기</button>
+
+        </div>
+        <!-- 왼쪽 콘서트 장르 End -->
+        
+        <!-- 중간 콘서트 소개 영상 -->
+        <div class="show">
+        
+        <img class="img" alt="num2" src="img/hero-1.jpg">
+        
+        </div>
+        <!-- 중간 콘서트 소개 영상 End-->
+        
+        	<!-- 오른쪽 달력 -->
+        <div class="cal">cal
+        
+        
+        
+        </div>
+        <!-- 오른쪽 달력 End -->
+        
+        	<!-- 아래쪽 게시판 -->
+        
+        <div class="board">board
+        
+        
+        </div>
+        <!-- 아래쪽 게시판 End -->
+        
+        	<!-- 오른쪽 아래 공연 랭킹 정보-->
+        <div class="rank">
+        	<span>Weekly Rank</span>
+        
+        
+        
+        </div>
+	<!-- 오른쪽 아래 공연 랭킹 정보 End -->
 
 
-		<!-- 중간 콘서트 소개 영상 -->
-		<div class="mainshow">영상 소개 위치</div>
-		<!-- 중간 콘서트 소개 영상 End-->
-
-		<!-- 오른쪽 달력 -->
-		<div class="cal">달력 위치</div>
-		<!-- 오른쪽 달력 End -->
-	</div>
-	<!-- 중간 메뉴 div Close --> 
+<span class=topbtn onclick="window.scrollTo(0,0);" ><img src="img/topbtn.png"></span>
 
 
-	<!-- 아래쪽 게시판 -->
-	<div class="wrap">
-		<div class="message">게시판 위치</div>
-		<!-- 아래쪽 게시판 End -->
-
-
-		<!-- 오른쪽 아래 공연 랭킹 정보-->
-		<div class="Rank">
-			<span>Weekly Rank</span>
-		</div>
-		<!-- 오른쪽 아래 공연 랭킹 정보 End -->
-	</div>
+	
+    </div>
 </body>
 
 <footer>
 </footer>
 </html>
 
+	
+        	
+        	
+        	

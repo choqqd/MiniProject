@@ -1607,8 +1607,8 @@ select {
 	16. Footer-Area
 ======================================== */
 .footer-top {
-  background: rgba(0, 0, 0, 0) url("img/bg/footer-bg.jpg") no-repeat scroll center center / cover ;
-  position: relative;
+  background: #333 none repeat scroll 0 0;
+  
 }
 .footer-top::before {
   background: #000 none repeat scroll 0 0;
@@ -1621,12 +1621,13 @@ select {
   width: 100%;
 }
 .footer {
-  padding: 48px 0 65px;
+  background: #333 none repeat scroll 0 0;
+  padding : 45px 0px 45px;
 }
-.single-footer p {
-  color: #f5f5f4;
-  font-weight: 300;
-  margin-top: 25px;
+.single-footer{
+  color: #fff;
+  font-weight: 200;
+  margin-top: 5px;
 }
 .single-footer h2 {
   color: #fff;

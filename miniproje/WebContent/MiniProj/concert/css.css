@@ -11,10 +11,8 @@
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	height: 200vh;
 	grid-template-rows: 1fr 1fr 200px 500px;
-	grid-template: 'top top top top top' 
-					'genre show show  show cal' 
-					'board board board board rank'
-					'foot foot foot foot foot'; 
+	grid-template: 'top top top top top' 'genre show show  show cal'
+		'board board board board rank' 'foot foot foot foot foot';
 }
 /* ====================================== 
 	2. Box div-Area
@@ -35,77 +33,66 @@
 }
 
 .postbox {
-    width: 100%;
-    background: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    padding: 25px 30px 5px 30px;
-    box-sizing: border-box;
-    margin-bottom: 10px;
-    box-shadow: 0 3px 5px rgb(0 0 0 / 10%);
-    
+	width: 100%;
+	background: #fff;
+	border-radius: 10px;
+	overflow: hidden;
+	padding: 25px 30px 5px 30px;
+	box-sizing: border-box;
+	margin-bottom: 10px;
+	box-shadow: 0 3px 5px rgb(0 0 0/ 10%);
 }
 
 .postbox ul li {
-    width: 30%;
-    float: left;
-    margin-left: 20px;
-    display: inline;
+	width: 30%;
+	float: left;
+	margin-left: 20px;
+	display: inline;
 }
+
 .postbox ul li img {
-    width: 400px;
-    height: 600px;
-    margin: 0 0 0 0;
-    display: block;
+	width: 500px;
+	height: 600px;
+	margin: 0 0 0 0;
+	display: block;
+	padding: 0 0 0 100px;
 }
+
 .postbox ul li strong {
-    width: 215px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    display: block;
-    margin: 15px 0 8px 0;
+	width: 215px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	display: block;
+	margin: 15px 0 8px 0;
 }
-.postbox h2 {
-    width: 100%;
-    margin: 0 0 19px 0;
-    padding: 0px 0 16px 0;
-    border-bottom: 1px solid #d4d4d4;
-    font-family: NanumSquareRound !important;
-    color: skyblue;
-    font-size: 21px;
-    font-weight: bold;
-    line-height: 21px;
-}
+
 .postbox ul li strong {
-    font-family: NanumSquareRound !important;
-    color: #666;
-    font-size: 19px;
-    font-weight: bold;
-    line-height: 20px;
-    text-align: center;
+	font-family: NanumSquareRound !important;
+	color: violet;
+	font-size: 30px;
+	font-weight: bold;
+	line-height: 30px;
+	text-align: right;
 }
+
 .small {
-    width: 215px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    display: block;
-    margin-bottom: 23px;
+	width: 215px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	display: block;
+	margin-bottom: 23px;
+	font-size: 20px;
+	font-family: '돋움', 'Dotum', sans-serif;
+	text-size-adjust: none;
+	-webkit-text-size-adjust: none;
+	text-align: right;
 }
-* {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    font-size: 12px;
-    font-family: '돋움', 'Dotum', sans-serif;
-    text-size-adjust: none;
-    -webkit-text-size-adjust: none;
-}
+
 li {
-    display: list-item;
-    text-align: -webkit-match-parent;
-    
+	display: list-item;
+	text-align: -webkit-match-parent;
 }
 /* ====================================== 
 	16. Footer-Area
@@ -143,14 +130,13 @@ li {
 }
 
 .div>img {
-	width: 500px;
+	width: 800px;
 	height: 800px;
 }
 
 .video {
 	max-width: 100%;
 	height: 100%;
-	
 }
 /* ====================================== 
 	16. Footer-Area
@@ -168,22 +154,20 @@ li {
 /* ====================================== 
 	16. Footer-Area
 ======================================== */
-.foot{
-	  grid-area : foot;
+.foot {
+	grid-area: foot;
 }
 
 .foott {
-
-  background: #333 none repeat scroll 0 0;
-  padding : 45px 0px 45px;
- 
-}
-.single-foott{
-  color: #fff;
-  font-weight: 200;
-  margin-top: 5px;
+	background: #333 none repeat scroll 0 0;
+	padding: 45px 0px 45px;
 }
 
+.single-foott {
+	color: #fff;
+	font-weight: 200;
+	margin-top: 5px;
+}
 
 /* ���� css */
 /*

@@ -36,7 +36,6 @@
 <!-- main css -->
 <link rel="stylesheet" href="main.css">
 <style>
-
 </style>
 </head>
 <body>
@@ -114,21 +113,30 @@
 	<section>
 		<div class="slider">
 			<div>
-				<img class="im" src="../img/블리쳐스.jpg" alt="">
+				<img class="im" src="musical_Img/banner1.JPG" alt="">
 			</div>
 			<div>
-				<img class="im" src="../img/레미제라블.jpg" alt="">
+				<img class="im" src="musical_Img/banner2.JPG" alt="">
 			</div>
 			<div>
-				<img class="im" src="../img/THE-HYUNDAI-SUPER-STAGE.jpg" alt="">
+				<img class="im" src="musical_Img/banner3.JPG" alt="">
 			</div>
 		</div>
 
 	</section>
-
+	<!-- 메뉴 START -->
+	<div class='submenu'>
+		<ul>
+			<li><a href="">예매</a></li>
+			<li><a href="">공연정보</a></li>
+			<li><a href="">관람후기</a></li>
+			<li><a href="">Q&A</a></li>
+		</ul>
+	</div>
+	<!-- 메뉴 END -->
 	<!-- 상단 포스터 -->
 	<section class='topSec-area'>
-	<h1>추천 공연</h1>
+		<p id="hot-font">WHAT'S HOT</p>
 		<div>
 			<div class="main-div">
 				<img class="poster" src='musical_Img/mama.jfif'>
@@ -191,19 +199,18 @@
 
 	<!-- MV START -->
 	<section class='mvsec'>
-		<div>
-			<div class='swiper-wapper'>
-				<p>창작가 무극</p>
-				<p>나빌레라</p>
-				<p>#몽몽몽#냥냥냥</p>
-			</div>
+
+		<div class='swiper-wapper'>
+			<p id="mvtitle">FOCUS ON</p>
+			<p id="mvtitle2">블루레인</p>
+			<p id="mvtag">#몽몽몽#냥냥냥</p>
+			<p id="mvtag">#보러와라꼭#재미있다구재미있어</p>
 		</div>
+
 		<div clss='swiper-player'>
-			<iframe width="800" height="315"
-				src="https://www.youtube.com/embed/MPAtelMGQC0"
-				title="YouTube video player" frameborder="0"
-				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-				allowfullscreen></iframe>
+			<iframe id="playYoutube" frameborder='0' allowfullscreen='1'
+				accelerometer; autoplay; width="640" height="400"
+				src="https://www.youtube.com/embed/?enablejsapi=1&origin=http%3A%2F%2Fticket.yes24.com&widgetid=1"></iframe>
 		</div>
 	</section>
 	<!-- MV END -->
@@ -233,16 +240,7 @@
 	<!-- float clear 위한 div -->
 	<div id='fclear'></div>
 
-	<!-- 메뉴 START -->
-	<div class='submenu'>
-		<ul>
-			<li><a href="">예매</a></li>
-			<li><a href="">공연정보</a></li>
-			<li><a href="">관람후기</a></li>
-			<li><a href="">Q&A</a></li>
-		</ul>
-	</div>
-	<!-- 메뉴 END -->
+
 
 	<!-- 하위메뉴 START -->
 	<div class='downmenu'></div>

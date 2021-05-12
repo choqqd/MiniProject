@@ -2,6 +2,11 @@ div {
 	text-align: center;
 }
 
+#sliders {
+	width : 2000px;
+	margin: 5px auto;
+}
+
 #main {
 	border: 2px solid black;
 	height: 2500px;

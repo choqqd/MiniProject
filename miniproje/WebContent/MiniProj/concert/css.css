@@ -1,3 +1,6 @@
+/* ====================================== 
+	1. Body-Area
+======================================== */
 .body {
 	margin: 0;
 }
@@ -5,13 +8,17 @@
 .bobox {
 	display: grid;
 	grid-gap: 10px;
-	grid-template-columns: 200px 1fr 500px;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	height: 200vh;
-	grid-template-rows: 1fr 300px 700px 500px;
-	grid-template: 'top top top' 'genre show cal' 'board board rank'
-		'footer footer footer';
+	grid-template-rows: 1fr 1fr 200px 500px;
+	grid-template: 'top top top top top' 
+					'genre show show  show cal' 
+					'board board board board rank'
+					'foot foot foot foot foot'; 
 }
-
+/* ====================================== 
+	2. Box div-Area
+======================================== */
 .bobox>div {
 	background-color: bisque;
 	justify-items: center;
@@ -27,93 +34,165 @@
 	justify-content: space-between;
 }
 
-.over {
-	display: inline-block;
-	width: 250px;
-	height: 300px;
-	background: #FFFFCC;
-	text-align: center;
-	line-height: 300px;
+.postbox {
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 25px 30px 5px 30px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    box-shadow: 0 3px 5px rgb(0 0 0 / 10%);
+    
 }
 
-.over2 {
-	display: inline-block;
-	width: 250px;
-	height: 300px;
-	background: #FFFFCC;
-	text-align: center;
-	line-height: 300px;
+.postbox ul li {
+    width: 30%;
+    float: left;
+    margin-left: 20px;
+    display: inline;
 }
-
-.over3 {
-	display: inline-block; 
-	width : 250px; 
-	height : 300px;
-	background: #FFFFCC;
-	text-align: center;
-	line-height: 300px;
-	width: 250px;
-	height: 300px;
+.postbox ul li img {
+    width: 400px;
+    height: 600px;
+    margin: 0 0 0 0;
+    display: block;
 }
-
-.over4 {
-	display: inline-block; 
-	width : 250px; 
-	height : 300px;
-	background: #FFFFCC;
-	text-align: center;
-	line-height: 300px;
-	width: 250px;
-	height: 300px;
+.postbox ul li strong {
+    width: 215px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: block;
+    margin: 15px 0 8px 0;
 }
-
+.postbox h2 {
+    width: 100%;
+    margin: 0 0 19px 0;
+    padding: 0px 0 16px 0;
+    border-bottom: 1px solid #d4d4d4;
+    font-family: NanumSquareRound !important;
+    color: skyblue;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 21px;
+}
+.postbox ul li strong {
+    font-family: NanumSquareRound !important;
+    color: #666;
+    font-size: 19px;
+    font-weight: bold;
+    line-height: 20px;
+    text-align: center;
+}
+.small {
+    width: 215px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: block;
+    margin-bottom: 23px;
+}
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 12px;
+    font-family: 'ë‹ì›€', 'Dotum', sans-serif;
+    text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+    
+}
+/* ====================================== 
+	16. Footer-Area
+======================================== */
 .genre {
 	grid-area: genre;
 }
-
+/* ====================================== 
+	16. Footer-Area
+======================================== */
 .show {
 	grid-area: show;
 	text-align: center;
 	line-height: 300px;
+	max-width: 100%;
+	height: auto;
 }
-
+/* ====================================== 
+	16. Footer-Area
+======================================== */
 .cal {
 	grid-area: cal;
 }
-
+/* ====================================== 
+	16. Footer-Area
+======================================== */
 .board {
 	grid-area: board;
 }
-
+/* ====================================== 
+	16. Footer-Area
+======================================== */
 .rank {
 	grid-area: rank;
 }
 
 .div>img {
-	width: 400px;
+	width: 500px;
 	height: 800px;
 }
 
+.video {
+	max-width: 100%;
+	height: 100%;
+	
+}
+/* ====================================== 
+	16. Footer-Area
+======================================== */
 .topbtn {
-	cursor:pointer;
-	 position: fixed;  
-  	bottom: 100px;
-  	left: 1850px;
-  	z-index: 9999;
-  	width: 50px;
-  	height: 50px;
+	cursor: pointer;
+	position: fixed;
+	bottom: 100px;
+	left: 1850px;
+	z-index: 9999;
+	width: 50px;
+	height: 50px;
 }
 
+/* ====================================== 
+	16. Footer-Area
+======================================== */
+.foot{
+	  grid-area : foot;
+}
+
+.foott {
+
+  background: #333 none repeat scroll 0 0;
+  padding : 45px 0px 45px;
+ 
+}
+.single-foott{
+  color: #fff;
+  font-weight: 200;
+  margin-top: 5px;
+}
+
+
+/* ï¿½ï¿½ï¿½ï¿½ css */
+/*
+
+	
 footer {
 	clear: both;
 	background-color: red;
 }
-
-
-/* ±âÁ¸ css */
-/*
-
-	
 	
 	.genre {
 		display: inline-block;

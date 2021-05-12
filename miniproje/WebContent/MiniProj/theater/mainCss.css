@@ -1,11 +1,12 @@
-div {
-	text-align: center;
+#sliders {
+	width: 1900px;
+	margin: 5px auto;
 }
 
 #main {
 	border: 2px solid black;
 	height: 2500px;
-	width: 1500px;
+	width: 1850px;
 	margin: 50px auto;
 }
 
@@ -37,18 +38,23 @@ div {
 	position: relative;
 }
 
-#ul>li {
-	float: left;
-	padding: 0px 120px;
+.theaterList1 {
+	margin: 150px 0px 0px 0px;
+}
+.theaterUl1, .theaterUl2 {
+	height: 500px;
+	list-style: none;
+	margin-left: 200px;
 }
 
-ul, ol {
-	list-style: none;
+.theaterUl1>li , .theaterUl2>li {
+	float: left	;
+	margin: 0;
 }
 
 #contents {
 	border: 3px solid black;
-	margin: 50px auto;
+	margin: 70px auto;
 	height: 500px;
 	width: 450px;
 }
@@ -59,26 +65,34 @@ ul, ol {
 	/* float: left; */
 }
 
+#tiger {
+	border: 1px solid black;
+	margin: 50px auto;
+	height: 500px;
+	width: 1300px;
+}
+
 #section {
-	border: 2px solid black;
-	margin: 50px 20px;
-	height: 1300px;
+	margin: 50px 5px;
 	position: relative;
 	display: inline-block;
 }
 
+#ex>img {
+	width: 300px;
+	height: 350px;
+}
+
 #ex {
 	display: inline-block;
-	width: 180px;
-	height: 200px;
-	padding: 30px;
-	border: 1px solid black;
-	margin: 50px 20px 10px 20px;
+	width: 300px;
+	height: 400px;
+	margin: auto;
+	margin-left : 50px;
 }
 
 #ex:hover {
-	background-color: pink;
-	
+	border: 3px solid red;
 }
 
 #footer {

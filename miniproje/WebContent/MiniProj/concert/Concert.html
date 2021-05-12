@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="../css/shopick-icon.css">
 <!-- style css -->
 <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="css.css">
+<link rel="stylesheet" href="css.css">
 
 </head>
 
@@ -77,10 +77,10 @@
 						<div class="main-menu pull-right">
 							<nav>
 								<ul>
-									<li><a href="">home</a></li>
-									<li><a href="">콘서트</a></li>
-									<li><a href="">뮤지컬</a></li>
-									<li><a href="">연극</a></li>
+									<li><a href="index.html">home</a></li>
+									<li><a href="concert/Concert.html">콘서트</a></li>
+									<li><a href="musical/Musical.html">뮤지컬</a></li>
+									<li><a href="theater/Theater.html">연극</a></li>
 									<li><a href="">게시판</a></li>
 									<li><a href="">공연장</a></li>
 									<li><a href="">이벤트/쿠폰</a></li>
@@ -94,82 +94,131 @@
 		<!-- Main-Header End -->
 	</header>
 	<!-- HEADER-AREA END -->
-
 <body>
 	<!-- body Start -->
 
-	   <div class="bobox">
- 
-  	<!-- Top 공연 포스터 div -->
-        <div class="top">
-        	<div class="over"><img class="img" alt="num1" src="img/popular-1.jpg"></div>
-			<div class="over2"><img class="img" alt="num2" src="img/popular-2.jpg"></div>
-			<div class="over3"><img class="img" alt="num3" src="img/popular-3.jpg"></div>
-			<div class="over4"><img class="img" alt="num4" src="img/popular-4.jpg"></div>
-        </div>
-        <!-- Top 공연 포스터 div End -->
-        
-        <!-- 왼쪽 콘서트 장르 -->
-        <div class="genre">genre
-        	<ul>
-        		<li>test</li>
-        		<li>test</li>
-        		<li>test</li>
-        		<li>test</li>
-        		
-        		
-        	</ul>
-        <button type="button"><img src="" alt="">예매하기</button>
+	<div class="bobox">
 
-        </div>
-        <!-- 왼쪽 콘서트 장르 End -->
-        
-        <!-- 중간 콘서트 소개 영상 -->
-        <div class="show">
-        
-        <img class="img" alt="num2" src="img/hero-1.jpg">
-        
-        </div>
-        <!-- 중간 콘서트 소개 영상 End-->
-        
-        	<!-- 오른쪽 달력 -->
-        <div class="cal">cal
-        
-        
-        
-        </div>
-        <!-- 오른쪽 달력 End -->
-        
-        	<!-- 아래쪽 게시판 -->
-        
-        <div class="board">board
-        
-        
-        </div>
-        <!-- 아래쪽 게시판 End -->
-        
-        	<!-- 오른쪽 아래 공연 랭킹 정보-->
-        <div class="rank">
-        	<span>Weekly Rank</span>
-        
-        
-        
-        </div>
+		<!-- Top 공연 포스터 div -->
+		<div class="top">
+			<div class="postbox">
+				<h2>Best Concert In this Month</h2>
+				
+				<ul>
+			<!-- 	<a name="" data-promo-seq="" data-link-url="/" data-link-type="1"
+					data-promo-type="">-->
+						<li>
+						 	<img class="img" alt="num1" src="img/popular-1.jpg"> 
+										
+							<strong>콘서트1</strong> 
+							<p3 class="small">2021.05.11 ~</p3>
+			
+						</li>
+				<!--</a>-->
+
+			<!-- 	<a name="" data-promo-seq="" data-link-url="/" data-link-type="1"
+					data-promo-type="">-->
+						<li>
+				
+							<img class="img" alt="num2" src="img/popular-2.jpg"> 
+									
+							<strong>콘서트2</strong> 
+							<p3 class="small">2021.05.11 ~</p3>
+		
+						</li>
+				<!--</a>-->
+
+			<!-- 	<a name="" data-promo-seq="" data-link-url="/" data-link-type="1"
+					data-promo-type="">-->
+						<li>
+			
+							<img class="img" alt="num3" src="img/popular-3.jpg"> 
+							<strong>콘서트3</strong> 
+							<p3 class="small">2021.05.11 ~</p3>
+	
+						</li>
+			<!--  </a>-->
+
+
+
+						</ul>
+			</div>
+	</div>
+	<!-- Top 공연 포스터 div End -->
+
+	<!-- 왼쪽 콘서트 장르 -->
+	<div class="genre">
+		genre
+		<ul>
+			<li>test</li>
+			<li>test</li>
+			<li>test</li>
+			<li>test</li>
+
+
+		</ul>
+			<button type="button">
+			<img src="" alt="">예매하기
+			</button>
+
+	</div>
+	<!-- 왼쪽 콘서트 장르 End -->
+
+	<!-- 중간 콘서트 소개 영상 -->
+	<div class="show">
+			<video class="video" src="img/PSY.webm" controls loop
+				autoplay="autoplay" muted="muted">
+			</video>
+		
+
+	</div>
+	<!-- 중간 콘서트 소개 영상 End-->
+
+	<!-- 오른쪽 달력 -->
+	<div class="cal">cal</div>
+	<!-- 오른쪽 달력 End -->
+
+	<!-- 아래쪽 게시판 -->
+
+	<div class="board">
+		board
+	
+	
+
+
+	</div>
+	<!-- 아래쪽 게시판 End -->
+
+	<!-- 오른쪽 아래 공연 랭킹 정보-->
+	<div class="rank">
+		<span>Weekly Rank</span>
+	
+	
+
+
+	</div>
 	<!-- 오른쪽 아래 공연 랭킹 정보 End -->
 
 
-<span class=topbtn onclick="window.scrollTo(0,0);" ><img src="img/topbtn.png"></span>
+			<span class=topbtn onclick="window.scrollTo(0,0);">
+			<img	src="img/topbtn.png"></span>
 
 
-	
-    </div>
+
 </body>
 
-<footer>
+<footer class="foot">
+	<div class="foott">
+		<!-- Footer start -->
+		<p class="single-foott" align="center">
+			(주)Gaze in Daegu 대구광역시 중구 국채보상로 537 (수동, 5층) / 대표자:조진호 / <br> 대표
+			GIt:https://github.com/choqqd/Miniproj.git / 개인정보보호책임자:조진호 <br>
+			Copyright © 2021 (주)Gaze in Daegu All Rights Reserved.
+		</p>
+	</div>
 </footer>
 </html>
 
-	
-        	
-        	
-        	
+
+
+

@@ -1,3 +1,6 @@
+/* ====================================== 
+	1. Body-Area
+======================================== */
 .body {
 	margin: 0;
 }
@@ -5,7 +8,7 @@
 .bobox {
 	display: grid;
 	grid-gap: 10px;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	height: 200vh;
 	grid-template-rows: 1fr 1fr 200px 500px;
 	grid-template: 'top top top top top' 
@@ -13,7 +16,9 @@
 					'board board board board rank'
 					'foot foot foot foot foot'; 
 }
-
+/* ====================================== 
+	2. Box div-Area
+======================================== */
 .bobox>div {
 	background-color: bisque;
 	justify-items: center;
@@ -29,42 +34,6 @@
 	justify-content: space-between;
 }
 
-.over {
-	display: inline-block;
-	max-width: 100%;
-	height: auto;
-	background: #FFFFCC;
-	text-align: center;
-	line-height: 300px;
-}
-
-.over2 {
-	display: inline-block;
-	max-width: 100%;
-	height: auto;
-	background: #FFFFCC;
-	text-align: center;
-	line-height: 300px;
-}
-
-.over3 {
-	display: inline-block;
-	max-width: 100%;
-	height: auto;
-	background: #FFFFCC;
-	text-align: center;
-	line-height: 300px;
-}
-
-.over4 {
-	display: inline-block;
-	max-width: 100%;
-	height: auto;
-	background: #FFFFCC;
-	text-align: center;
-	line-height: 300px;
-}
-
 .postbox {
     width: 100%;
     background: #fff;
@@ -74,6 +43,7 @@
     box-sizing: border-box;
     margin-bottom: 10px;
     box-shadow: 0 3px 5px rgb(0 0 0 / 10%);
+    
 }
 
 .postbox ul li {
@@ -115,7 +85,7 @@
     line-height: 20px;
     text-align: center;
 }
-.postbox ul li strong span {
+.small {
     width: 215px;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -137,11 +107,15 @@ li {
     text-align: -webkit-match-parent;
     
 }
-
+/* ====================================== 
+	16. Footer-Area
+======================================== */
 .genre {
 	grid-area: genre;
 }
-
+/* ====================================== 
+	16. Footer-Area
+======================================== */
 .show {
 	grid-area: show;
 	text-align: center;
@@ -149,21 +123,27 @@ li {
 	max-width: 100%;
 	height: auto;
 }
-
+/* ====================================== 
+	16. Footer-Area
+======================================== */
 .cal {
 	grid-area: cal;
 }
-
+/* ====================================== 
+	16. Footer-Area
+======================================== */
 .board {
 	grid-area: board;
 }
-
+/* ====================================== 
+	16. Footer-Area
+======================================== */
 .rank {
 	grid-area: rank;
 }
 
 .div>img {
-	width: 400px;
+	width: 500px;
 	height: 800px;
 }
 
@@ -172,7 +152,9 @@ li {
 	height: 100%;
 	
 }
-
+/* ====================================== 
+	16. Footer-Area
+======================================== */
 .topbtn {
 	cursor: pointer;
 	position: fixed;
@@ -186,149 +168,22 @@ li {
 /* ====================================== 
 	16. Footer-Area
 ======================================== */
-.foot-top {
-  background: #333 none repeat scroll 0 0;
-  
+.foot{
+	  grid-area : foot;
 }
-.foot-top::before {
-  background: #000 none repeat scroll 0 0;
-  content: "";
-  height: 100%;
-  left: 0;
-  opacity: 0.8;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-.foot {
-  grid-area : foot;
+
+.foott {
+
   background: #333 none repeat scroll 0 0;
   padding : 45px 0px 45px;
  
 }
-.single-foot{
+.single-foott{
   color: #fff;
   font-weight: 200;
   margin-top: 5px;
 }
-.single-foot h2 {
-  color: #fff;
-  font-size: 20px;
-  line-height: 21px;
-  margin-bottom: 45px;
-  margin-top: 30px;
-}
-.foot-contact li {
-  color: #f4f4f4;
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 23px;
-  margin-bottom: 20px;
-  padding-left: 40px;
-  position: relative;
-}
-.foot-contact li::before {
-  background: #fff none repeat scroll 0 0;
-  content: "";
-  height: 2px;
-  left: 0;
-  position: absolute;
-  top: 11px;
-  width: 25px;
-}
-.foot-contact li i {
-  float: left;
-  margin-bottom: 10px;
-  margin-right: 15px;
-  padding-top: 7px;
-}
-.foot-contact span {
-  display: block;
-}
-.foot-menu li {
-  margin-bottom: 10px;
-}
-.foot-menu ul li a {
-  color: #f4f4f4;
-  display: block;
-  font-size: 14px;
-  line-height: 20px;
-}
-.foot-menu ul li:hover a {
-  color: #f6416c;
-}
-.foot-message-box {
-  padding-right: 0;
-}
-.foot-message-box input, .foot-message-box textarea {
-  background: #333 none repeat scroll 0 0;
-  border: 0 none;
-  color: #fff;
-  font-size: 12px;
-  margin-bottom: 10px;
-  padding: 0 10px;
-  width: 100%;
-}
-.foot-message-box input {
-  height: 33px;
-}
-.foot-message-box textarea {
-  height: 90px;
-  line-height: 20px;
-}
-.foot-message-box input[type="submit"] {
-  background: #f6416c none repeat scroll 0 0;
-  font-weight: 500;
-  text-transform: uppercase;
-}
-.foot-message-box input::-webkit-input-placeholder,
-.foot-message-box textarea::-webkit-input-placeholder {
-  color: #eee;
-  opacity: 1;
-}
-.foot-message-box input:-moz-placeholder,
-.foot-message-box textarea:-moz-placeholder {
-  color: #eee; /* Firefox 18- */
-  opacity: 1;
-}
-.foot-message-box input::-moz-placeholder,
-.foot-message-box textarea::-moz-placeholder {
-  color: #eee; /* Firefox 19+ */
-  opacity: 1;
-}
-.foot-message-box input:-ms-input-placeholder,
-.foot-message-box textarea:-ms-input-placeholder {
-  color: #eee;
-  opacity: 1;
-}
-.copyright {
-  background: #292727 none repeat scroll 0 0;
-  padding: 15px 0;
-}
-.copyright-brief p {
-  color: #f5f5f4;
-  margin: 5px 0 0;
-}
-.copyright-brief a {
-  color: #f6416c;
-}
-.footer-social a {
-  background: #f3f3f3 none repeat scroll 0 0;
-  color: #292727;
-  display: inline-block;
-  height: 32px;
-  line-height: 32px;
-  margin-left: 15px;
-  text-align: center;
-  width: 32px;
-}
-.foot-social a:first-child {
-  margin-left: 0;
-}
-.foot-social a:hover {
-  background: #f6416c none repeat scroll 0 0;
-  color: #fff;
-}
+
 
 /* ���� css */
 /*

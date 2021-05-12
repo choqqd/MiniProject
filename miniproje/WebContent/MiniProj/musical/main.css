@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+
+.im {
+	display: block;
+	margin: 0px auto;
+	padding: 100px;
+}
+
+
+.img {
+	width: 200px;
+	height: 100px;
+}
+
+.topSec-area {
+	border: 3px solid red;
+	text-align: center;
+	margin: 50px 80px;
+	padding-top: 100px;
+}
+
+.main-div {
+	display: inline-block;
+	background-color: lightcoral;
+	text-align: center;
+	margin: 30px 100px;
+	border: 3px solid blue;
+}
+
+.poster {
+	margin-left: auto;
+	margin-right: auto;
+	width: 280px;
+	height: 340px;
+}
+
+.mvsec {
+	border: 3px solid black;
+	text-align: center;
+	margin: 90px 20px;
+	height: 400px;
+}
+
+.calender {
+	border: 3px solid red;
+	float: left;
+	margin: 30px 20px;
+	width: 65%;
+	height: 500px;
+}
+
+.swiper-wapper {
+	float: left;
+	width: 500px;
+	margin-top: 80px ;
+	margin-left: 100px ;
+	background-color: black;
+}
+
+.swiper-player {
+	float: left;
+	    width: 714px;
+    height: 400px;
+    position: relative;
+}
+
+.rank {
+	border: 3px solid red;
+	float: left;
+	margin: 30px 0;
+	width: 31%;
+	height: 500px;
+}
+
+.rankimg {
+	width: 50px;
+	height: 50px;
+}
+
+#rktitle {
+	padding-left: 30px;
+}
+
+#weli {
+	margin: 30px 20px;
+}
+
+#fclear {
+	clear: both;
+}
+
+
+
+.submenu {
+	background-color: #666;
+	width: 100%;
+	height: 50px;
+	text-align: center;
+}
+
+.submenu>ul>li {
+	clear: both;
+	display: inline-block;
+	padding: 0 40px;
+	position: relative;
+}
+
+.submenu>ul>li>a {
+	color: #fff;
+	display: block;
+	line-height: 28px;
+	padding: 12px 0;
+	text-transform: uppercase;
+	font-size: 18px;
+}
+
+.submenu>ul>li>a:hover {
+	color: #f6416c;
+}
+
+.downmenu {
+	height: 800px;
+}
+
+footer {
+	clear: both;
+	background-color: #666;
+	height: 100px;
+}

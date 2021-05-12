@@ -1,9 +1,22 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang=""></html>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <title>Gaze in daegu</title>
+<!-- slider 링크 -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+<script>
+	//슬라이더 스크립트 부분
+	$(document).ready(function() {
+		$('.slider').bxSlider();
+	});
+</script>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -20,62 +33,10 @@
 <link rel="stylesheet" href="../css/shopick-icon.css">
 <!-- style css -->
 <link rel="stylesheet" href="../css/style.css">
+<!-- main css -->
+<link rel="stylesheet" href="main.css">
 <style>
-.img {
-	width: 200px;
-	height: 100px;
-}
 
-.topSec-area {
-	border: 3px solid red;
-	height: 400px;
-	text-align: center;
-	margin: 30px 20px;
-}
-.main-div {
-	display: inline-block;
-	background-color: lightcoral;
-	text-align: center;
-	margin: 30px 20px;
-	border: 3px solid blue;
-	
-}
-
-.poster {
-	margin-left: auto;
-	margin-right: auto;
-	width: 190px;
-	height: 200px;
-}
-
-.mvsec {
-	
-	border: 3px solid black;
-	margin: 50px 20px;
-	width: 70%;
-	height: 350px;
-}
-
-.rank {
-	clear:both;
-	float: right;
-	border: 3px solid red;
-	margin: 30px 20px;
-	width: 350px;
-	height: 250px;
-}
-
-.rankimg {
-	width: 50px;
-	height: 50px;
-}
-
-footer {
-	clear: both;
-	border: 3px solid black;
-	height: 100px;
-	margin: 10px 10px;
-}
 </style>
 </head>
 <body>
@@ -150,64 +111,142 @@ footer {
 	<!-- HEADER-AREA END -->
 
 
+	<section>
+		<div class="slider">
+			<div>
+				<img class="im" src="../img/블리쳐스.jpg" alt="">
+			</div>
+			<div>
+				<img class="im" src="../img/레미제라블.jpg" alt="">
+			</div>
+			<div>
+				<img class="im" src="../img/THE-HYUNDAI-SUPER-STAGE.jpg" alt="">
+			</div>
+		</div>
+
+	</section>
+
 	<!-- 상단 포스터 -->
 	<section class='topSec-area'>
+	<h1>추천 공연</h1>
 		<div>
 			<div class="main-div">
-				<img class="poster" src='../img/logo.png'>
+				<img class="poster" src='musical_Img/mama.jfif'>
 				<div>
 					<span><h3>포스터 제목</h3></span><br> <span>포스터 줄거리</span> <span>기간</span>
 				</div>
 			</div>
 			<div class="main-div">
-				<img class="poster" src='../img/logo.png'>
+				<img class="poster" src='musical_Img/bluerain.jfif'>
 				<div>
 					<span><h3>포스터 제목</h3></span><br> <span>포스터 줄거리</span> <span>기간</span>
 				</div>
 			</div>
 			<div class="main-div">
-				<img class="poster" src='../img/logo.png'>
+				<img class="poster" src='musical_Img/midnight.jfif'>
 				<div>
 					<span><h3>포스터 제목</h3></span><br> <span>포스터 줄거리</span> <span>기간</span>
 				</div>
 			</div>
 			<div class="main-div">
-				<img class="poster" src='../img/logo.png'>
+				<img class="poster" src='musical_Img/moonstory.jfif'>
+				<div>
+					<span><h3>포스터 제목</h3></span><br> <span>포스터 줄거리</span> <span>기간</span>
+				</div>
+			</div>
+		</div>
+
+		<div>
+			<div class="main-div">
+				<img class="poster" src='musical_Img/moonstory.jfif'>
 				<div>
 					<span><h3>포스터 제목</h3></span><br> <span>포스터 줄거리</span> <span>기간</span>
 				</div>
 			</div>
 			<div class="main-div">
-				<img class="poster" src='../img/logo.png'>
+				<img class="poster" src='musical_Img/romance.jfif'>
+				<div>
+					<span><h3>포스터 제목</h3></span><br> <span>포스터 줄거리</span> <span>기간</span>
+				</div>
+			</div>
+			<div class="main-div">
+				<img class="poster" src='musical_Img/midnight.jfif'>
+				<div>
+					<span><h3>포스터 제목</h3></span><br> <span>포스터 줄거리</span> <span>기간</span>
+				</div>
+			</div>
+			<div class="main-div">
+				<img class="poster" src='musical_Img/bluerain.jfif'>
 				<div>
 					<span><h3>포스터 제목</h3></span><br> <span>포스터 줄거리</span> <span>기간</span>
 				</div>
 			</div>
 		</div>
 	</section>
-	<!-- 상단 포스터 end -->
+	<!--상단 포스터 end-->
+
+
+
 
 
 	<!-- MV START -->
 	<section class='mvsec'>
-	동영상 
+		<div>
+			<div class='swiper-wapper'>
+				<p>창작가 무극</p>
+				<p>나빌레라</p>
+				<p>#몽몽몽#냥냥냥</p>
+			</div>
+		</div>
+		<div clss='swiper-player'>
+			<iframe width="800" height="315"
+				src="https://www.youtube.com/embed/MPAtelMGQC0"
+				title="YouTube video player" frameborder="0"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+				allowfullscreen></iframe>
+		</div>
 	</section>
 	<!-- MV END -->
+
+
+	<!-- 캘린더 START -->
+	<div class='calender'>
+		<h3>캘린더</h3>
+	</div>
+	<!-- 캘린더 END -->
 
 	<!-- 랭크 START -->
 	<aside class='rank'>
 		<div>
-			<h3>WEEKLY RANKING</h3>
+			<br>
+			<h3 id='rktitle'>WEEKLY RANKING</h3>
 			<ol>
-				<li><img class='rankimg' src='../img/logo.png'>1111</li>
-				<li><img class='rankimg' src='../img/logo.png'>2222</li>
-				<li><img class='rankimg' src='../img/logo.png'>3333</li>
-				<li><img class='rankimg' src='../img/logo.png'>4444</li>
+				<li id='weli'><img class='rankimg' src='../img/logo.png'>1111</li>
+				<li id='weli'><img class='rankimg' src='../img/logo.png'>2222</li>
+				<li id='weli'><img class='rankimg' src='../img/logo.png'>3333</li>
+				<li id='weli'><img class='rankimg' src='../img/logo.png'>4444</li>
 			</ol>
 		</div>
 	</aside>
 	<!-- 랭크 end -->
 
+	<!-- float clear 위한 div -->
+	<div id='fclear'></div>
+
+	<!-- 메뉴 START -->
+	<div class='submenu'>
+		<ul>
+			<li><a href="">예매</a></li>
+			<li><a href="">공연정보</a></li>
+			<li><a href="">관람후기</a></li>
+			<li><a href="">Q&A</a></li>
+		</ul>
+	</div>
+	<!-- 메뉴 END -->
+
+	<!-- 하위메뉴 START -->
+	<div class='downmenu'></div>
+	<!-- 하위메뉴 END -->
 
 
 	<!-- FOOTER-AREA START -->

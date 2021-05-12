@@ -1,0 +1,147 @@
+#main {
+	border: 0px solid black;
+	height: 3500px;
+	width: 1870px;
+	margin: 50px auto;
+}
+
+#header {
+	margin: 20px;
+	border: 2px solid black;
+	height: 150px;
+}
+
+#homename {
+	margin: 30px;
+	padding: 30px;
+	border: 2px solid black;
+	display: inline-block;
+}
+
+#menu {
+	border-top: 3px solid black;
+	border-bottom: 3px solid black;
+	margin: 20px;
+	height: 48px;
+	position: relative;
+}
+
+#contents {
+	border: 3px solid black;
+	margin: 70px auto;
+	height: 500px;
+	width: 450px;
+}
+
+#contentsImg {
+	width: 450px;
+	padding: 25px;
+	/* float: left; */
+}
+/* -----------------------
+		  서브메뉴
+--------------------------*/
+#top {
+	width: 1300px;
+	display: inline-block;
+	margin-left: 250px;
+}
+
+.subMenu {
+	float: right;
+}
+
+.subMenu>ul {
+	list-style: none;
+}
+
+.subMenu>ul>li {
+	line-height: 2cm;
+}
+
+/* -----------------------
+		Teaser 영상
+--------------------------*/
+#teaser {
+	display: inline-block;
+	height: 500px;
+}
+
+#video {
+	max-width: 100%;
+	height: 100%;
+}
+
+/* -----------------------
+		공연 포스터
+--------------------------*/
+.theaterList1, .theaterList2 {
+	margin: 200px 0px 0px 0px;
+}
+
+.theaterUl1, .theaterUl2 {
+	height: 500px;
+	list-style: none;
+	margin-left: 150px;
+}
+
+.theaterUl1>li, .theaterUl2>li {
+	float: left;
+	text-align: center;
+}
+
+#ex>img {
+	width: 250px;
+	height: 450px;
+}
+
+#ex {
+	display: inline-block;
+	width: 310px;
+	height: 550px;
+	padding: 10px 30px;
+	margin: auto;
+}
+
+#ex:hover {
+	border: 2px solid #8B0000;
+}
+/* -----------------------
+		Footer
+--------------------------*/
+#footer {
+	border: 3px solid black;
+	margin: 100px 20px 20px 20px;
+	height: 150px;
+	position: relative;
+}
+
+/* -----------------------
+		슬라이더 이미지
+--------------------------*/
+.im {
+	display: block;
+	margin: 0px auto;
+	width: 1000px;
+	height: 500px;
+}
+
+/* -----------------------
+		지도, 랭킹
+--------------------------*/
+#ranking {
+	display: inline-block;
+	width: 500px;
+	height: 250px;
+	border: 1px solid black;
+	float: left;
+	margin: 100px 0px 0px 200px;
+}
+
+#map {
+	width: 1000px;
+	height: 500px;
+	border: 1px solid black;
+	float: right;
+	margin: 50px 100px 0px 0px;
+}

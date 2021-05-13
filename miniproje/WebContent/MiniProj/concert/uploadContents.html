@@ -88,27 +88,27 @@
 		<!-- Main-Header End -->
 	</header>		
 	<!-- HEADER-AREA END -->
-	<div class = 'wrap'>
+	<div class = "wrap">
 		<form action="">
 			<table class = 'upTbl' align = "center">
 			<caption><h2>Concert Review</h2></caption>
 				<tr>
-					<td >제목</td>
+					<td width="50px">작성자</td><td><input type = "text" name = "name" class="txtbox"></td>
 				</tr>
 				<tr>
-					<td><input type = "text" name = "title" class = "title"></td>
+					<td>제목</td><td><input type = "text" name = "title" class = "title"></td>
+				</tr>
+				
+				<tr>
+					<td colspan="2">내용</td>
 				</tr>
 				<tr>
-					<td>내용</td>
+					<td colspan="2"><textarea name = "contents" class = "contents" cols="100" rows="30"></textarea></td>
 				</tr>
 				<tr>
-					<td><textarea name = "contents" class = "contents" cols="100" rows="30"></textarea></td>
-				</tr>
-				<tr>
-					<td><button class = "btn" type = "button" class = "submit">저장</button> <button class = "btn" type = "button" class = "reset">취소</button></td>
+					<td colspan="2"><button class = "btn" type = "button" class = "submit">저장</button>&nbsp;&nbsp;&nbsp;<button class = "btn" type = "button" class = "reset">취소</button></td>
 				</tr>
 			</table>
-			
 		</form>
 	</div>
 	<div class="footer">

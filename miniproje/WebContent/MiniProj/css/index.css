@@ -1,0 +1,90 @@
+@charset "UTF-8";
+body {
+			background-color: rgb(242, 244, 247);
+		}
+
+		.im {
+			display: block;
+			margin: 0px auto;
+		}
+
+		.inner {
+			margin: 0 auto;
+			width: 1200px;
+		}
+
+		.baner {
+			margin: 20px auto;
+			height: 400px;
+			width: 1000px;
+			border-radius: 20px;
+			background-color: white;
+			overflow: hidden;
+			padding: 25px 30px 5px 30px;
+			box-sizing: border-box;
+			margin-bottom: 10px;
+		}
+
+		.baner h2 {
+			font-family: NanumSquareRound !important;
+			color: #68ae05;
+			font-size: 21px;
+			font-weight: bold;
+			line-height: 21px;
+			border-bottom: 1px solid #d4d4d4;
+			width: 100%;
+			margin: 0 0 19px 0;
+			padding: 0px 0 16px 0;
+		}
+
+		.baner h2 span {
+			font-family: NanumSquareRound !important;
+			color: #aaa;
+			font-size: 16px;
+			font-weight: normal;
+			padding-left: 5px;
+		}
+
+		.baner ul li {
+			width: 215px;
+			height: 215px;
+			float: left;
+			margin-left: 19px;
+		}
+
+		.baner ul li img {
+			width: 215px;
+			height: 215px;
+			margin: 0 0 0 0;
+			display: block;
+		}
+
+		.baner ul li strong {
+			font-family: NanumSquareRound !important;
+			color: #666;
+			font-size: 19px;
+			font-weight: bold;
+			line-height: 20px;
+			text-align: center;
+			width: 215px;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+			display: block;
+			margin: 15px 0 8px 0;
+		}
+
+		.baner ul li span {
+			font-family: NanumSquareRound !important;
+			color: #aaa;
+			font-size: 15px;
+			font-weight: normal;
+			line-height: 16px;
+			text-align: center;
+			width: 215px;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+			display: block;
+			margin-bottom: 23px;
+		}

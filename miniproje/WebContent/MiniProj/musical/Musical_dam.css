@@ -1,0 +1,168 @@
+@charset "UTF-8";
+
+.im {
+	display: block;
+	margin: 0px auto;
+	padding: 100px;
+}
+
+.img {
+	width: 200px;
+	height: 100px;
+}
+
+.topSec-area {
+	text-align: center;
+	margin: 30px 80px;
+	padding-top: 60px;
+}
+
+.main-div {
+	display: inline-block;
+	text-align: center;
+	margin: 80px 20PX;
+	width: 300px;	
+}
+
+.poster {
+	margin-left: auto;
+	margin-right: auto;
+	width: 280px;
+	height: 340px;
+}
+
+#poster-title {
+	margin-top: 8px;
+}
+
+#hot-font {
+	font-size: 50px;
+	font-weight: BOLD;
+}
+.mvwrap {
+	width: 100%;
+	height: 400px;
+}
+
+.crwrap {
+	width: 100%;
+	height: 560px;
+}
+.calender {
+	border: 3px solid red;
+	float: left;
+	margin: 30px 20px;
+	width: 63%;
+	height: 500px;
+}
+
+.mvsec {
+	border: 3px solid black;
+	margin: 90px 20px;
+	height: 403px;
+	background-color: black;
+}
+
+#playYoutube {
+	padding-top:30px;
+}
+
+.swiper-wapper {
+	float: left;
+	width: 500px;
+	margin-top: 80px;
+	margin-left: 300px;
+}
+
+
+.swiper-player {
+	position: absolute;
+	float: left;
+	width: 714px;
+	height: 400px;
+	position: relative;
+}
+
+
+#mvtitle {
+	font-size: 50px;
+	font-weight: bold;
+	color: white;
+	padding-bottom: 80px;
+}
+
+#mvtitle2 {
+	font-size: 32px;
+	font-weight: bold;
+	color: white;
+	margin-bottom: 30px;
+}
+
+#mvtag {
+	font-size: 18px;
+	font-weight: bold;
+	text-align: left;
+}
+
+.rank {
+	border: 1px solid black;
+	float: left;
+	margin: 30px 20px;
+	width: 31%;
+	height: 500px;
+}
+
+.rankimg {
+	width: 50px;
+	height: 50px;
+}
+
+#rktitle {
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+#weli {
+	margin: 30px 20px;
+}
+
+#fclear {
+	clear: both;
+}
+
+.submenu {
+	background-color: #666;
+	width: 100%;
+	height: 50px;
+	text-align: center;
+}
+
+.submenu>ul>li {
+	clear: both;
+	display: inline-block;
+	padding: 0 40px;
+	position: relative;
+}
+
+.submenu>ul>li>a {
+	color: #fff;
+	display: block;
+	line-height: 28px;
+	padding: 12px 0;
+	text-transform: uppercase;
+	font-size: 18px;
+}
+
+.submenu>ul>li>a:hover {
+	color: #f6416c;
+}
+
+footer {
+	background-color: #666;
+	height: 110px;
+}
+
+.single-footer {
+	padding-top: 20px;
+}

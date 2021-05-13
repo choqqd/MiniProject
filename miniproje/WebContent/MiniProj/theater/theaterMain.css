@@ -86,18 +86,24 @@ body {
 		공연 포스터
 --------------------------*/
 .theaterList1, .theaterList2 {
-	margin: 200px 0px 0px 0px;
+	margin: 70px 0px 0px 0px;
+	height: 600px;
+	background-color: white;
+	border: 1px solid white;
+	border-radius: 50px;
 }
 
 .theaterUl1, .theaterUl2 {
 	height: 500px;
 	list-style: none;
 	margin-left: 150px;
+	margin-top: 30px;
 }
 
 .theaterUl1>li, .theaterUl2>li {
 	float: left;
 	text-align: center;
+	
 }
 
 #ex>img {

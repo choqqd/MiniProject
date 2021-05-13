@@ -17,11 +17,11 @@ import org.json.simple.JSONObject;
 import projectVO.ShowVO;
 
 
-@WebServlet("/MusicallistServler")
-public class MusicallistServler extends HttpServlet {
+@WebServlet("/musicalListServler")
+public class MusicalListServler extends HttpServlet {
 	private static final long serialVersionUID = 1L;
   
-    public MusicallistServler() {
+    public MusicalListServler() {
         super();
     }
 

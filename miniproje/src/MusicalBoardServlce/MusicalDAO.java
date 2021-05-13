@@ -16,7 +16,7 @@ public class MusicalDAO {
 	ResultSet rs;
 
 	public List<ShowVO> getMusicalList() {
-		String sql = "select show_name,show_startday,show_endday from show";
+		String sql = "select show_name,show_startday,show_endday from show where SHOW_CODE like 'M%'";
 		DBcon.getConnect();
 		conn = DBcon.getConnect();
 		List<ShowVO> list = new ArrayList();

@@ -1,48 +1,56 @@
 <!doctype html>
-<html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Gaze in daegu</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html class="no-js" lang=""></html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Gaze in daegu</title>
+<!-- slider 링크 -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+<script>
+	//슬라이더 스크립트 부분
+	$(document).ready(function() {
+		$('.slider').bxSlider();
+	});
+</script>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		
-		<!-- Google Font -->
-		<link href='https://fonts.googleapis.com/css?family=Roboto:400,500.00,700,300' rel='stylesheet' type='text/css'>
-		
-		<!--all css here-->
-		<!-- bootstrap v3.3.6 css -->
-        <link rel="stylesheet" href="../css/bootstrap.min.css">
-		<!-- flaticon css -->
-        <link rel="stylesheet" href="../css/shopick-icon.css">
-		<!-- style css -->
-		<link rel="stylesheet" href="../css/style.css">
-		<style>
-			.img{
-				width: 200px;
-				height: 100px;
-			}
-		</style>
-    </head>
-    <body>		
+
+<!-- Google Font -->
+<link
+	href='https://fonts.googleapis.com/css?family=Roboto:400,500.00,700,300'
+	rel='stylesheet' type='text/css'>
+
+<!--all css here-->
+<!-- bootstrap v3.3.6 css -->
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<!-- flaticon css -->
+<link rel="stylesheet" href="../css/shopick-icon.css">
+<!-- style css -->
+<link rel="stylesheet" href="../css/style.css">
+<!-- main css -->
+<link rel="stylesheet" href="main.css">
+<style>
+</style>
+</head>
+<body>
+	<form id="frm">
 		<!-- HEADER-AREA START -->
-        <header class="header-area">
+		<header class="header-area">
 			<!-- Header-Top Start -->
 			<div class="header-top hidden-xs">
-				<div class="container"> 
-					<div class="row"> 
-						<div class="col-md-6 col-sm-6"> 
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 col-sm-6">
 							<div class="header-top-left text-left">
 								<ul>
-									<li>
-										<i class="sp-phone"></i>
-										<span>010-1111-1111</span>
-									</li>
-									<li>
-										<i class="sp-email"></i>
-										<span>email@naver.com</span>
-									</li>
+									<li><i class="sp-phone"></i> <span>010-1111-1111</span></li>
+									<li><i class="sp-email"></i> <span>email@naver.com</span></li>
 								</ul>
 							</div>
 						</div>
@@ -55,13 +63,14 @@
 											<li><a href="#">내 정보</a></li>
 											<li><a href="#">관심목록</a></li>
 											<li><a href="#">로그아웃</a></li>
-										</ul>
-									</li>
+										</ul></li>
 								</ul>
 								<div class="header-search">
 									<form action="#">
 										<input type="text" placeholder="Search..." />
-										<button type="submit"><i class="sp-search"></i></button>
+										<button type="submit">
+											<i class="sp-search"></i>
+										</button>
 									</form>
 								</div>
 							</div>
@@ -76,7 +85,7 @@
 					<div class="row">
 						<div class="col-md-2 col-sm-6 col-xs-12">
 							<div>
-								<a href="index.html"><img src="" class = "img" alt="" /></a>
+								<a href="index.html"><img src="" class="img" alt="" /></a>
 							</div>
 						</div>
 						<div class="col-md-8 hidden-sm hidden-xs">
@@ -97,6 +106,150 @@
 					</div>
 				</div>
 			</div>
-			<!-- Main-Header End -->		
+			<!-- Main-Header End -->
 		</header>
 		<!-- HEADER-AREA END -->
+		<section>
+			<div class="slider">
+				<div>
+					<img class="im" src="musical_Img/banner1.JPG" alt="">
+				</div>
+				<div>
+					<img class="im" src="musical_Img/banner2.JPG" alt="">
+				</div>
+				<div>
+					<img class="im" src="musical_Img/banner3.JPG" alt="">
+				</div>
+			</div>
+
+		</section>
+		<!-- 메뉴 START -->
+		<div class='submenu'>
+			<ul>
+				<li><a href="">예매</a></li>
+				<li><a href="">공연정보</a></li>
+				<li><a href="">관람후기</a></li>
+				<li><a href="">Q&A</a></li>
+			</ul>
+		</div>
+		<!-- 메뉴 END -->
+		<!-- 상단 포스터 -->
+		<section class='topSec-area'>
+			<p id="hot-font">WHAT'S HOT</p>
+			<div>
+				<div class="main-div">
+					<img class="poster" src='musical_Img/mama.jfif'>
+					<div>
+						<span><h3 id="poster-title">포스터 제목</h3></span><br> <span>포스터 줄거리</span> <span>기간</span>
+					</div>
+				</div>
+				<div class="main-div">
+					<img class="poster" src='musical_Img/bluerain.jfif'>
+					<div>
+						<span><h3 id="poster-title">포스터 제목</h3></span><br> <span>포스터 줄거리</span> <span>기간</span>
+					</div>
+				</div>
+				<div class="main-div">
+					<img class="poster" src='musical_Img/midnight.jfif'>
+					<div>
+						<span><h3 id="poster-title">포스터 제목</h3></span><br> <span>포스터 줄거리</span> <span>기간</span>
+					</div>
+				</div>
+				<div class="main-div">
+					<img class="poster" src='musical_Img/moonstory.jfif'>
+					<div>
+						<span><h3 id="poster-title">포스터 제목</h3></span><br> <span>포스터 줄거리</span> <span>기간</span>
+					</div>
+				</div>
+			</div>
+
+			<div>
+				<div class="main-div">
+					<img class="poster" src='musical_Img/moonstory.jfif'>
+					<div>
+						<span><h3>포스터 제목</h3></span><br> <span>포스터 줄거리</span> <span>기간</span>
+					</div>
+				</div>
+				<div class="main-div">
+					<img class="poster" src='musical_Img/romance.jfif'>
+					<div>
+						<span><h3>포스터 제목</h3></span><br> <span>포스터 줄거리</span> <span>기간</span>
+					</div>
+				</div>
+				<div class="main-div">
+					<img class="poster" src='musical_Img/midnight.jfif'>
+					<div>
+						<span><h3>포스터 제목</h3></span><br> <span>포스터 줄거리</span> <span>기간</span>
+					</div>
+				</div>
+				<div class="main-div">
+					<img class="poster" src='musical_Img/bluerain.jfif'>
+					<div>
+						<span><h3>포스터 제목</h3></span><br> <span>포스터 줄거리</span> <span>기간</span>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--상단 포스터 end-->
+
+
+
+
+
+		<!-- MV START -->
+		<section class='mvsec'>
+
+			<div class='swiper-wapper'>
+				<p id="mvtitle">FOCUS ON</p>
+				<p id="mvtitle2">블루레인</p>
+				<p id="mvtag">#몽몽몽#냥냥냥</p>
+				<p id="mvtag">#보러와라꼭#재미있다구재미있어</p>
+			</div>
+
+			<div clss='swiper-player'>
+				<iframe id="playYoutube" frameborder='0' allowfullscreen='1'
+					accelerometer; autoplay; width="640" height="400"
+					src="https://www.youtube.com/embed/?enablejsapi=1&origin=http%3A%2F%2Fticket.yes24.com&widgetid=1"></iframe>
+			</div>
+		</section>
+		<!-- MV END -->
+
+
+		<!-- 캘린더 START -->
+		<div class='calender'>
+			<h3>캘린더</h3>
+		</div>
+		<!-- 캘린더 END -->
+
+		<!-- 랭크 START -->
+		<aside class='rank'>
+			<div>
+				<br>
+				<h3 id='rktitle'>WEEKLY RANKING</h3>
+				<ol>
+					<li id='weli'><img class='rankimg' src='../img/logo.png'>1111</li>
+					<li id='weli'><img class='rankimg' src='../img/logo.png'>2222</li>
+					<li id='weli'><img class='rankimg' src='../img/logo.png'>3333</li>
+					<li id='weli'><img class='rankimg' src='../img/logo.png'>4444</li>
+				</ol>
+			</div>
+		</aside>
+		<!-- 랭크 end -->
+
+		<!-- float clear 위한 div -->
+		<div id='fclear'></div>
+
+
+
+		<!-- 하위메뉴 START -->
+		<div class='downmenu'></div>
+		<!-- 하위메뉴 END -->
+	</form>
+
+	<!-- FOOTER-AREA START -->
+	<footer>
+		<div class='color'>footer 정보</div>
+	</footer>
+	<!-- FOOTER-AREA END -->
+
+</body>

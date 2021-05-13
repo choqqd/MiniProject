@@ -1,5 +1,5 @@
 body {
-	background-color: rgb(242, 244, 247);
+	background-color: #d3d3d3;
 }
 
 #main {
@@ -62,6 +62,7 @@ body {
 
 .subMenu>ul {
 	list-style: none;
+	margin: 50px 0px 0px 0px;
 }
 
 .subMenu>ul>li {
@@ -103,7 +104,6 @@ body {
 .theaterUl1>li, .theaterUl2>li {
 	float: left;
 	text-align: center;
-	
 }
 
 #ex>img {
@@ -145,13 +145,22 @@ body {
 /* -----------------------
 		지도, 랭킹
 --------------------------*/
+#rankingmap {
+	height: 600px;
+	border: 0px solid black;
+	margin-top: 50px;
+	border-radius: 50px;
+	background-color: white;
+}
+
 #ranking {
 	display: inline-block;
 	width: 500px;
 	height: 250px;
 	border: 1px solid black;
 	float: left;
-	margin: 100px 0px 0px 150px;
+	margin: 70px 0px 0px 150px;
+	background-color: #292929;
 }
 
 #map {

@@ -1,31 +1,100 @@
-<!doctype html>
-<html class="no-js" lang=""></html>
+<!DOCTYPE html>
+<html class="no-js" lang="">
+
+</html>
+<html>
+
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>Gaze in daegu</title>
-<!-- slider 링크 -->
+<title>Insert title here</title>
+<!--공연 정보 탭 -->
+
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script
 	src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+<style>
+#show>table {
+	align: center;
+	height: 1000px;
+}
+
+table>tr>td {
+	padding: 40px;
+}
+</style>
 <script>
-	//슬라이더 스크립트 부분
-	$(document).ready(function() {
-		$('.slider').bxSlider();
-	});
-</script>
+		$(document).ready(function () {
+			// 슬라이더 
+			$('.slider').bxSlider();
+			
+			let $table = $('<table />');
+			$.ajax({
+				url: '../../musicalListServler',
+				dataType: 'json',
+				success: function (result) {
+					console.log(result);
+					for (let obj of result) {
+						let $tr = $('<tr />');
+						let $wave = '~';
+						let $wave_img = $('<img />').attr('width','200px');
+						$wave_img.attr("src","musical_Img/mama.jfif");
+						// 이미지 클릭시 구체적인 정보, 마우스 이벤트 
+						$($wave_img).click(function() {
+								// 클릭시 구체적인 페이지 설명 나오는 부분
+							$.ajax({
+								url: '',
+								data: '',
+								success: function () {
+
+								},
+								error: function (err) {
+									console.log(err);
+								}
+							});
+						});
+
+						$($wave_img).on({
+							mouseover : function(){	
+								console.log('마우스')
+							},
+							mouseout : function(){
+								console.log('마우스ㄴㄴ')
+							}
+						})
+						$tr.append(
+							$('<td />').html($wave_img),
+							$('<td />').html(obj.show_name),
+							$('<td />').html(obj.show_startday),
+							$('<td />').html($wave),
+							$('<td />').html(obj.show_endday)
+						)
+						
+						$table.append($tr);
+					}
+					$('#show').append($table);
+				},
+				error: function (err) {
+					console.log(err);
+				}
+		
+			})
+
+
+		});
+	</script>
+<style>
+</style>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 
 <!-- Google Font -->
 <link
 	href='https://fonts.googleapis.com/css?family=Roboto:400,500.00,700,300'
 	rel='stylesheet' type='text/css'>
-
 <!--all css here-->
 <!-- bootstrap v3.3.6 css -->
 <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -35,10 +104,10 @@
 <link rel="stylesheet" href="../css/style.css">
 <!-- main css -->
 <link rel="stylesheet" href="main.css">
-<style>
-</style>
 </head>
+
 <body>
+
 	<!-- HEADER-AREA START -->
 	<header class="header-area">
 		<!-- Header-Top Start -->
@@ -109,7 +178,7 @@
 	</header>
 	<!-- HEADER-AREA END -->
 
-
+	<!-- SlIDER START-->
 	<section>
 		<div class="slider">
 			<div>
@@ -122,8 +191,9 @@
 				<img class="im" src="musical_Img/banner3.JPG" alt="">
 			</div>
 		</div>
-
 	</section>
+	<!-- SlIDER END-->
+
 	<!-- 메뉴 START -->
 	<div class='submenu'>
 		<ul>
@@ -134,117 +204,22 @@
 		</ul>
 	</div>
 	<!-- 메뉴 END -->
-	<!-- 상단 포스터 -->
-	<section class='topSec-area'>
-		<p id="hot-font">WHAT'S HOT</p>
-		<div>
-			<div class="main-div">
-				<img class="poster" src='musical_Img/mama.jfif'>
-				<div>
-					<span><h3>포스터 제목</h3></span><br> <span>포스터 줄거리</span> <span>기간</span>
-				</div>
-			</div>
-			<div class="main-div">
-				<img class="poster" src='musical_Img/bluerain.jfif'>
-				<div>
-					<span><h3>포스터 제목</h3></span><br> <span>포스터 줄거리</span> <span>기간</span>
-				</div>
-			</div>
-			<div class="main-div">
-				<img class="poster" src='musical_Img/midnight.jfif'>
-				<div>
-					<span><h3>포스터 제목</h3></span><br> <span>포스터 줄거리</span> <span>기간</span>
-				</div>
-			</div>
-			<div class="main-div">
-				<img class="poster" src='musical_Img/moonstory.jfif'>
-				<div>
-					<span><h3>포스터 제목</h3></span><br> <span>포스터 줄거리</span> <span>기간</span>
-				</div>
-			</div>
-		</div>
 
-		<div>
-			<div class="main-div">
-				<img class="poster" src='musical_Img/moonstory.jfif'>
-				<div>
-					<span><h3>포스터 제목</h3></span><br> <span>포스터 줄거리</span> <span>기간</span>
-				</div>
-			</div>
-			<div class="main-div">
-				<img class="poster" src='musical_Img/romance.jfif'>
-				<div>
-					<span><h3>포스터 제목</h3></span><br> <span>포스터 줄거리</span> <span>기간</span>
-				</div>
-			</div>
-			<div class="main-div">
-				<img class="poster" src='musical_Img/midnight.jfif'>
-				<div>
-					<span><h3>포스터 제목</h3></span><br> <span>포스터 줄거리</span> <span>기간</span>
-				</div>
-			</div>
-			<div class="main-div">
-				<img class="poster" src='musical_Img/bluerain.jfif'>
-				<div>
-					<span><h3>포스터 제목</h3></span><br> <span>포스터 줄거리</span> <span>기간</span>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!--상단 포스터 end-->
+	<form action='' method="post">
+		<button>공연 추가</button>
+		<div id="show"></div>
+
+	</form>
 
 
-
-
-
-	<!-- MV START -->
-	<section class='mvsec'>
-
-		<div class='swiper-wapper'>
-			<p id="mvtitle">FOCUS ON</p>
-			<p id="mvtitle2">블루레인</p>
-			<p id="mvtag">#몽몽몽#냥냥냥</p>
-			<p id="mvtag">#보러와라꼭#재미있다구재미있어</p>
-		</div>
-
-		<div clss='swiper-player'>
-			<iframe id="playYoutube" frameborder='0' allowfullscreen='1'
-				accelerometer; autoplay; width="640" height="400"
-				src="https://www.youtube.com/embed/?enablejsapi=1&origin=http%3A%2F%2Fticket.yes24.com&widgetid=1"></iframe>
-		</div>
-	</section>
-	<!-- MV END -->
-
-
-	<!-- 캘린더 START -->
-	<div class='calender'>
-		<h3>캘린더</h3>
-	</div>
-	<!-- 캘린더 END -->
-
-	<!-- 랭크 START -->
-	<aside class='rank'>
-		<div>
-			<br>
-			<h3 id='rktitle'>WEEKLY RANKING</h3>
-			<ol>
-				<li id='weli'><img class='rankimg' src='../img/logo.png'>1111</li>
-				<li id='weli'><img class='rankimg' src='../img/logo.png'>2222</li>
-				<li id='weli'><img class='rankimg' src='../img/logo.png'>3333</li>
-				<li id='weli'><img class='rankimg' src='../img/logo.png'>4444</li>
-			</ol>
-		</div>
-	</aside>
-	<!-- 랭크 end -->
-
-	<!-- float clear 위한 div -->
-	<div id='fclear'></div>
-
-
-
-	<!-- 하위메뉴 START -->
 	<div class='downmenu'></div>
-	<!-- 하위메뉴 END -->
+
+
+
+
+
+
+
 
 
 	<!-- FOOTER-AREA START -->
@@ -252,5 +227,6 @@
 		<div class='color'>footer 정보</div>
 	</footer>
 	<!-- FOOTER-AREA END -->
-
 </body>
+
+</html>

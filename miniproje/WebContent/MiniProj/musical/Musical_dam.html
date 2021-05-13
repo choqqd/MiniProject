@@ -1,9 +1,22 @@
 <!doctype html>
-<html class="no-js" lang=""></html>
+<html class="no-js" lang="">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <title>Gaze in daegu</title>
+<!-- slider 링크 -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+<script>
+	//슬라이더 스크립트 부분
+	$(document).ready(function() {
+		$('.slider').bxSlider();
+	});
+</script>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -20,115 +33,13 @@
 <link rel="stylesheet" href="../css/shopick-icon.css">
 <!-- style css -->
 <link rel="stylesheet" href="../css/style.css">
-<style>
-.img {
-	width: 200px;
-	height: 100px;
-}
-
-.topSec-area {
-	border: 3px solid red;
-	text-align: center;
-	margin: 30px 20px;
-}
-
-.main-div {
-	display: inline-block;
-	background-color: lightcoral;
-	text-align: center;
-	margin: 30px 20px;
-	border: 3px solid blue;
-}
-
-.poster {
-	margin-left: auto;
-	margin-right: auto;
-	width: 190px;
-	height: 200px;
-}
-
-.mvsec {
-	border: 3px solid black;
-	text-align: center;
-	margin: 30px 20px;
-	height: 400px;
-}
-
-.calender {
-	border: 3px solid red;
-	float: left;
-	margin: 30px 20px;
-	width: 65%;
-	height: 500px;
-}
-
-.rank {
-	border: 3px solid red;
-	float: left;
-	margin: 30px 0;
-	width: 31%;
-	height: 500px;
-}
-
-.rankimg {
-	width: 50px;
-	height: 50px;
-}
-
-#rktitle {
-	padding-left: 30px;
-}
-
-#weli {
-	margin: 30px 20px;
-}
-
-#fclear {
-	clear:both;
-}
-
-.submenu {
-	background-color : #666;
-	width: 100%;
-	height: 50px;
-	text-align: center;
-}
-
-.submenu > ul > li  {
-	clear: both;
-  	display: inline-block;
-  	padding: 0 40px;
-  	position: relative;
-}
-
-.submenu > ul > li > a {
-  	color: #fff;
-  	display: block;
- 	line-height: 28px;
-  	padding: 12px 0;
-  	text-transform: uppercase;
-  	font-size: 18px;
-}
-
-.submenu > ul > li > a:hover {
-  color: #f6416c;
-}
-
-.downmenu {
-	height: 800px;
-}
-
-
-footer {
-	clear: both;
-	background-color : #666;
-	height: 100px;
-}
-</style>
+<!-- main css -->
+<link rel="stylesheet" href="Musical_dam.css">
 </head>
 <body>
 	<!-- HEADER-AREA START -->
 	<header class="header-area">
+	
 		<!-- Header-Top Start -->
 		<div class="header-top hidden-xs">
 			<div class="container">
@@ -165,129 +76,216 @@ footer {
 				</div>
 			</div>
 		</div>
-		<!-- Header-Top End -->
-		<!-- Main-Header Start -->
-		<div class="main-header">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-2 col-sm-6 col-xs-12">
-						<div>
-							<a href="index.html"><img src="" class="img" alt="" /></a>
-						</div>
+			<!-- Header-Top End -->
+	<!-- Main-Header Start -->
+	<div class="main-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2 col-sm-6 col-xs-12">
+					<div>
+						<a href="index.html"><img src="" class="img" alt="" /></a>
 					</div>
-					<div class="col-md-8 hidden-sm hidden-xs">
-						<div class="main-menu pull-right">
-							<nav>
-								<ul>
-									<li><a href="">home</a></li>
-									<li><a href="">콘서트</a></li>
-									<li><a href="">뮤직컬</a></li>
-									<li><a href="">연극</a></li>
-									<li><a href="">게시판</a></li>
-									<li><a href="">공연장</a></li>
-									<li><a href="">이벤트/쿠폰</a></li>
-								</ul>
-							</nav>
-						</div>
+				</div>
+				<div class="col-md-8 hidden-sm hidden-xs">
+					<div class="main-menu pull-right">
+						<nav>
+							<ul>
+								<li><a href="">home</a></li>
+								<li><a href="">콘서트</a></li>
+								<li><a href="">뮤직컬</a></li>
+								<li><a href="">연극</a></li>
+								<li><a href="">게시판</a></li>
+								<li><a href="">공연장</a></li>
+								<li><a href="">이벤트/쿠폰</a></li>
+							</ul>
+						</nav>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!-- Main-Header End -->
+	</div>
 	</header>
-	<!-- HEADER-AREA END -->
-
-
-	<!-- 상단 포스터 -->
-	<section class='topSec-area'>
-		<div>
-			<div class="main-div">
-				<img class="poster" src='../img/logo.png'>
+	<!-- Main-Header End -->
+	
+	
+	<!-- MUSICAL START -->
+	<div>
+		<!-- HEADER-AREA END -->
+		<section>
+			<div class="slider">
 				<div>
-					<span><h3>포스터 제목</h3></span><br> <span>포스터 줄거리</span> <span>기간</span>
+					<img class="im" src="musical_Img/banner1.JPG" alt="">
+				</div>
+				<div>
+					<img class="im" src="musical_Img/banner2.JPG" alt="">
+				</div>
+				<div>
+					<img class="im" src="musical_Img/banner3.JPG" alt="">
 				</div>
 			</div>
-			<div class="main-div">
-				<img class="poster" src='../img/logo.png'>
-				<div>
-					<span><h3>포스터 제목</h3></span><br> <span>포스터 줄거리</span> <span>기간</span>
-				</div>
-			</div>
-			<div class="main-div">
-				<img class="poster" src='../img/logo.png'>
-				<div>
-					<span><h3>포스터 제목</h3></span><br> <span>포스터 줄거리</span> <span>기간</span>
-				</div>
-			</div>
-			<div class="main-div">
-				<img class="poster" src='../img/logo.png'>
-				<div>
-					<span><h3>포스터 제목</h3></span><br> <span>포스터 줄거리</span> <span>기간</span>
-				</div>
-			</div>
-			<div class="main-div">
-				<img class="poster" src='../img/logo.png'>
-				<div>
-					<span><h3>포스터 제목</h3></span><br> <span>포스터 줄거리</span> <span>기간</span>
-				</div>
-			</div>
+		</section>
+		
+		<!-- 메뉴 START -->
+		<div class='submenu'>
+			<ul>
+        		 <li onclick="contentView(0)"><a>예매</a></li>
+      			 <li onclick="contentView(1)"><a>공연정보</a></li>
+        		 <li onclick="contentView(2)"><a>관람후기</a></li>
+        		 <li onclick="contentView(3)"><a>Q&A</a></li>
+			</ul>
 		</div>
-	</section>
-	<!-- 상단 포스터 end -->
+		<!-- 메뉴 END -->
+		
+		
+		<!-- 상단 포스터 -->
+		<div id="mContent">
+		<section class='topSec-area'>
+			<p id="hot-font">WHAT'S HOT</p>
+			<div>
+				<div class="main-div">
+					<img class="poster" src='musical_Img/mama.jfif'>
+					<div>
+						<span><h3 id="poster-title">마마, 돈크라이</h3></span> 
+						타고난 천재성으로 일찍 교수 생활을 시작한 프로페서 V이지만 수줍음 많은 성격의...<br>
+						<h4>2021.03.05 ~ 06.24</h4>
+					</div>
+				</div>
+				<div class="main-div">
+					<img class="poster" src='musical_Img/bluerain.jfif'>
+					<div>
+						<span><h3 id="poster-title">블루레인</h3></span> 
+						타고난 천재성으로 일찍 교수 생활을 시작한 프로페서 V이지만 수줍음 많은 성격의...<br>
+						<h4>2021.03.05 ~ 06.24</h4>
+					</div>
+				</div>
+				<div class="main-div">
+					<img class="poster" src='musical_Img/midnight.jfif'>
+					<div>
+						<span><h3 id="poster-title">미드나잇(Mid-night)</h3></span> 
+						타고난 천재성으로 일찍 교수 생활을 시작한 프로페서 V이지만 수줍음 많은 성격의...<br>
+						<h4>2021.03.05 ~ 06.24</h4>
+					</div>
+				</div>
+				<div class="main-div">
+					<img class="poster" src='musical_Img/moonstory.jfif'>
+					<div>
+						<span><h3 id="poster-title">문스토리</h3></span> 
+						타고난 천재성으로 일찍 교수 생활을 시작한 프로페서 V이지만 수줍음 많은 성격의...<br>
+						<h4>2021.03.05 ~ 06.24</h4>
+					</div>
+				</div>
+			</div>
 
+			<div>
+				<div class="main-div">
+					<img class="poster" src='musical_Img/moonstory.jfif'>
+					<div>
+						<span><h3 id="poster-title">마마, 돈크라이</h3></span> 
+						타고난 천재성으로 일찍 교수 생활을 시작한 프로페서 V이지만 수줍음 많은 성격의...<br>
+						<h4>2021.03.05 ~ 06.24</h4>
+					</div>
+				</div>
+				<div class="main-div">
+					<img class="poster" src='musical_Img/romance.jfif'>
+					<div>
+						<span><h3 id="poster-title">마마, 돈크라이</h3></span> 
+						타고난 천재성으로 일찍 교수 생활을 시작한 프로페서 V이지만 수줍음 많은 성격의...<br>
+						<h4>2021.03.05 ~ 06.24</h4>
+					</div>
+				</div>
+				<div class="main-div">
+					<img class="poster" src='musical_Img/midnight.jfif'>
+					<div>
+						<span><h3 id="poster-title">마마, 돈크라이</h3></span> 
+						타고난 천재성으로 일찍 교수 생활을 시작한 프로페서 V이지만 수줍음 많은 성격의...<br>
+						<h4>2021.03.05 ~ 06.24</h4>
+					</div>
+				</div>
+				<div class="main-div">
+					<img class="poster" src='musical_Img/bluerain.jfif'>
+					<div>
+						<span><h3 id="poster-title">마마, 돈크라이</h3></span> 
+						타고난 천재성으로 일찍 교수 생활을 시작한 프로페서 V이지만 수줍음 많은 성격의...<br>
+						<h4>2021.03.05 ~ 06.24</h4>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--상단 포스터 end-->
+		
+		<!-- MV START -->
+		<div class="mvwrap">
+			<section class='mvsec'>
+				<div class='swiper-wapper'>
+					<p id="mvtitle">FOCUS ON</p>
+					<p id="mvtitle2">블루레인</p>
+					<p id="mvtag">#몽몽몽#냥냥냥</p>
+					<p id="mvtag">#보러와라꼭#재미있다구재미있어</p>
+				</div>
 
-	<!-- MV START -->
-	<section class='mvsec'>
-	동영상 
-	</section>
-	<!-- MV END -->
-	
-	
-	<!-- 캘린더 START -->
-	<div class='calender'>
-		<h3>캘린더</h3>
-	</div>
-	<!-- 캘린더 END -->
-
-	<!-- 랭크 START -->
-	<aside class='rank'>
-		<div>
-			<br>
-			<h3 id='rktitle'>WEEKLY RANKING</h3>
-			<ol>
-				<li id='weli'><img class='rankimg' src='../img/logo.png'>1111</li>
-				<li id='weli'><img class='rankimg' src='../img/logo.png'>2222</li>
-				<li id='weli'><img class='rankimg' src='../img/logo.png'>3333</li>
-				<li id='weli'><img class='rankimg' src='../img/logo.png'>4444</li>
-			</ol>
+				<div clss='swiper-player'>
+					<iframe id="playYoutube" frameborder='0' allowfullscreen='1'
+					accelerometer; autoplay; width="580" height="360"
+					src="https://www.youtube.com/embed/?enablejsapi=1&origin=http%3A%2F%2Fticket.yes24.com&widgetid=1"></iframe>
+				</div>
+			</section>
 		</div>
-	</aside>
-	<!-- 랭크 end -->
-	
-	<!-- float clear 위한 div -->
-	<div id='fclear'></div>
-	
-	<!-- 메뉴 START -->
-	<div class='submenu'>
-		<ul>
-			<li><a href="">예매</a></li>
-			<li><a href="">공연정보</a></li>
-			<li><a href="">관람후기</a></li>
-			<li><a href="">Q&A</a></li>
-		</ul>	
-	</div>
-	<!-- 메뉴 END -->
-	
-	<!-- 하위메뉴 START -->
-	<div class='downmenu'>
-	</div>
-	<!-- 하위메뉴 END -->
-	
+		<!-- MV END -->
+		
+		<!-- 캘린더 + 랭크 START -->
+		<div class="crwrap">
+			<!-- 캘린더 START -->
+			<div class='calender'>
+				<h3>캘린더</h3>
+			</div>
+			<!-- 캘린더 END -->
 
-	<!-- FOOTER-AREA START -->
-	<footer>
-		<div class='color'>footer 정보</div>
-	</footer>
-	<!-- FOOTER-AREA END -->
-
+			<!-- 랭크 START -->
+			<aside class='rank'><br>
+					<h3 id='rktitle'>WEEKLY RANKING</h3>
+					<ol>
+						<li id='weli'><img class='rankimg' src='../img/logo.png'>1111</li>
+						<li id='weli'><img class='rankimg' src='../img/logo.png'>2222</li>
+						<li id='weli'><img class='rankimg' src='../img/logo.png'>3333</li>
+						<li id='weli'><img class='rankimg' src='../img/logo.png'>4444</li>
+					</ol>
+			</aside>
+			<!-- 랭크 end -->
+		</div>
+		</div>
+		<!-- 캘린더 + 랭크 END -->
+				
+		<!-- FOOTER-AREA START -->
+		<footer>
+			<p class="single-footer" align="center">
+				(주)Gaze in Daegu 대구광역시 중구 국채보상로 537 (수동, 5층) / 대표자:조진호 / <br> 대표
+				GIt:https://github.com/choqqd/Miniproj.git / 개인정보보호책임자:조진호 <br>
+				Copyright © 2021 (주)Gaze in Daegu All Rights Reserved.
+			</p>
+		</footer>
+		<!-- FOOTER-AREA END -->
+		
+		
+	</div>
+	<!-- 메뉴 Script -->
+	<script>
+		function contentView(value) {
+  			switch(value) {
+        		case 0:
+            		$("#mContent").load('down_menu/1_Reservation.html');
+            	break;
+      			case 1:
+            		$("#mContent").load('down_menu/2_Info.html');
+        			break;
+      			case 2:
+            		$("#mContent").load('down_menu/3_Review.html');
+        			break;
+      			case 3:
+            		$("#mContent").load('down_menu/4_QnA.html');
+        			break;
+    		}
+  		}
+	</script>
+	<!-- MUSICAL END -->
 </body>
+</html>

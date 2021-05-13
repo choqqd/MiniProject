@@ -1,3 +1,7 @@
+body {
+	background-color: rgb(242, 244, 247);
+}
+
 #main {
 	border: 0px solid black;
 	height: 3500px;
@@ -42,13 +46,18 @@
 		  서브메뉴
 --------------------------*/
 #top {
-	width: 1300px;
+	background-color: white;
+	width: 1600px;
+	height: 550px;
 	display: inline-block;
-	margin-left: 250px;
+	margin-left: 150px;
+	border: 2px solid white;
+	border-radius: 30px;
 }
 
 .subMenu {
 	float: right;
+	margin-right: 300px;
 }
 
 .subMenu>ul {
@@ -56,7 +65,7 @@
 }
 
 .subMenu>ul>li {
-	line-height: 2cm;
+	line-height: 2.7cm;
 }
 
 /* -----------------------
@@ -65,6 +74,7 @@
 #teaser {
 	display: inline-block;
 	height: 500px;
+	margin: 20px 0px 0px 50px;
 }
 
 #video {
@@ -135,7 +145,7 @@
 	height: 250px;
 	border: 1px solid black;
 	float: left;
-	margin: 100px 0px 0px 200px;
+	margin: 100px 0px 0px 150px;
 }
 
 #map {

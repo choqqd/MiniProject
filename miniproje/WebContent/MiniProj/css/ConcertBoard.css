@@ -1,0 +1,71 @@
+/*
+*	ConcertBoard관련 공통 사용
+*/
+.wrap {
+	width: 100%;
+	margin: 0 auto;
+	padding: 5%;
+}
+
+/*
+*	ConcertBoard.html에서 사용
+*/
+.boardTbl {
+	border-collapse: collapse;
+	border-bottom: 1px solid darkgray;
+	width: 90%;
+}
+
+th {
+	text-align: center;
+	vertical-align: center;
+}
+
+.titleTr {
+	border-top: 3px solid darkgray;
+	border-bottom: 3px solid darkgray;
+}
+
+.emptyBoard {
+	text-align: center;
+}
+
+tr {
+	border-top: 1px solid lightgray;	
+}
+
+td {
+	padding: 4px;
+}
+
+.btn {
+	border: 1px solid darkgray;
+	border-radius: 0.3em;
+	font-size: 9pt;
+	font-weight: bold;
+}
+
+/*
+*	uploadContents.html에서 사용
+*/
+
+.upTbl {
+	border-collapse: collapse;
+	border-top: 4px solid darkgray;
+	border-bottom: 4px solid darkgray;
+	
+}
+
+.title {/*제목 작성 input*/
+	width: 100%;
+	border: 1px solid darkgray;
+}
+
+.contents {/*내용 작성 textarea*/
+	border: 1px solid darkgray;
+	resize: none;
+}
+
+caption {
+	text-align: left;
+}

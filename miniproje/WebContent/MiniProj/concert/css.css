@@ -193,72 +193,10 @@ li {
 	font-weight: 200;
 	margin-top: 5px;
 }
-
-/* ���� css */
-/*
-
-	
-footer {
-	clear: both;
-	background-color: red;
-}
-	
-	.genre {
-		display: inline-block;
-		float: left;
-		width: 200px;
-		height: 500px;
-		background: #CCCB9C;
-		color: #000;
-		font-size: 12px;
-		position: absolute;
-		}
-	
-	
-	.mainshow {
-		display: inline-block;
-		width: 1262px;
-		height: 500px;
-		background: #b064D0;
-		margin: 0 auto;
-		color: #000;
-		}
-	
-	.cal {
-		display: inline-block;
-		width: 500px;
-		height: 500px;
-		background: #c111D0;
-		margin: 0 auto;
-		color: #000;
-		}
-	
-	.message {
-		display: inline-block;
-		float:left;
-		width: 763px;
-		height: 500px;
-		background: #BBCB9C;
-		line-height: 100px;
-		color: #000;
-		}
-	
-	.Rank {
-		display: inline-block;
-		float: right;
-		width: 500px;
-		height: 500px;
-		background: #2211D0;
-		color: #000;
-		}
-		
-	.ticketing {
-		background:pink;
-		border: 1px dotted red;
-		width: 50px;
-		height: 30px;
-		line-height:30px;
-	}
-		
-	
-*/
+/* ============================================================================== 
+================================================================================ 
+================================================================================  
+=============================Detail CSS ======================================== 
+============================================================================== 
+================================================================================ 
+================================================================================*/

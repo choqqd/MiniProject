@@ -1,34 +1,50 @@
 @charset "UTF-8";
-
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+    
+    
 .body {
 	margin: 0;
 }
 
 .bobox {
 	display: grid;
+	border: 1px solid;
 	grid-gap: 10px;
 	grid-template-columns: 5fr;
 	height: 200vh;
-	grid-template-rows: 1fr 1fr 1fr 1fr 1fr ;
-	grid-template: 'top top top top top' 
-					'genre  show show show show'
-					'blank  show show show show'
-					'blank board board board rank' 
-					'foot foot foot foot foot';
+	grid-template-rows: 1fr 1fr 1fr ;
+	grid-template: 'textbox textbox textbox' 
+					'top  show show'
+					'blank  show show'
+					'blank board rank' 
+					'foot foot foot';
 }
 .bobox>div {
-	background-color: white;
+	background-color: visque;
 	justify-items: center;
 	align-items: center;
-	display: gird;
+	display: grid;
+	border: 1px;
 	
 }
-
+.textbox{
+	border: 1px;
+	grid-area: textbox;
+}
 .top {
 	grid-area: top;
 	display: flex;
 	justify-content: space-between;
 	padding: 20px;
+	
 }
 
 .postbox {
@@ -37,7 +53,7 @@
 	border-radius: 10px;
 	overflow: hidden;
 	padding: 25px 30px 5px 30px;
-	
+	border: 1px solid;
 	margin-bottom: 10px;
 	box-shadow: 0 3px 5px rgb(0 0 0/ 10%);
 }
@@ -49,9 +65,9 @@
 	display: inline;
 }
 
-.postbox ul li img {
-	width: 300px;
-	height: 400px;
+.top img {
+	width: 100px;
+	height: 200px;
 	margin: 0 0 0 0;
 	display: block;
 	padding: 0 0 0 00px;

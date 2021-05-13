@@ -15,6 +15,7 @@ public class MusicalDAO {
 	PreparedStatement psmt = null;
 	ResultSet rs;
 
+	// 전체 리스트 조회 출력 
 	public List<ShowVO> getMusicalList() {
 		String sql = "select show_name,show_startday,show_endday from show where SHOW_CODE like 'M%'";
 		DBcon.getConnect();
@@ -41,6 +42,36 @@ public class MusicalDAO {
 
 		return list;
 	}
+	
+	// 뮤지컬 공연 등록
+	public void insertMusical(ShowVO vo) {
+		String sql = "insert into show values(?,?,?,?,?)";
+		DBcon.getConnect();
+		conn = DBcon.getConnect();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getShow_Code());
+			psmt.setString(2, vo.getShow_Name());
+			psmt.setString(3, vo.getShow_Startday());
+			psmt.setString(4, vo.getShow_Endday());
+			psmt.setString(5, vo.getConcert_Hall_Code());
+			
+			int r = psmt.executeUpdate();
+			System.out.println(r + "건 입력되었습니다");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
+	
 
 	public void close() {
 		if (rs != null) {

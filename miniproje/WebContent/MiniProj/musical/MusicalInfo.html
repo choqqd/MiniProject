@@ -8,12 +8,24 @@
 <meta charset="UTF-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <title>Insert title here</title>
+<!--공연 정보 탭 -->
+
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script
 	src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+<style>
+#show>table {
+	align: center;
+	height: 1000px;
+}
+
+table>tr>td {
+	padding: 40px;
+}
+</style>
 <script>
 		$(document).ready(function () {
 			// 슬라이더 
@@ -27,17 +39,40 @@
 					console.log(result);
 					for (let obj of result) {
 						let $tr = $('<tr />');
-						let $text = "~~~";
+						let $wave = '~';
+						let $wave_img = $('<img />').attr('width','200px');
+						$wave_img.attr("src","musical_Img/mama.jfif");
+						// 이미지 클릭시 구체적인 정보, 마우스 이벤트 
+						$($wave_img).click(function() {
+								// 클릭시 구체적인 페이지 설명 나오는 부분
+							$.ajax({
+								url: '',
+								data: '',
+								success: function () {
 
+								},
+								error: function (err) {
+									console.log(err);
+								}
+							});
+						});
+
+						$($wave_img).on({
+							mouseover : function(){	
+								console.log('마우스')
+							},
+							mouseout : function(){
+								console.log('마우스ㄴㄴ')
+							}
+						})
 						$tr.append(
+							$('<td />').html($wave_img),
 							$('<td />').html(obj.show_name),
-							
 							$('<td />').html(obj.show_startday),
-
-							$('<td />').html($text),
-
+							$('<td />').html($wave),
 							$('<td />').html(obj.show_endday)
 						)
+						
 						$table.append($tr);
 					}
 					$('#show').append($table);
@@ -45,15 +80,14 @@
 				error: function (err) {
 					console.log(err);
 				}
+		
 			})
+
 
 		});
 	</script>
-	<style>
-		table {
-			text-align: right;
-		}
-	</style>
+<style>
+</style>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -172,13 +206,13 @@
 	<!-- 메뉴 END -->
 
 	<form action='' method="post">
-<!--  info 사이즈 변경 정렬 변셜 .... .......... -->
+		<button>공연 추가</button>
 		<div id="show"></div>
- 	
+
 	</form>
 
 
-
+	<div class='downmenu'></div>
 
 
 

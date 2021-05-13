@@ -143,11 +143,26 @@
 }
 
 .downmenu {
-	height: 100px;
+	height: 1300px;
 }
 
 footer {
+	
 	clear: both;
 	background-color: #666;
 	height: 100px;
 }
+
+
+
+
+#show {
+	align:right;
+	width:1500px;
+	height:800px;
+	
+}
+
+
+
+

@@ -37,7 +37,7 @@ public class TheaterBoardDAO {
 		}
 		return list;
 	}
-
+//...................
 	// Close
 	public void close() {
 		if (rs != null) {

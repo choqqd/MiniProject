@@ -8,7 +8,7 @@ public class TheaterBoardVO {
 	private String board_date;
 	private int board_hit;
 	
-	
+	////////////////////////////////////////////////////////////
 	public int getBoard_id() {
 		return board_id;
 	}

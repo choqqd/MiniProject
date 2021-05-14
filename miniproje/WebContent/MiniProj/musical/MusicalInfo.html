@@ -27,13 +27,13 @@ table>tr>td {
 }
 </style>
 <script>
-		$(document).ready(function () {
 			// 슬라이더 
 			$('.slider').bxSlider();
+		$(document).ready(function () {
 			
 			let $table = $('<table />');
 			$.ajax({
-				url: '../../musicalListServler',
+				url: '../../../musicalListServler',
 				dataType: 'json',
 				success: function (result) {
 					console.log(result);

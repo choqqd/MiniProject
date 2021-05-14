@@ -15,7 +15,7 @@ public class TheaterDAO {
 	PreparedStatement psmt;
 	ResultSet rs;
 
-	// 리스트 뽑아오기
+	// 연극 전체 리스트 뽑아오기
 	public List<ShowVO> getTheaterList() {
 		List<ShowVO> list = new ArrayList<ShowVO>();
 		String sql = "select SHOW_NAME, SHOW_STARTDAY, SHOW_ENDDAY"//

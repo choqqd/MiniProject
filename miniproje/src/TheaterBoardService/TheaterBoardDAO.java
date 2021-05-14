@@ -39,6 +39,12 @@ public class TheaterBoardDAO {
 	}
 //...................
 	// Close
+
+
+	// 게시글 전체 리스트 뽑아오기
+	
+	// Close 메소드
+
 	public void close() {
 		if (rs != null) {
 			try {

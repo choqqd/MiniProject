@@ -1,28 +1,19 @@
 package TheaterBoardService;
 
-public class TheaterVO {
+public class TheaterBoardVO {
 
-	private int board_num;
+	private int board_id;
 	private String board_title;
 	private String user_name;
-	private String board_contents;
 	private String board_date;
 	private int board_hit;
 	
-	
-	
-	
-	public String getBoard_contents() {
-		return board_contents;
+	////////////////////////////////////////////////////////////
+	public int getBoard_id() {
+		return board_id;
 	}
-	public void setBoard_contents(String board_contents) {
-		this.board_contents = board_contents;
-	}
-	public int getBoard_num() {
-		return board_num;
-	}
-	public void setBoard_num(int board_num) {
-		this.board_num = board_num;
+	public void setBoard_id(int board_id) {
+		this.board_id = board_id;
 	}
 	public String getBoard_title() {
 		return board_title;
@@ -48,6 +39,7 @@ public class TheaterVO {
 	public void setBoard_hit(int board_hit) {
 		this.board_hit = board_hit;
 	}
+	
 	
 	
 }

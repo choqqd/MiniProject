@@ -24,7 +24,7 @@ public class GetContentsServ extends HttpServlet {
 		String title = request.getParameter("title");
 		
 		ConcertBoardDAO dao = new ConcertBoardDAO();
-		ConcertBoardVO vo = new ConcertBoardVO();
+		ConcertBoardVO vo = dao.selecetContents();
 		
 		JSONObject obj = new JSONObject();
 		obj.put("boardNum", vo.getBoardnum());

@@ -3,25 +3,86 @@
 <head>
 <meta charset="UTF-8">
 <title>Info</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <style>
-	h1 {
-		text-align: center; 
-	}
+h1 {
+	text-align: center;
+}
 </style>
+<script>
+$(document).on(function () {
+	
+	let $table = $('<table />');
+	$.ajax({
+		url: '../../../musicalListServler',
+		dataType: 'json',
+		success: function (result) {
+			console.log(result);
+			for (let obj of result) {
+				let $tr = $('<tr />');
+				let $wave = '~';
+				let $wave_img = $('<img />').attr('width','200px');
+				$wave_img.attr("src","../musical_Img/mama.jfif");
+				// 이미지 클릭시 구체적인 정보, 마우스 이벤트 
+				$($wave_img).click(function() {
+						// 클릭시 구체적인 페이지 설명 나오는 부분
+					$.ajax({
+						url: '',
+						data: '',
+						success: function () {
+
+						},
+						error: function (err) {
+							console.log(err);
+						}
+					});
+				});
+
+				$($wave_img).on({
+					mouseover : function(){	
+						console.log('마우스')
+					},
+					mouseout : function(){
+						console.log('마우스ㄴㄴ')
+					}
+				})
+				$tr.append(
+					$('<td />').html($wave_img),
+					$('<td />').html(obj.show_name),
+					$('<td />').html(obj.show_startday),
+					$('<td />').html($wave),
+					$('<td />').html(obj.show_endday)
+				)
+				
+				$table.append($tr);
+			}
+			$('#show').append($table);
+		},
+		error: function (err) {
+			console.log(err);
+		}
+
+	})
+
+
+});
+
+</script>
 </head>
 <body>
+
+<form action='' method="post">
+	<div id="show"></div>
+</form>
+
 	<br>
-	<h1>Info<br>
-	ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ<br>
-	ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ<br>
-	ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ<br>
-	ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ<br>
-	ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ<br>
-	ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ<br>
-	ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ<br>
-	ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ<br>
-	ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ<br>
-	ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ<br>
-	ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ<br></h1><br><br>
+	<h1>
+		Info<br> ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ<br> ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ<br> ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ<br>
+		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ<br> ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ<br> ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ<br> ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ<br>
+		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ<br> ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ<br> ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ<br> ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ<br>
+	</h1>
+	<br>
+	<br>
 </body>
 </html>

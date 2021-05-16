@@ -46,7 +46,7 @@ public class ConcertBoardDAO {
 		List<ConcertBoardVO> list = new ArrayList<ConcertBoardVO>();
 		
 		try {
-			psmt = conn.prepareStatement("select * from concert_board");
+			psmt = conn.prepareStatement("select * from concert_board order by board_num desc");
 			rs = psmt.executeQuery();
 			while(rs.next()) {
 				ConcertBoardVO vo = new ConcertBoardVO();
@@ -104,7 +104,7 @@ public class ConcertBoardDAO {
 		ConcertBoardVO cvo = new ConcertBoardVO();
 		
 		String numbering = "select nvl(max(board_num),0)+1 from concert_board";
-		String insert = "insert into concert_board(board_num, member_id, member_name, title, contents, upload_date) values(?,?,?,?,?,to_char(sysdate, 'YYYY-MM-DD'))";
+		String insert = "insert into concert_board(board_num, member_name, title, contents, upload_date) values(?,?,?,?,to_char(sysdate, 'YYYY-MM-DD'))";
 		
 		//게시글 번호 저장 변수
 		int bNum = 0;
@@ -124,10 +124,10 @@ public class ConcertBoardDAO {
 		try {
 			psmt =  conn.prepareStatement(insert);
 			psmt.setInt(1, bNum);
-			psmt.setString(2, vo.getMemberId());
-			psmt.setString(3, vo.getMemberName());
-			psmt.setString(4, vo.getTitle());
-			psmt.setString(5, vo.getContents());
+			//psmt.setString(2, vo.getMemberId());
+			psmt.setString(2, vo.getMemberName());
+			psmt.setString(3, vo.getTitle());
+			psmt.setString(4, vo.getContents());
 			
 			int in = psmt.executeUpdate();
 			System.out.println(in + "건 입력 완료.");

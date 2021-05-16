@@ -31,12 +31,13 @@ public class GetBoardListServ extends HttpServlet {
 		for(ConcertBoardVO vo : list) {
 			JSONObject obj = new JSONObject();
 			obj.put("boardNum", vo.getBoardnum());
-			obj.put("memberId", vo.getMemberId());
+			//obj.put("memberId", vo.getMemberId());
 			obj.put("memberName", vo.getMemberName());
 			obj.put("title", vo.getTitle());
 			obj.put("contents", vo.getContents());
 			obj.put("uploadDate", vo.getUploadDate());
 			obj.put("hit", vo.getHit());
+			ary.add(obj);
 		}
 		response.getWriter().print(ary);
 	}

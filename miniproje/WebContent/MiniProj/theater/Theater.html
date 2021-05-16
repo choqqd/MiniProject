@@ -19,7 +19,49 @@
 	$(document).ready(function() {
 		$('.slider').bxSlider();
 	});
+	
+	//db에 데이터를 화면에 출력..<div><table></table></div>
+	$.ajax({
+		url: '../theaterBoardServlet',
+		dataType: 'json', //json ->object
+		success: function (result) {
+			console.log(result);
+			let tbl = $('<table />');
+			tbl.attr('border', '1');
+			let trTag1 = $('<tr />');
+			trTag1.append(
+				$('<th />').html('번호'),
+				$('<th />').html('이름'),
+				$('<th />').html('제목'),
+				$('<th />').html('날짜'),
+				$('<th />').html('조회수'),
+			);
+			tbl.append(trTag1);
+
+
+			for (a = 0; a < result.length; a++) {
+				let trTag = $('<tr />');
+				btn.click(delbtn);
+
+				trTag.append(
+					$('<td />').html(result[a].board_num),
+					$('<td />').html(result[a].user_name),
+					$('<td />').html(result[a].board_title),
+					$('<td />').html(result[a].board_date),
+					$('<td />').html(result[a].board_hit),
+				);
+				tbl.append(trTag);
+			}
+			$('#show').append(tbl);
+			//이블
+		},
+		error: function (err) {
+			console.log(err);
+		}
+	});
 </script>
+
+
 <!-- Google Font -->
 <link
 	href='https://fonts.googleapis.com/css?family=Roboto:400,500.00,700,300'
@@ -221,7 +263,31 @@
 				<h1>지도</h1>
 			</div>
 		</div>
+		<p
+			style="color: black; font-weight: bold; font-size: 30pt; margin-top: 100px;">최근
+			게시물</p>
+
+		<div id="rankingmap">
+		<!--  
+			<form id='frm' action="userServlet" method='post'
+				enctype="multipart/form-data">
+				<table class='table'>
+					<tr>
+						<td><input type='text' name='board_num' id='board_num'>번호</td>
+						<td><input type='text' name='user_name' id='user_name'>이름</td>
+						<td><input type='text' name='board_title' id='board_title'>제목</td>
+						<td><input type='text' name='board_date' id='board_date'>날짜</td>
+						<td><input type='text' name="board_hit" id="board_hit">조회수</td>
+					</tr>
+				</table>
+				
+			</form>
+			-->
+			<div id="show"></div>
+		</div>
 	</div>
+
+
 	<!--End Main -->
 	<!-- Footer -->
 	<div class="footer" style="text-align: center;">

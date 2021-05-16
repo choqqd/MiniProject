@@ -2,25 +2,32 @@ package projectVO;
 //멤버VO
 public class MemberVO {
 	private String Member_Code;
-	private String Member_Id;
 	private String Member_Email;
 	private String Member_Tel;
 	private String Member_Address;
 	private String Member_Name;
 	private int Member_Age;
 	private String Member_Gender;
+	private String Member_Id;
+	private String Member_Pwd;
 	
-	public String getMember_Code() {
-		return Member_Code;
-	}
-	public void setMember_Code(String member_Code) {
-		Member_Code = member_Code;
-	}
 	public String getMember_Id() {
 		return Member_Id;
 	}
 	public void setMember_Id(String member_Id) {
 		Member_Id = member_Id;
+	}
+	public String getMember_Pwd() {
+		return Member_Pwd;
+	}
+	public void setMember_Pwd(String member_Pwd) {
+		Member_Pwd = member_Pwd;
+	}
+	public String getMember_Code() {
+		return Member_Code;
+	}
+	public void setMember_Code(String member_Code) {
+		Member_Code = member_Code;
 	}
 	public String getMember_Email() {
 		return Member_Email;

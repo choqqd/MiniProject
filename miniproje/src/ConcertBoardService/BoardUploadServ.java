@@ -43,5 +43,6 @@ public class BoardUploadServ extends HttpServlet {
 		obj.put("contents", cvo.getContents());
 		
 		resp.getWriter().print(obj);
+		
 	}
 }

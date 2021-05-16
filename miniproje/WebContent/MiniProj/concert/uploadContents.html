@@ -21,7 +21,9 @@
 	<script>
 		$(document).on('DOMContentLoaded', function() {
 			$('.frm').on('submit', function(e) {
-				
+				e.stopPropagation();
+				e.preventDefault();		// 이게 있으면 DB에 값이 제대로 안 넘어가고 null로 입력됨.
+										// 그렇다고 없자니 serv 페이지가 호출이 되고...
 				let data = 'name'+$('.name').val()+//
 							'&title'+$('.title').val()+//
 							'&contents'+$('.contents').val();
@@ -39,13 +41,11 @@
 				});
 			})
 			function uploadContents() {
-				e.preventDefault();
 
-				
 				window.alert("업로드 되었습니다.");
-//				location.href = "ConcertBoard.html";
+				location.href="ConcertBoard.html";
 			}
-		})
+		});
 	</script>
 </head>
 <body>
@@ -122,7 +122,7 @@
 			<table class = 'upTbl' align = "center">
 			<caption><h2>Concert Review</h2></caption>
 				<tr>
-					<td width="50px">작성자</td><td><input type = "text" name = "name" class="txtbox"></td>
+					<td width="50px">작성자</td><td><input type = "text" name = "name" class="name"></td>
 				</tr>
 				<tr>
 					<td>제목</td><td><input type = "text" name = "title" class = "title"></td>

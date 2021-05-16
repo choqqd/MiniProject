@@ -34,6 +34,8 @@ public class LoginOutDAO {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			close();
 		}
 		return vo;
 	}

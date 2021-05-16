@@ -37,26 +37,29 @@
 			
 			function concertBoardList(result) {
 				console.log(result);
+				console.log(result.length);
 				
 				let $table = $('<table class = "boardTbl" />');
 				$table.append(tableTitle());
 				
-				if(result.obj == null){
+				if(result.length == 0) {
 					let $tr = $('<tr />');
 					$tr.append(
 						$('<td class="emptyBoard" colspan="6"/>').html('아직 게시글이 등록되지 않았습니다. 첫번째 게시글을 올려주세요.')		
 					);
 					$table.append($tr);
-				} else {
+				}else{
 					for(let obj of result) {
 						let $tr = $('<tr />');
+						// 게시글 제목 누르면 게시글 본문 페이지로 이동
+						let contentsLink = $('<a />').attr('href', 'CboardContents.html').html(obj.title);
 							$tr.append(
-								$('<td />').html(obj.boardNum),
-								$('<td />').html(obj.memberId),
-								$('<td />').html(obj.memberName),
-								$('<td />').html(obj.title),
-								$('<td />').html(obj.uploadDate),
-								$('<td />').html(obj.hit)
+								$('<td width="5%" align="center" />').html(obj.boardNum),
+								//$('<td />').html(obj.memberId),
+								$('<td width="15%" align="center" />').html(obj.memberName),
+								$('<td width="60%" align="center" />').append(contentsLink),
+								$('<td width="15%" align="center" />').html(obj.uploadDate),
+								$('<td width="5%" align="center" />').html(obj.hit)
 							);
 							$table.append($tr);
 						}
@@ -68,9 +71,9 @@
 				let $title = $('<tr class="titleTr" />');
 				$title.append(
 					$('<th width="5%" />').html('No.'),
-					$('<th width="10%" />').html('ID'),
-					$('<th width="10%" />').html('이름'),
-					$('<th width="50%" />').html('제목'),
+					//$('<th width="10%" />').html('ID'),
+					$('<th width="15%" />').html('이름'),
+					$('<th width="60%" />').html('제목'),
 					$('<th width="15%" />').html('등록일'),
 					$('<th width="5%" />').html('조회수')
 				);

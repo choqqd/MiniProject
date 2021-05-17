@@ -1,0 +1,51 @@
+<html>
+<head>
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/jquery.bpopup-0.10.0.min.js"></script>
+<style>
+	#element_to_pop_up { 
+    background-color:#fff;
+    border-radius:15px;
+    color:#000;
+    display:none; 
+    padding:20px;
+    min-width:400px;
+    min-height: 180px;
+	}
+	
+</style>
+</head>
+<body>
+	<div>
+	<button id="my-button">POP IT UP</button>
+	<!-- Element to pop up -->
+	
+		</div>
+</body>
+</html>
+
+<script>
+	 ;(function($) {
+         // DOM Ready
+        $(function() {
+            // Binding a click event
+            // From jQuery v.1.7.0 use .on() instead of .bind()
+            $('#my-button').bind('click', function(e) {
+        var self = $(this) //button
+        , content = $('.content'); 
+        $('element_to_pop_up').bPopup({
+            onOpen: function() {
+                content.html(self.data('bpopup') || '');
+            },
+            onClose: function() {
+                content.empty();
+            }
+        });
+                // Prevents the default action to be triggered. 
+                e.preventDefault();
+                // Triggering bPopup when click event is fired
+                $('#element_to_pop_up').bPopup();
+            });
+        });
+    })(jQuery);
+</script>

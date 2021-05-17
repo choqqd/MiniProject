@@ -7,8 +7,10 @@
 <title>Gaze in daegu</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/jquery.bpopup-0.10.0.min.js"></script>
+<script src="js/pop.js"></script>
+	
 <!-- Google Font -->
 <link
 	href='https://fonts.googleapis.com/css?family=Roboto:400,500.00,700,300'
@@ -102,64 +104,63 @@
 		<!-- Top 공연 포스터 div -->
 		<div class="top">
 			<div class="postbox">
+					
 				<h2>Best Concert In this Month</h2>
 				
 				<ul>
 			 	
 						<li>
-				<a href="Detail/Concert1.html" data-link-url="Concert1">		
-						 	<img alt="num1" src="img/hero-1.jpg"> 
-				</a>						
-							<strong>싸이와 함께 흠뻑쇼</strong> 
-							<span class="small">2021.05.11 ~</span>
+						
+							
+							
+						 	<img id="my-button" alt="num1" src="../img/index/con1.gif">
+							<div id="element_to_pop_up">
+							<iframe width="640" height="360" src="http://www.youtube.com/embed/pPb2lIap6Es?rel=0"></iframe>
+							</div>
+							<strong>싱어게인 Top10 콘서트</strong> 
+							<span class="small">2021.06.05 ~</span>
 			
 						</li>
-				
-
+			
 				
 						<li>
-				<a href="Detail/Concert2.html" data-link-url="Concert2">
-							<img alt="num2" src="img/popular-2.jpg"> 
-				</a>		
-							<strong>호영&태우 Concert</strong> 
-							<span class="small">2021.05.11 ~</span>
+							  
+							<img id="my-button2" alt="num2" src="../img/index/con2.gif"> 
+							<div id="element_to_pop_up">
+							<iframe id="my-button2" width="640" height="360" src="https://www.youtube.com/embed/Fb2vc5QjrN4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							</div>
+						 	
+				
+							<strong>10CM | 치즈 콘서트</strong> 
+							<span class="small">2021.06.25 ~</span>
 		
 						</li>
 				
 
 				
 						<li>
-				<a href="Detail/Concert3.html" data-link-url="Concert3">
-							<img alt="num3" src="img/popular-3.jpg"> 
-				</a>			
-							<strong>집콕 방콕 Concert</strong> 
-							<span class="small">2021.05.11 ~</span>
+							
+						 	<img class="b-close" alt="num3" src="../img/index/con3.gif">
+							<div id="element_to_pop_up">
+							<iframe id="my-button2" width="640" height="360" src="https://www.youtube.com/embed/mp83SaJ2HUc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							</div>
+							<strong>에일리 단독 콘서트</strong> 
+							<span class="small">2021.06.05 ~</span>
 	
 						</li>
 				
 						
 						<li>
-				<a href="Detail/Concert3.html" data-link-url="Concert3">	
-							<img alt="num4" src="img/recent-4.jpg"> 
-				</a>
-							<strong>소란 파르페 콘서트</strong> 
-							<span class="small">2021.05.11 ~</span>
+							
+						 	<img class="b-close" alt="num4" src="../img/index/con4.jpg">
+							<div id="element_to_pop_up">
+							<iframe id="my-button2" width="640" height="360" src="https://www.youtube.com/embed/wgbr7exUnzE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							</div>
+							<strong>장윤정 라이브 콘서트</strong> 
+							<span class="small">2021.06.26 ~</span>
 	
 						</li>
 				
-				
-						
-						<li>
-				<a href="Detail/Concert3.html" data-link-url="Concert3">
-							<img alt="num5" src="img/popular-4.jpg"> 
-				</a>
-							<strong>Summer Concert</strong> 
-							<span class="small">2021.05.11 ~</span>
-	
-						</li>
-				
-
-
 
 						</ul>
 			</div>
@@ -195,7 +196,7 @@
 
 		</div>
 		<div class="blank">
-			 blank
+			 blank 
 		</div>
 <!-- 왼쪽 콘서트 장르 End -->
 
@@ -240,7 +241,7 @@
 
 <!-- To top BTN -->
 				<span class=topbtn onclick="window.scrollTo(0,0);">
-				<img	src="../img/topbtn.png"></span>
+				<img	src="img/topbtn.png"></span>
 <!-- To top BTN -->
 
 <!-- Footer start -->

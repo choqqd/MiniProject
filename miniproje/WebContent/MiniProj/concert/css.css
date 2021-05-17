@@ -9,7 +9,7 @@
 .bobox {
 	display: grid;
 	grid-gap: 10px;
-	grid-template-columns: 5fr;
+	grid-template-columns: 1fr 5fr;
 	height: 200vh;
 	grid-template-rows: 1fr 1fr 1fr 1fr 1fr ;
 	grid-template: 'top top top top top' 
@@ -22,46 +22,52 @@
 	2. Box div-Area
 ======================================== */
 .bobox>div {
-	background-color: white;
+	border:1px solid black;
+	background-color: bisque;
 	justify-items: center;
 	align-items: center;
-	display: gird;
+	display: grid;
 	
 }
 
 .top {
 	grid-area: top;
-	display: flex;
-	justify-content: space-between;
-	padding: 20px;
+	width: 100%;
+	display: block;
+	justify-content: center;
+	padding: 20px 20px 20px 20px;
 }
 
 .postbox {
 	width: 100%;
 	background: black;
 	border-radius: 10px;
-	overflow: hidden;
-	padding: 25px 30px 5px 30px;
-	
-	margin-bottom: 10px;
+	overflow: auto;
+	padding: 50px 15px 15px 50px;
+	margin: 10px 10px;
 	box-shadow: 0 3px 5px rgb(0 0 0/ 10%);
 }
 
 .postbox ul li {
 	width: 20%;
-	float: left;
-	margin-left: 0;
-	display: inline;
+	
+	margin-left: 50px;
+	display: inline-block;
 }
 
 .postbox ul li img {
-	width: 300px;
-	height: 400px;
-	margin: 0 0 0 0;
+	width: 250px;
+	height: 350px;
+	margin: 0;
 	display: block;
-	padding: 0 0 0 00px;
+	padding: 1%;
+	
 }
-
+.postbox ul li a{
+		cursor:pointer;
+	
+		
+	}
 .postbox ul li strong {
 	width: 300px;
 	text-overflow: ellipsis;
@@ -97,7 +103,7 @@
 	margin-bottom: 23px;
 	margin-left: 0;
 	font-size: 20px;
-	font-family: '돋움', 'Dotum', sans-serif;
+	font-family: '�룍��', 'Dotum', sans-serif;
 	text-size-adjust: none;
 	-webkit-text-size-adjust: none;
 	text-align: center;
@@ -131,9 +137,43 @@ li {
 	padding: 10px;
 }
 /* ====================================== 
-	16. Footer-Area
+	16. Popup video
 ======================================== */
+#element_to_pop_up { 
+    background-color:#fff;
+    border-radius:15px;
+    color:#000;
+    display:none; 
+    padding:20px;
+    min-width:400px;
+    min-height: 180px;
+    
+	}
+	
+	#element_to_pop_up2 { 
+    background-color:#fff; 
+    border-radius:15px;
+    color:#000;
+    display:none; 
+    padding:20px;
+    min-width:400px;
+    min-height: 180px;
+    
+	}
+	
+	.content3{
+	src:"../img/index/con1.gif"
+	}
 
+/* * {margin:0; padding:0; box-sizing:border-box;}
+
+.button  {background:#333; color:#fff; font-size:14px; text-decoration:none; text-align:center; line-height:24px;}
+.page {padding:20px;}
+#layer {display:none; position:absolute; top:50%; left:50%; width:600px; height:376px; margin:-188px 0 0 -300px; padding:20px; background:#eee; box-shadow:1px 1px 10px rgba(0,0,0,0.3); border:1px solid #dadada; z-index:21;}
+#layer #player {display:block; margin:20px auto 0;}
+#layer .inner {position:relative;}
+#layer .inner .close {position:absolute; top:-30px; right:0; display:block; width:20px; height:20px; background:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt18SOam3wUX0wExC6ji5-lY732vA2fEPBscikPQaLbT_tJd7Y7g') no-repeat 0 0; text-indent:-999em; background-size:20px 20px;}
+.dim {display:none; position:fixed; _position:absolute; top:0;left:0; background:#000; width:100%; height:100%; filter:Alpha(opacity=40); opacity:0.4; -moz-opacity:0.4; z-index:20;}  */
 /* ====================================== 
 	16. Footer-Area
 ======================================== */
@@ -157,9 +197,9 @@ li {
 }
 
 .video {
-	max-width: 100%;
-	height: 100%;
-}
+	max-width: 80%;
+	height: 80%;
+} 
 /* ====================================== 
 	16. Footer-Area
 ======================================== */

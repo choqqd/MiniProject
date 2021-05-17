@@ -52,7 +52,7 @@
 					for(let obj of result) {
 						let $tr = $('<tr />');
 						// 게시글 제목 누르면 게시글 본문 페이지로 이동
-						let contentsLink = $('<a />').attr('href', 'CboardContents.html').html(obj.title);
+						let contentsLink = $('<a />').attr('href', 'CboardContents.html?boardNum='+obj.boardNum).html(obj.title);
 							$tr.append(
 								$('<td width="5%" align="center" />').html(obj.boardNum),
 								//$('<td />').html(obj.memberId),
@@ -65,6 +65,21 @@
 						}
 					}
 				$('#show').append($table);
+			}
+			
+			function readContents() {
+				let url = "CboardContents.html?boardNum=";
+				
+				$.ajax({
+					url:'../../getContentsServ',
+					type:'get',
+					data: url + obj.boardNum,
+					success: function(result) {},
+					error: function(reject) {
+						console.log(reject);
+					}
+				});
+				
 			}
 			
 			function tableTitle() {	// table title

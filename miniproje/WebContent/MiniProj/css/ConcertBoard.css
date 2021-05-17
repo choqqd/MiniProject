@@ -21,7 +21,7 @@ body {
 }
 
 th {
-	text-align: center;
+	padding: 4px;
 	vertical-align: center;
 }
 
@@ -76,4 +76,22 @@ td {
 
 caption {
 	text-align: left;
+}
+
+/*
+	CboardContents에서 사용 (게시글 보기)
+*/
+
+.contentsTbl {
+	border-collapse: collapse;
+	border-top: 4px solid darkgray;
+	border-bottom: 4px solid darkgray;
+}
+
+.outline {
+	border-top: 1px solid lightgray;	
+}
+
+.cTitle {
+	padding: 4px;
 }

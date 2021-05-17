@@ -21,14 +21,13 @@ public class GetContentsServ extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset-UTF-8");
 		
-		String title = request.getParameter("title");
+		String bNum = request.getParameter("boardNum");
+		int boardNum = Integer.parseInt(bNum);
 		
 		ConcertBoardDAO dao = new ConcertBoardDAO();
-		ConcertBoardVO vo = dao.selecetContents();
+		ConcertBoardVO vo = dao.selecetContents(boardNum);
 		
 		JSONObject obj = new JSONObject();
-		obj.put("boardNum", vo.getBoardnum());
-		obj.put("memberId", vo.getMemberId());
 		obj.put("memberName", vo.getMemberName());
 		obj.put("title", vo.getTitle());
 		obj.put("contents", vo.getContents());
@@ -36,6 +35,7 @@ public class GetContentsServ extends HttpServlet {
 		obj.put("hit", vo.getHit());
 		
 		response.getWriter().print(obj);
+		
 	}
 
 

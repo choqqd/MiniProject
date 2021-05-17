@@ -47,21 +47,20 @@ public class MusicalDAO {
 	
 	// 뮤지컬 공연 등록
 	public void insertMusical(ShowVO vo) {
-		String sql = "insert into show values(?,?,?,?,?)";
-		String sq2 = "insert into show values(?,?,?,?,?)";
-		
+		String sql = "INSERT INTO show VALUES(\r\n"
+				+ "      (select CONCAT(SUBSTR(max(SHOW_CODe),1,1),SUBSTR(max(SHOW_CODe),2,2)+1)\r\n"
+				+ "      from show \r\n"
+				+ "      where SHOW_CODE like 'M%'),\r\n"
+				+ "      'hello',sysdate,sysdate,1);";
 		DBcon.getConnect();
 		conn = DBcon.getConnect();
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, vo.getShow_Code());
-			
-			
-			psmt.setString(2, vo.getShow_Name());
-			psmt.setString(3, vo.getShow_Startday());
-			psmt.setString(4, vo.getShow_Endday());
-			psmt.setString(5, vo.getConcert_Hall_Code());
-			
+			psmt.setString(1, vo.getShow_Name());
+			psmt.setString(2, vo.getShow_Startday());
+			psmt.setString(3, vo.getShow_Endday());
+			psmt.setString(4, vo.getConcert_Hall_Code());
+
 			int r = psmt.executeUpdate();
 			System.out.println(r + "건 입력되었습니다");
 		} catch (SQLException e) {

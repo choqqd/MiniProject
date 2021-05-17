@@ -151,8 +151,8 @@
 	<div class="footer">
 		<!-- Footer는 Sifoot start -->
 		<p class="single-footer" align="center">
-			(주)Gaze in Daegu 대구광역시 중구 국채보상로 537 (수동, 5층) / 대표자:조진호 / <br> 대표
-			GIt:https://github.com/choqqd/Miniproj.git / 개인정보보호책임자:조진호 <br>
+			(주)Gaze in Daegu 대구광역시 중구 국채보상로 537 (수동, 5층) / 대표자: 그미소는 꽃이야 / <br> 대표
+			GIt:https://github.com/choqqd/Miniproj.git / 개인정보보호책임자: 그미소는 꽃이야 <br>
 			Copyright © 2021 (주)Gaze in Daegu All Rights Reserved.
 		</p>
 	</div>

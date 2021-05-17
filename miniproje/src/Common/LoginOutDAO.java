@@ -15,6 +15,7 @@ public class LoginOutDAO {
 	public MemberVO login(String id, String pwd) {
 		String sql = "select * from member where member_id=? and member_pwd=?";
 		MemberVO vo = new MemberVO();
+		System.out.println(id+pwd);
 		
 		try {
 			psmt = conn.prepareStatement(sql);

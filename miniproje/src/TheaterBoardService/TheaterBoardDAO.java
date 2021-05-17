@@ -15,18 +15,21 @@ public class TheaterBoardDAO {
 	Connection conn;
 	PreparedStatement psmt;
 	ResultSet rs;
-	
+/*--------------------
+ *     메인 홈페이지 게시판
+ *     연극 메인 홈페이지 게시판 리스트 뽑아오기
+ */
 	public List<TheaterVO> MiniboardList() {
+		conn = DBcon.getConnect();
 		List<TheaterVO> list = new ArrayList<TheaterVO>();
-		String sql = "select board_num, board_title, user_name, board_date, board_hit from Theater_Board";
+		String sql = "select board_num, board_title, member_id, board_date, board_hit from Theater_Board";
 		try {
-			conn = DBcon.getConnect();
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
 			while (rs.next()) {
 				TheaterVO vo = new TheaterVO();
 				vo.setBoard_num(rs.getInt("board_num"));
-				vo.setUser_name(rs.getString("user_name"));
+				vo.setUser_name(rs.getString("member_id"));
 				vo.setBoard_title(rs.getString("board_title"));
 				vo.setBoard_date(rs.getString("board_date"));
 				vo.setBoard_hit(rs.getInt("board_hit"));
@@ -38,12 +41,6 @@ public class TheaterBoardDAO {
 		}
 		return list;
 	}
-//...................
-	// Close
-
-
-	// 게시글 전체 리스트 뽑아오기
-	
 	
 	public void MiniboardInsert(TheaterVO vo) {
 		

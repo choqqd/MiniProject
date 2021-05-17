@@ -6,7 +6,7 @@ public class RankVO {
 	private String ShowCode;
 	
 	 
-	
+	 
 	public int getHit() {
 		return Hit;
 	}

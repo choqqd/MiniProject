@@ -16,7 +16,10 @@
 	MemberVO vo = new MemberVO();
 	LoginOutDAO dao = new LoginOutDAO();
 	
-	dao.login(userid, userPwd);
+	vo = dao.login(userid, userPwd);
+	if(vo.getMember_Id().equals(userid)){
+		
+	}
 %>
 </body>
 </html>

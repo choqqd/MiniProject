@@ -9,16 +9,15 @@ import java.util.List;
 
 import Common.DBcon;
 
-
-
 public class TheaterBoardDAO {
 	Connection conn;
 	PreparedStatement psmt;
 	ResultSet rs;
-/*--------------------
- *     메인 홈페이지 게시판
- *     연극 메인 홈페이지 게시판 리스트 뽑아오기
- */
+
+	/*--------------------
+	 *     메인 홈페이지 게시판
+	 *     연극 메인 홈페이지 게시판 리스트 뽑아오기
+	 */
 	public List<TheaterVO> MiniboardList() {
 		conn = DBcon.getConnect();
 		List<TheaterVO> list = new ArrayList<TheaterVO>();
@@ -41,12 +40,12 @@ public class TheaterBoardDAO {
 		}
 		return list;
 	}
-	
+
 	public void MiniboardInsert(TheaterVO vo) {
-		
+
 		String sql = "insert into theater_board(board_num, user_name, board_title, board_hit, board_date) "
 				+ "values ((select max(board_num)+1 from theater_board), ?,?,?,?)";
-				
+
 		conn = DBcon.getConnect();
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -63,7 +62,7 @@ public class TheaterBoardDAO {
 		}
 
 	}
-	
+
 	public void MiniboardDelete(TheaterVO vo) {
 		conn = DBcon.getConnect();
 		String sql = "delete from theater_board where board_num = ?";
@@ -72,14 +71,148 @@ public class TheaterBoardDAO {
 			psmt.setInt(1, vo.getBoard_num());
 			int r = psmt.executeUpdate();
 			System.out.println(r + " 개의 게시물 제거됌");
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			close();
 		}
 	}
-	// Close 메소드
 
+	/*
+	 * ----------------------------------- 게시판 페이지 영역
+	 */
+
+	// 게시판 전체 리스트
+	public List<TheaterBoardVO> theaterBoardList() {
+		List<TheaterBoardVO> list = new ArrayList<TheaterBoardVO>();
+		String sql = "select * from theater_board";
+		conn = DBcon.getConnect();
+
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				TheaterBoardVO tvo = new TheaterBoardVO();
+				tvo.setBoardNum(rs.getInt("board_num"));
+				tvo.setMemberName(rs.getString("member_name"));
+				tvo.setBoardTitle(rs.getString("board_title"));
+				tvo.setMemberId(rs.getString("member_id"));
+				tvo.setBoardContent(rs.getString("board_content"));
+				tvo.setBoardDate(rs.getString("board_date"));
+				tvo.setBoardHit(rs.getInt("board_hit"));
+				list.add(tvo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return list;
+	}
+
+	// 게시물 insert
+	public TheaterBoardVO insertBoard(TheaterBoardVO vo) {
+		conn = DBcon.getConnect();
+		String selectKey = "select nvl(max(board_num),0)+1 from theater_board";
+		String inssertSql = "insert into THEATER_BOARD values(?,?,to_char(sysdate, 'YYYY-MM-DD'),?,?,?,?)";
+		TheaterBoardVO tvo = new TheaterBoardVO();
+		int key = 0;
+		// 게시판 번호의 맥시멈 값에 1을 더한 값을 출력
+		try {
+			psmt = conn.prepareStatement(selectKey);
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				key = rs.getInt(1);
+			}
+			// insert 작업
+			psmt = conn.prepareStatement(inssertSql);
+			psmt.setInt(1, key);
+			psmt.setString(2, tvo.getMemberId());
+			psmt.setString(3, tvo.getBoardDate());
+			psmt.setString(4, tvo.getBoardContent());
+			psmt.setInt(5, tvo.getBoardHit());
+			psmt.setString(6, tvo.getBoardTitle());
+			psmt.setString(7, tvo.getMemberName());
+
+			int r = psmt.executeUpdate();
+			if (r != 0) {
+				System.out.println("작업완료");
+			} else {
+				System.out.println("실패");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return tvo;
+	}
+
+	// 게시글 한건 조회
+	public TheaterBoardVO getBoardSelect(TheaterBoardVO vo) {
+		conn = DBcon.getConnect();
+		String sql = "select * from theater_board where board_num = ?";
+		TheaterBoardVO tvo = new TheaterBoardVO();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, vo.getBoardNum());
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				tvo.setBoardNum(rs.getInt("board_num"));
+				tvo.setMemberName(rs.getString("member_name"));
+				tvo.setBoardTitle(rs.getString("board_title"));
+				tvo.setBoardContent(rs.getString("board_content"));
+				tvo.setBoardDate(rs.getString("board_date"));
+				tvo.setBoardHit(rs.getInt("board_hit"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return tvo;
+
+	}
+
+	// DB연동 게시글 삭제
+	public void delBoard(TheaterBoardVO vo) {
+		conn = DBcon.getConnect();
+		String sql = "delete from theater_board where board_num = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, vo.getBoardNum());
+			int n = psmt.executeUpdate();
+			if (n != 0) {
+				System.out.println("삭제완료");
+			} else {
+				System.out.println("삭제실패");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	// update
+	public boolean updateBoard(TheaterBoardVO vo) {
+		conn = DBcon.getConnect();
+		String sql = "update theater_board set board_title = ?, board_content = ? member_name = ? where board_num = ?";
+		int tlqkf = 0;
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getBoardTitle());
+			psmt.setString(2, vo.getBoardContent());
+			psmt.setString(3, vo.getMemberName());
+			psmt.setInt(4, vo.getBoardNum());
+			tlqkf = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return tlqkf == 0 ? false : true;
+		
+	}
+
+	// Close 메소드
 	public void close() {
 		if (rs != null) {
 			try {

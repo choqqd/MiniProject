@@ -1,45 +1,53 @@
 package TheaterBoardService;
 
 public class TheaterBoardVO {
-
-	private int board_id;
-	private String board_title;
-	private String user_name;
-	private String board_date;
-	private int board_hit;
-	
-	////////////////////////////////////////////////////////////
-	public int getBoard_id() {
-		return board_id;
+	private int boardNum;
+	private String memberId;
+	private String boardDate;
+	private String boardContent;
+	private int boardHit;
+	private String boardTitle;
+	private String memberName;
+	public int getBoardNum() {
+		return boardNum;
 	}
-	public void setBoard_id(int board_id) {
-		this.board_id = board_id;
+	public void setBoardNum(int boardNum) {
+		this.boardNum = boardNum;
 	}
-	public String getBoard_title() {
-		return board_title;
+	public String getMemberId() {
+		return memberId;
 	}
-	public void setBoard_title(String board_title) {
-		this.board_title = board_title;
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
 	}
-	public String getUser_name() {
-		return user_name;
+	public String getBoardDate() {
+		return boardDate;
 	}
-	public void setUser_name(String user_name) {
-		this.user_name = user_name;
+	public void setBoardDate(String boardDate) {
+		this.boardDate = boardDate;
 	}
-	public String getBoard_date() {
-		return board_date;
+	public String getBoardContent() {
+		return boardContent;
 	}
-	public void setBoard_date(String board_date) {
-		this.board_date = board_date;
+	public void setBoardContent(String boardContent) {
+		this.boardContent = boardContent;
 	}
-	public int getBoard_hit() {
-		return board_hit;
+	public int getBoardHit() {
+		return boardHit;
 	}
-	public void setBoard_hit(int board_hit) {
-		this.board_hit = board_hit;
+	public void setBoardHit(int boardHit) {
+		this.boardHit = boardHit;
 	}
-	
-	
-	
+	public String getBoardTitle() {
+		return boardTitle;
+	}
+	public void setBoardTitle(String boardTitle) {
+		this.boardTitle = boardTitle;
+	}
+	public String getMemberName() {
+		return memberName;
+	}
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
+	}
 }

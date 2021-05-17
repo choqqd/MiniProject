@@ -6,13 +6,50 @@
 <title>theaterBoard.html</title>
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
 	$(document).ready(function() {
 		$.ajax({
-
+			url: '../../theaterBoardServlet',
+			type: 'get',
+			dataType: 'json',
+			success: function(result){
+				console.log(result);
+				console.log(result.length);
+				
+				let table = $('<table id="boardTable" />');
+				table.append(title);
+				for(let k of result){
+					let tr = $('<tr id="boardTrTag" />');
+					tr.append(
+						$('<td>').html(k.board_num),
+						$('<td>').html(k.member_name),
+						$('<td>').html(k.board_title),
+						$('<td>').html(k.board_content),
+						$('<td>').html(k.board_date),
+						$('<td>').html(k.board_hit)
+					);
+					table.append(tr);
+				}
+				$('#show').append(table);
+			},
+			error: function(reject){
+				window.alert(reject.statusText);
+				console.log('에러코드 : ${reject.status}, 에러메세지 : ${reject.statusText}');
+			}
 		});
+		function title(){
+			let title = $('<tr id="boardTitle" />');
+			title.append(
+				$('<td>').html("번호"),
+				$('<td>').html("이름"),
+				$('<td>').html("제목"),
+				$('<td>').html("내용"),
+				$('<td>').html("등록날짜"),
+				$('<td>').html("조회수"),
+			)
+			return title;
+		}
 	});
 </script>
 <script

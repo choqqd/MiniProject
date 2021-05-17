@@ -16,7 +16,7 @@ public class RankDAO {
 	PreparedStatement psmt;
 	ResultSet rs;
 
-	
+	 
 	public RankVO getRank(String showCode) { 
 		conn = DBcon.getConnect();
 		String sql = "";

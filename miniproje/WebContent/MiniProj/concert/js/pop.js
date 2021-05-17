@@ -86,7 +86,7 @@
             },
             onClose: function() {
                 content.empty();
-            }
+            } 
         });
                 // Prevents the default action to be triggered. 
                 e.preventDefault();

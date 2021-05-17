@@ -16,7 +16,7 @@ public class GetRankServlet extends HttpServlet {
 	public GetRankServlet() {
 		super();
 	}
-
+ 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setCharacterEncoding("UTF-8");

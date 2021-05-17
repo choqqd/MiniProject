@@ -1,11 +1,139 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>Gaze In Daegu :: �Խñ� ��ȸ</title>
+<meta charset="utf-8">
+<title>Gaze In Daegu :: 게시글 조회</title>
+<!-- Google Font -->
+	<link
+		href='https://fonts.googleapis.com/css?family=Roboto:400,500.00,700,300'
+		rel='stylesheet' type='text/css'>
+	
+	<!--all css here-->
+	<!-- bootstrap v3.3.6 css -->
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<!-- flaticon css -->
+	<link rel="stylesheet" href="../css/shopick-icon.css">
+	<!-- style css -->
+	<link rel="stylesheet" href="../css/style.css">
+	<!-- Banya's css -->
+	<link rel="stylesheet" href="../css/ConcertBoard.css">
+	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$.ajax({
+			url: '../../getContentsServ',
+			type: 'get',
+			dataType: 'json',
+			success: getContents,
+			error: function(reject) {
+				console.log(reject);
+			}
+		});
+		
+		function getContents(result) {
+			console.log(result);
+			
+			let $trTag = $('<tr />');
+			$trTag.append($('<th colspan="3" />').html(result.title));
+			$trTag.append(
+					$('<td width="10%" />').html(result.memberName),
+					$('<td width="80%" />').html(result.uploadDate),
+					$('<td width="10%" />').html(result.hit),
+				);
+			$trTag.append($('<td colspan="3" />').html(result.contents));
+			$trTag.append(
+					$('<td />').append('<button />').attr('class', 'btn').html(목록가기),
+					$('<td align="right"/>').append('<button />').attr('class', 'btn').html(글수정),
+					$('<td />').append('<button />').attr('class', 'btn').html(글삭제),
+			);
+			$('.contentsTbl').append($trTag);
+			
+		}
+	})
+</script>
 </head>
 <body>
-	<h1>Test</h1>
-	<div>This page is Banya will work on.</div>
+	<!-- HEADER-AREA START -->
+	<header class="header-area">
+		<!-- Header-Top Start -->
+		<div class="header-top hidden-xs">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-sm-6">
+						<div class="header-top-left text-left">
+							<ul>
+								<li><i class="sp-phone"></i> <span>010-1111-1111</span></li>
+								<li><i class="sp-email"></i> <span>email@naver.com</span></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-6 col-sm-6">
+						<div class="header-top-right pull-right">
+							<ul>
+								<li><a href="#">관리 <span><i class="sp-gear"></i></span></a>
+									<ul class="submenu">
+										<li><a href="#">로그인</a></li>
+										<li><a href="#">내 정보</a></li>
+										<li><a href="#">관심목록</a></li>
+										<li><a href="#">로그아웃</a></li>
+									</ul></li>
+							</ul>
+							<div class="header-search">
+								<form action="#">
+										<input type="text" placeholder="Search..." />
+									<button type="submit">
+										<i class="sp-search"></i>
+									</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Header-Top End -->
+		<!-- Main-Header Start -->
+	
+		<div class="main-header">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-2 col-sm-6 col-xs-12">
+						<div></div>
+					</div>
+					<div class="col-md-8 hidden-sm hidden-xs">
+						<div class="main-menu pull-right">
+							<nav>
+								<ul>
+									<li><a href="../index.html">home</a></li>
+									<li><a href="Concert.html">콘서트</a></li>
+									<li><a href="../musical/Musical.html">뮤지컬</a></li>
+									<li><a href="../theater/Theater.html">연극</a></li>
+									<li><a href="">게시판</a></li>
+									<li><a href="">공연장</a></li>
+									<li><a href="">이벤트/쿠폰</a></li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Main-Header End -->
+	</header>		
+	<!-- HEADER-AREA END -->
+	<div class = "wrap">
+		<table class = 'contentsTbl' align = 'center'>
+		<caption><h2>Concert Board</h2></caption>
+		</table>
+	</div>
+	<div class="footer">
+		<!-- Footer는 Sifoot start -->
+		<p class="single-footer" align="center">
+			(주)Gaze in Daegu 대구광역시 중구 국채보상로 537 (수동, 5층) / 대표자:조진호 / <br> 대표
+			GIt:https://github.com/choqqd/Miniproj.git / 개인정보보호책임자:조진호 <br>
+			Copyright © 2021 (주)Gaze in Daegu All Rights Reserved.
+		</p>
+	</div>
 </body>
 </html>

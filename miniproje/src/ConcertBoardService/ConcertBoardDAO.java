@@ -10,6 +10,7 @@ import java.util.List;
 import Common.DBcon;
 
 public class ConcertBoardDAO {
+	
 	Connection conn;
 	PreparedStatement psmt;
 	ResultSet rs;
@@ -69,20 +70,18 @@ public class ConcertBoardDAO {
 		return list;
 	}
 	
-	// 글제목으로 게시글 1건 조회
-	public ConcertBoardVO selecetContents() {
+	// 글번호로 게시글 1건 조회
+	public ConcertBoardVO selecetContents(int boardNum) {
 		conn = DBcon.getConnect();
 		ConcertBoardVO vo = new ConcertBoardVO();
 		
-		String selSql = "selecte * from concert_board where title = ?";
+		String selSql = "select member_name, title, contents, upload_name, hit from concert_board where board_num = ?";
 		
 		try {
 			psmt = conn.prepareStatement(selSql);
-			psmt.setString(1, vo.getTitle());
+			psmt.setInt(1, boardNum);
 			rs = psmt.executeQuery();
 			if(rs.next()) {
-				vo.setBoardnum(rs.getInt("board_num"));
-				vo.setMemberId(rs.getString("member_id"));
 				vo.setMemberName(rs.getString("member_name"));
 				vo.setTitle(rs.getString("title"));
 				vo.setContents(rs.getString("contents"));

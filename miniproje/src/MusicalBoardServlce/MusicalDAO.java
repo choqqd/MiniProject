@@ -12,7 +12,7 @@ import projectVO.ShowVO;
 
 public class MusicalDAO {
 	Connection conn;
-	PreparedStatement psmt = null;
+	PreparedStatement psmt ;
 	ResultSet rs;
 
 	// 전체 리스트 조회 출력 
@@ -39,18 +39,24 @@ public class MusicalDAO {
 		} finally {
 			close();
 		}
-
 		return list;
 	}
+	
+	
+	
 	
 	// 뮤지컬 공연 등록
 	public void insertMusical(ShowVO vo) {
 		String sql = "insert into show values(?,?,?,?,?)";
+		String sq2 = "insert into show values(?,?,?,?,?)";
+		
 		DBcon.getConnect();
 		conn = DBcon.getConnect();
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, vo.getShow_Code());
+			
+			
 			psmt.setString(2, vo.getShow_Name());
 			psmt.setString(3, vo.getShow_Startday());
 			psmt.setString(4, vo.getShow_Endday());
@@ -63,15 +69,10 @@ public class MusicalDAO {
 		}finally {
 			close();
 		}
-		
 	}
 	
 	
-	
-	
-	
-	
-	
+
 
 	public void close() {
 		if (rs != null) {

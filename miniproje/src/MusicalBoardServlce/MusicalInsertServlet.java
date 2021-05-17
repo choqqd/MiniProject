@@ -20,9 +20,8 @@ public class MusicalInsertServlet extends HttpServlet {
         super();
     }
     @Override
-    public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
-    	// TODO Auto-generated method stub
-    	
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    
     	String show_Code = req.getParameter("show_Code");
     	String show_Name = req.getParameter("show_Name");
     	String show_Startday = req.getParameter("show_Startday");
@@ -39,5 +38,8 @@ public class MusicalInsertServlet extends HttpServlet {
     	MusicalDAO dao = new MusicalDAO();
     	dao.insertMusical(vo);
     }
+    
+   
+
 
 }

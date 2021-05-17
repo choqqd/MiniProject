@@ -30,7 +30,7 @@ public class BoardUploadServ extends HttpServlet {
 		
 		ConcertBoardDAO dao = new ConcertBoardDAO();
 		ConcertBoardVO vo = new ConcertBoardVO();
-		
+		System.out.println(name+title+contents);
 		vo.setMemberName(name);
 		vo.setTitle(title);
 		vo.setContents(contents);

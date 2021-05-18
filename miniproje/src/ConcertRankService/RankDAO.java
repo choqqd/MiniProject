@@ -19,7 +19,7 @@ public class RankDAO {
 	 
 	public RankVO getRank(String showCode) { 
 		conn = DBcon.getConnect();
-		String sql = "";
+		String sql = "select showname, bookingcount from ticketing where showcode=?";
 		RankVO rank = new RankVO();
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -27,7 +27,7 @@ public class RankDAO {
 			rs = psmt.executeQuery();
 			if (rs.next()) {
 				rank.setShowName(rs.getString("showName"));
-				rank.setHit(rs.getInt("Hit"));
+				rank.setBookingCount(rs.getInt("bookingcount"));
 			
 			}
 		} catch (SQLException e) {
@@ -62,14 +62,14 @@ public class RankDAO {
 		conn = DBcon.getConnect();
 		List<RankVO> list = new ArrayList<>();
 		try {
-			psmt = conn.prepareStatement("select* from ");
+			psmt = conn.prepareStatement("select showname, showcode, bookingcount from ticketing orderby bookingcount asc");
 			rs = psmt.executeQuery();
 
 			while (rs.next()) {
 				RankVO vo = new RankVO();
 				vo.setShowCode(rs.getString("showCode"));
 				vo.setShowName(rs.getString("showName"));
-				vo.setHit(rs.getInt("hit"));
+				vo.setBookingCount(rs.getInt("bookingcount"));
 			
 				list.add(vo);
 			}

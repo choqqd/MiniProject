@@ -29,9 +29,9 @@ public class GetRankServlet extends HttpServlet {
 		RankVO vo = dao.getRank(code);
 
 		JSONObject obj = new JSONObject();
-		obj.put("hit", vo.getHit());
-		obj.put("Name", vo.getShowName());
-		obj.put("Code", vo.getShowCode());
+		obj.put("bookingCount", vo.getBookingCount());
+		obj.put("showName", vo.getShowName());
+		obj.put("showCode", vo.getShowCode());
 		
 		
 		response.getWriter().print(obj);

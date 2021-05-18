@@ -19,7 +19,7 @@
 	vo = dao.login(userid, userPwd);
 	if(vo!=null&&vo.getMember_Id().equals(userid)){
 		request.setAttribute("mem", vo);
-		RequestDispatcher rd = request.getRequestDispatcher("index.html");
+		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 		rd.forward(request,response);
 	}else{
 		RequestDispatcher rd = request.getRequestDispatcher("login.jsp");

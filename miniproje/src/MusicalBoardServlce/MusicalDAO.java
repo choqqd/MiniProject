@@ -51,7 +51,7 @@ public class MusicalDAO {
 				+ "      (select CONCAT(SUBSTR(max(SHOW_CODe),1,1),SUBSTR(max(SHOW_CODe),2,2)+1)\r\n"
 				+ "      from show \r\n"
 				+ "      where SHOW_CODE like 'M%'),\r\n"
-				+ "      'hello',sysdate,sysdate,1);";
+				+ "      ?,?,?,?)";
 		DBcon.getConnect();
 		conn = DBcon.getConnect();
 		try {

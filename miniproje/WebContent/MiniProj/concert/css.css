@@ -13,8 +13,8 @@
 	height: 200vh;
 	grid-template-rows: 1fr 1fr 1fr 1fr 1fr ;
 	grid-template: 'top top top top top' 
-					'genre  show show show show'
-					'blank  show show show show'
+					'blank  show show show rank'
+					'blank  show show show rank'
 					'blank board board board rank' 
 					'foot foot foot foot foot';
 }
@@ -196,7 +196,31 @@ li {
 ======================================== */
 .rank{
 	grid-area: rank;
-		padding: 20px;
+		padding: 10px;
+}
+.rank .subject{
+	width: 100px;
+	height:100px;
+		display: list-item;
+	text-align: -webkit-match-parent;
+}
+.rank div{
+	display: block;
+	border: 1px solid pink;
+}
+.rank img{
+	width: 300px;
+	height: 500px;
+	display: inline-block;
+}
+.detail{
+	display: block;
+}
+.detail .thum{
+	float: left;
+    position: relative;
+    width: 301px;
+    height: 211px;
 }
 /* ====================================== 
 	16. Footer-Area

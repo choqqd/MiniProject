@@ -16,7 +16,7 @@ public class RankDAO {
 	PreparedStatement psmt;
 	ResultSet rs;
  
-	 
+	 //한건 조회 필요없을듯
 	public RankVO getRank(String showCode) { 
 		conn = DBcon.getConnect();
 		String sql = "select showname, bookingcount from ticketing where showcode=?";
@@ -57,12 +57,12 @@ public class RankDAO {
 		}
 		return rank;
 	}
-
+	//리스트 조회
 	public List<RankVO> getRankList() {
 		conn = DBcon.getConnect();
 		List<RankVO> list = new ArrayList<>();
 		try {
-			psmt = conn.prepareStatement("select showname, showcode, bookingcount from ticketing orderby bookingcount asc");
+			psmt = conn.prepareStatement("select showname, showcode, bookingcount from ticketing order by bookingcount asc");
 			rs = psmt.executeQuery();
 
 			while (rs.next()) {

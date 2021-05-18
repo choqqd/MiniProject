@@ -61,7 +61,7 @@
 	margin: 0;
 	display: block;
 	padding: 1%;
-	
+	cursor:pointer;
 }
 .postbox ul li a{
 		cursor:pointer;
@@ -161,19 +161,29 @@ li {
     
 	}
 	
-	.content3{
-	src:"../img/index/con1.gif"
+		#element_to_pop_up3 { 
+    background-color:#fff; 
+    border-radius:15px;
+    color:#000;
+    display:none; 
+    padding:20px;
+    min-width:400px;
+    min-height: 180px;
+    
 	}
+		#element_to_pop_up4 { 
+    background-color:#fff; 
+    border-radius:15px;
+    color:#000;
+    display:none; 
+    padding:20px;
+    min-width:400px;
+    min-height: 180px;
+    
+	}
+	
 
-/* * {margin:0; padding:0; box-sizing:border-box;}
 
-.button  {background:#333; color:#fff; font-size:14px; text-decoration:none; text-align:center; line-height:24px;}
-.page {padding:20px;}
-#layer {display:none; position:absolute; top:50%; left:50%; width:600px; height:376px; margin:-188px 0 0 -300px; padding:20px; background:#eee; box-shadow:1px 1px 10px rgba(0,0,0,0.3); border:1px solid #dadada; z-index:21;}
-#layer #player {display:block; margin:20px auto 0;}
-#layer .inner {position:relative;}
-#layer .inner .close {position:absolute; top:-30px; right:0; display:block; width:20px; height:20px; background:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt18SOam3wUX0wExC6ji5-lY732vA2fEPBscikPQaLbT_tJd7Y7g') no-repeat 0 0; text-indent:-999em; background-size:20px 20px;}
-.dim {display:none; position:fixed; _position:absolute; top:0;left:0; background:#000; width:100%; height:100%; filter:Alpha(opacity=40); opacity:0.4; -moz-opacity:0.4; z-index:20;}  */
 /* ====================================== 
 	16. Footer-Area
 ======================================== */

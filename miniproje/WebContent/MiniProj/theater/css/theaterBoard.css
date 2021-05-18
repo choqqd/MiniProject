@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+#boardTable {
+	border-top: 1px solid #4169E1;
+	text-align: center;
+	width: 80%;
+	height: auto;
+	margin: 50px auto;
+	text-align: center;
+}
+
+#show {
+	height: auto;
+}
+
+#tdTag {
+	border-bottom: 1px solid gray;
+}
+
+#boardTitle>th {
+	text-align: center;
+	width: 14.28%;
+	padding: 20px;
+	border-bottom: 2px solid black;
+}

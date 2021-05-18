@@ -26,7 +26,7 @@
 	background-color: bisque;
 	justify-items: center;
 	align-items: center;
-	display: grid;
+	
 	
 }
 
@@ -117,10 +117,7 @@ li {
 /* ====================================== 
 	16. Footer-Area
 ======================================== */
-.genre {
-	grid-area: genre;
-		padding: 20px;
-}
+
 .blank {
 	grid-area: blank;
 
@@ -131,11 +128,89 @@ li {
 .show {
 	grid-area: show;
 	text-align: center;
-	line-height: 300px;
-	max-width: 100%;
+	line-height: auto;
 	height: auto;
 	padding: 10px;
 }
+.small_poster{
+	height:400px;
+	width:300px;
+}
+
+
+.showbox {
+	width: 100%;
+	background: black;
+	border-radius: 10px;
+	overflow: auto;
+	padding: 50px 15px 15px 50px;
+	margin: 10px 10px;
+	box-shadow: 0 3px 5px rgb(0 0 0/ 10%);
+}
+
+.showbox ul li {
+	width: 30%;
+	
+	margin-left: 30px;
+	display: inline-block;
+}
+
+.showbox ul li img {
+	width: 250px;
+	height: 350px;
+	margin: 0;
+	display: block;
+	padding: 1%;
+	cursor:pointer;
+}
+.showbox ul li a{
+		cursor:pointer;
+	
+		
+	}
+.showbox ul li strong {
+	width: 300px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	display: white;
+	margin: 10px;
+}
+
+.showbox ul li strong {
+	font-family: NanumSquareRound !important;
+	color: violet;
+	font-size: 30px;
+	font-weight: bold;
+	line-height: 30px;
+	text-align: center;
+}
+.showbox h2 {
+	font-family: NanumSquareRound !important;
+			color: white;
+			font-size: 25px;
+			font-weight: bold;
+			line-height: 21px;
+			border-bottom: 1px solid #d4d4d4;
+			width: 100%;
+			margin: 0 0 19px 0;
+			padding: 0px 0 16px 0;
+}
+
+
+
+
+.button{
+	cursor: pointer;
+}
+.button img{
+	height: 100px;
+	width: 350px;
+}
+
+
+
+
+
 /* ====================================== 
 	16. Popup video
 ======================================== */
@@ -206,22 +281,86 @@ li {
 }
 .rank div{
 	display: block;
-	border: 1px solid pink;
+	
 }
 .rank img{
 	width: 300px;
 	height: 500px;
 	display: inline-block;
 }
-.detail{
-	display: block;
+
+
+
+
+#search-ranking {
+    position: absolute;
+    top: 14px;
+    right: 0;
+    width: 198px;
+    height: 20px;
 }
-.detail .thum{
-	float: left;
-    position: relative;
-    width: 301px;
-    height: 211px;
+
+#search-ranking ul {
+    display: none;
+    list-style: none;
+    padding: 17px;
+    margin: 0;
+    width: 332px;
+    height: 334px;
+    border: 1px solid #aaa;
+    background: white;
+    position: absolute;
+    top: 15px;
+    right: 0;
+    z-index: 100;
 }
+
+#z-example {
+    position: absolute;
+    background: yellow;
+    width: 100px;
+    height: 100px;
+    z-index: 1;
+}
+
+#z-inner {
+    position: absolute;
+    background: red;
+    width: 50px;
+    height: 50px;
+    z-index: 1000;
+}
+
+#search-ranking:hover ul {
+    display: inline-block;
+}
+
+#rank-number {
+    margin-top: -9px;
+    color: #00ab33;
+    font-size: 16px;
+}
+
+#rank-title {
+    letter-spacing: -1px;
+    font-size: 14px;
+    color: white;
+}
+.subtitle{
+	color: white;
+	size: 10px;
+	text-align: "center"
+}
+
+.blind {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    margin: -1px;
+    width: 1px;
+    height: 1px;
+}
+
 /* ====================================== 
 	16. Footer-Area
 ======================================== */

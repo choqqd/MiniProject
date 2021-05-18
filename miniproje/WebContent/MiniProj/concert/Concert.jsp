@@ -95,6 +95,65 @@
 				</div>
 			</div>
 		</div>
+		
+		
+										
+<!-- 실시간 검색 순위 -->
+															
+						  <div class="center-align relative">
+						    <div id="search-ranking">
+						      <p class="subtitle">실시간 검색 순위</p>
+						      <div>
+						        <span id="rank-number">1</span>
+						        <span id="rank-title">미스터트롯</span>
+						      </div>
+						      <ul>
+						        <li>
+						          <span class="rank-number">1</span>
+						          <span class="rank-title">미스터트롯</span>
+						        </li>
+						        <li>
+						          <span class="rank-number">2</span>
+						          <span class="rank-title">싱어게인</span>
+						        </li>
+						        <li>
+						          <span class="rank-number">3</span>
+						          <span class="rank-title">이문세</span>
+						        </li>
+						        <li>
+						          <span class="rank-number">4</span>
+						          <span class="rank-title">양준일</span>
+						        </li>
+						        <li>
+						          <span class="rank-number">5</span>
+						          <span class="rank-title">청춘페스티벌</span>
+						        </li>
+						        <li>
+						          <span class="rank-number">6</span>
+						          <span class="rank-title">정승환</span>
+						        </li>
+						        <li>
+						          <span class="rank-number">7</span>
+						          <span class="rank-title">정동하||소향</span>
+						        </li>
+						        <li>
+						          <span class="rank-number">8</span>
+						          <span class="rank-title">VOS</span>
+						        </li>
+						        <li>
+						          <span class="rank-number">9</span>
+						          <span class="rank-title">옥상달빛</span>
+						        </li>
+						        <li>
+						          <span class="rank-number">10</span>
+						          <span class="rank-title">데이브레이크</span>
+						        </li>
+						      </ul>
+						    </div>
+						  </div>
+						
+<!-- 실시간 검색 순위 끝 -->
+						
 		<!-- Main-Header End -->
 	</header>
 	<!-- HEADER-AREA END -->
@@ -113,8 +172,8 @@
 			 	
 						<li>
 							<div>								
-						 	<img id="my-button" alt="num1" src="../img/index/con1.gif">
-							<iframe id="element_to_pop_up" width="640" height="360" src="https://www.youtube.com/embed/7j2KMMadI8M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						 	<img id="my-button" alt="num1" src="img/con1.png">
+							<iframe id="element_to_pop_up" width="640" height="360" src="https://www.youtube.com/embed/7j2KMMadI8M" title="YouTube video player"></iframe>
 							</div>
 							<strong>싱어게인 Top10 콘서트</strong> 
 							<span class="small">2021.06.05 ~</span>
@@ -126,7 +185,7 @@
 							<div >  
 							<img id="my-button2" alt="num2" src="../img/index/con2.gif">
 							
-							<iframe id="element_to_pop_up2" width="640" height="360" src="https://www.youtube.com/embed/4KYvPLGJlSY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<iframe id="element_to_pop_up2" width="640" height="360" src="https://www.youtube.com/embed/4KYvPLGJlSY" title="YouTube video player"></iframe>
 							</div>
 						 	
 				
@@ -141,7 +200,7 @@
 							<div>
 						 	<img id="my-button3" alt="num3" src="../img/index/con3.gif">
 							
-							<iframe  id="element_to_pop_up3" width="640" height="360" src="https://www.youtube.com/embed/_Rp3FKVEhcg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<iframe  id="element_to_pop_up3" width="640" height="360" src="https://www.youtube.com/embed/_Rp3FKVEhcg" title="YouTube video player"></iframe>
 							</div>
 							<strong>에일리 단독 콘서트</strong> 
 							<span class="small">2021.06.05 ~</span>
@@ -152,9 +211,9 @@
 						<li>
 						
 							<div >
-						 	<img id="my-button4" alt="num4" src="../img/index/con4.jpg">
+						 	<img id="my-button4" alt="num4" src="img/con4.png">
 							
-							<iframe id="element_to_pop_up4" width="640" height="360" src="https://www.youtube.com/embed/k82wvbObl2k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<iframe id="element_to_pop_up4" width="640" height="360" src="https://www.youtube.com/embed/k82wvbObl2k" title="YouTube video player"></iframe>
 							</div>
 							<strong>장윤정 라이브 콘서트</strong> 
 							<span class="small">2021.06.26 ~</span>
@@ -176,24 +235,23 @@
 <!-- 왼쪽 콘서트 장르 End -->
 
 <!-- 중간 콘서트 소개 영상 -->
-	<div >
-		<div>
-			<img src="../img/index/con1.gif">
+	<div class="show">
+		<div class="showbox">
+			<img class="small_poster" src="img/con1.png">
 			<div>
+				$.ajax 사용해서 각 이미지에 button 주고 클릭시 동영상 재생과 함께 
+		 		아래의 정보 함께 뜨도록 코드 짜기
 					<ul>
-								<li>공연명
+								<li>공연명 : 싱어게인 Top 10 콘서트
 									</li>
-								<li>공연기간
+								<li>공연기간 : 2021.06.05 ~
 									</li>
-								<li>출연진
+								<li>출연진 : 이미미,이미미,김미미, ...
 									</li>
-								<li>평점
-									</li>
-								<li>또 어떤거?	
-									</li>
-					
+								<li>기대 평점 : ★★★★★ (5.0) 
+									
 					</ul>			
-			
+				<button class="button"><img src="img/bookBtn.jpg"></button>
 			</div>		
 		</div>	
 	</div>
@@ -222,6 +280,12 @@
 
 <!-- 오른쪽 아래 공연 랭킹 정보-->
 				<div class="rank">
+				
+					
+					
+					
+					
+					
 					<div class="subject"><span>Weekly Rank</span></div>
 					
 						
@@ -230,7 +294,7 @@
 								<!--  <a href="" class="playBtn" onclick="movieLayer">
 										<img alt=""></a>-->
 
-
+								
 								db에서 가져오는 형태로 새로 해야됨.
 								doget으로 테이블형태로 가져오던지 아래와 같은 형태로 받아와서
 								클릭하면 포스터 변화 
@@ -240,23 +304,23 @@
 
 										</li>
 										<li>
-									<a href="" onclick="" class >10cm&치즈</a>
+									<a href="" onclick="" class="" >10cm||치즈</a>
 
 										</li>
 											<li>
-									<a href="" onclick="" class >에일리 콘서트</a>
+									<a href="" onclick="" class="" >에일리 콘서트</a>
 
 										</li>
 											<li>
-									<a href="" onclick="" class>장윤정 콘서트</a>
+									<a href="" onclick="" class="">장윤정 콘서트</a>
 
 										</li>
 								</ol>	
-								
-								
-						</div>
+
+														
+</div>
 			
-				</div>
+				
 <!-- 오른쪽 아래 공연 랭킹 정보 End -->
 
 <!-- To top BTN -->

@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+.container{
+	width: 70%;
+}
+#insertPage {
+	width: 100%; 
+	height: auto;
+	margin: 50px auto;
+}
+
+#insertTable {
+	
+	border: 1px solid #dddddd;
+	margin: 20px auto;
+	text-align: center;
+}
+
+th {
+	background-color: #eeeeee;
+	text-align: center;
+	font-size: 16pt;
+}

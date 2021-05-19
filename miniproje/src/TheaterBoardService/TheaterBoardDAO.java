@@ -32,7 +32,7 @@ public class TheaterBoardDAO {
 				vo.setMemberName(rs.getString("member_name"));
 				vo.setBoardDate(rs.getString("board_date"));
 				vo.setBoardHit(rs.getInt("board_hit"));
-				System.out.println(rs);
+				list.add(vo);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

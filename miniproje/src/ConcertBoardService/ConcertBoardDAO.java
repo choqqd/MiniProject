@@ -71,15 +71,15 @@ public class ConcertBoardDAO {
 	}
 	
 	// 글번호로 게시글 1건 조회
-	public ConcertBoardVO selecetContents(int boardNum) {
+	public ConcertBoardVO selecetContents(String title) {
 		conn = DBcon.getConnect();
 		ConcertBoardVO vo = new ConcertBoardVO();
 		
-		String selSql = "select member_name, title, contents, upload_name, hit from concert_board where board_num = ?";
+		String selSql = "select member_name, title, contents, upload_date, hit from concert_board where title = ?";
 		
 		try {
 			psmt = conn.prepareStatement(selSql);
-			psmt.setInt(1, boardNum);
+			psmt.setString(1, title);
 			rs = psmt.executeQuery();
 			if(rs.next()) {
 				vo.setMemberName(rs.getString("member_name"));

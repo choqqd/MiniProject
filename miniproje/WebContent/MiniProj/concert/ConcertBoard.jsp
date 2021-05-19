@@ -1,3 +1,10 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="ConcertBoardService.ConcertBoardDAO"%>
+<%@page import="java.util.List"%>
+<%@page import="ConcertBoardService.ConcertBoardVO"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -20,67 +27,6 @@
 	<link rel="stylesheet" href="../css/ConcertBoard.css">
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<style>
-		
-	</style>
-	<script>
-		$(document).ready(function() {
-			$.ajax({
-				url: '../../getBoardList',
-				type: 'get',
-				dataType: 'json',
-				success: concertBoardList,
-				error: function(reject) {
-					console.log(reject);
-				}
-			});
-			
-			function concertBoardList(result) {
-				console.log(result);
-				console.log(result.length);
-				
-				let $table = $('<table class = "boardTbl" />');
-				$table.append(tableTitle());
-				
-				if(result.length == 0) {
-					let $tr = $('<tr />');
-					$tr.append(
-						$('<td class="emptyBoard" colspan="6"/>').html('아직 게시글이 등록되지 않았습니다. 첫번째 게시글을 올려주세요.')		
-					);
-					$table.append($tr);
-				}else{
-					for(let obj of result) {
-						let $tr = $('<tr />');
-						// 게시글 제목 누르면 게시글 본문 페이지로 이동
-						let contentsLink = $('<a />').attr('href', 'CboardContents.html?boardNum='+obj.boardNum).html(obj.title);
-							$tr.append(
-								$('<td width="5%" align="center" />').html(obj.boardNum),
-								//$('<td />').html(obj.memberId),
-								$('<td width="15%" align="center" />').html(obj.memberName),
-								$('<td width="60%" align="center" />').append(contentsLink),
-								$('<td width="15%" align="center" />').html(obj.uploadDate),
-								$('<td width="5%" align="center" />').html(obj.hit)
-							);
-							$table.append($tr);
-						}
-					}
-				$('#show').append($table);
-			}
-			
-			function tableTitle() {	// table title
-				let $title = $('<tr class="titleTr" />');
-				$title.append(
-					$('<th width="5%" />').html('No.'),
-					//$('<th width="10%" />').html('ID'),
-					$('<th width="15%" />').html('이름'),
-					$('<th width="60%" />').html('제목'),
-					$('<th width="15%" />').html('등록일'),
-					$('<th width="5%" />').html('조회수')
-				);
-				return $title;
-			}
-		});
-	</script>
 	</head>
 	<body>
 		<!-- HEADER-AREA START -->
@@ -153,8 +99,47 @@
 		<!-- HEADER-AREA END -->
 		<!-- section AREA START -->
 		<div class = "wrap">
-			<div id = 'show'></div><br>
-			<button class = "btn" type = "button" onclick ="location.href='uploadContents.html'">글쓰기</button>
+			
+				<%
+					ConcertBoardDAO dao = new ConcertBoardDAO();
+					List<ConcertBoardVO> list = dao.getBoarderList() ;
+					
+					request.setAttribute("list", list);
+				%>
+				
+				<div align= "center">
+					<table class= "boardTbl">
+					<caption><h2>Concert 게시판</h2></caption>
+						<tr class = "titleTr">
+							<th>no.</th><th>이름</th><th>제목</th><th>등록일</th><th>조회수</th>
+						</tr>
+					<%
+						if(list.size() == 0){
+					%>
+						<tr>
+							<td class= "emptyBoard" colspan="6">아직 게시글이 등록되지 않았습니다. 첫 게시글을 남겨보세요!</td>
+						</tr>
+					<%
+						} else {
+							for(int i = 0; i < list.size(); i++){
+					%>
+						<tr>
+							<td width="5%"><%= list.get(i).getBoardnum() %></td>
+							<td width="15%"><%= list.get(i).getMemberName() %></td>
+							<td width="60%"><a href = "CboardContents.jsp?title=<%= list.get(i).getTitle() %>"><%= list.get(i).getTitle() %></a></td>
+							<td width="15%"><%= list.get(i).getUploadDate() %></td>
+							<td width="5%"><%= list.get(i).getHit() %></td>
+							</tr>
+					<%
+							}
+						}
+					%>
+						<tr>
+							<td class= "bottomTd" colspan="6"><button class = "btn" type = "button" onclick ="a.href='uploadContents.jsp'">글쓰기</button></td>
+						</tr>
+					</table>
+				</div>
+			
 		</div>
 		<!-- section AREA END -->
 		<div class="footer">

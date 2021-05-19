@@ -26,15 +26,15 @@ public class TheaterMiniBoardServlet extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		TheaterBoardDAO dao = new TheaterBoardDAO();
-		List<TheaterVO> list = dao.MiniboardList();
+		List<TheaterBoardVO> list = dao.MiniboardList();
 		JSONArray ary = new JSONArray();
-		for (TheaterVO vo : list) {
+		for (TheaterBoardVO vo : list) {
 			JSONObject obj = new JSONObject();
-			obj.put("board_num", vo.getBoard_num());
-			obj.put("user_name", vo.getUser_name());
-			obj.put("board_title", vo.getBoard_title());
-			obj.put("board_date", vo.getBoard_date());
-			obj.put("board_hit", vo.getBoard_hit());
+			obj.put("board_num", vo.getBoardNum());
+			obj.put("Member_name", vo.getMemberName());
+			obj.put("board_title", vo.getBoardTitle());
+			obj.put("board_date", vo.getBoardDate());
+			obj.put("board_hit", vo.getBoardHit());
 			ary.add(obj);
 		}
 		response.getWriter().print(ary);

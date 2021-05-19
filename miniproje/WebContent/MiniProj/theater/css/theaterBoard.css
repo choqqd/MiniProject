@@ -1,25 +1,40 @@
 @charset "UTF-8";
+/*
+----------테이블 영역----------
+*/
+#show {
+	height: auto;
+}
 
 #boardTable {
-	border-top: 1px solid #4169E1;
+	border-radius: 50px;
 	text-align: center;
 	width: 80%;
 	height: auto;
 	margin: 50px auto;
 	text-align: center;
+	font-size: 14pt;
+	background-color: white;
 }
 
-#show {
-	height: auto;
+#insertBtn {
+	margin: 10px 40px 10px 0px;
+	border: 1px solid black;
+	float: right;
+	border-radius: 20px;
+	padding: 10px;
 }
 
-#tdTag {
+#trTag {
 	border-bottom: 1px solid gray;
 }
 
-#boardTitle>th {
+#trTag>td {
+	padding : 15px;
+}
+
+#boardTrTag>th {
 	text-align: center;
-	width: 14.28%;
-	padding: 20px;
+	padding: 10px;
 	border-bottom: 2px solid black;
 }

@@ -16,6 +16,7 @@ public class LoginOutDAO {
 		String sql = "select * from member where member_id=? and member_pwd=?";
 		MemberVO vo = new MemberVO();
 		System.out.println(id+pwd);
+		conn = DBcon.getConnect();
 		
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -24,6 +25,8 @@ public class LoginOutDAO {
 			rs = psmt.executeQuery();
 			
 			if(rs.next()) {
+				vo.setMember_Id(rs.getString("member_id"));
+				vo.setMember_Pwd(rs.getString("member_pwd"));
 				vo.setMember_Address(rs.getString("member_address"));
 				vo.setMember_Age(rs.getInt("member_age"));
 				vo.setMember_Code(rs.getString("member_code"));
@@ -32,7 +35,7 @@ public class LoginOutDAO {
 				vo.setMember_Name(rs.getString("member_name"));
 				vo.setMember_Tel(rs.getString("member_tel"));
 			}
-			
+			System.out.println(vo);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {

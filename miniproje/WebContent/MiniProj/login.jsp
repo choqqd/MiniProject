@@ -136,7 +136,7 @@
 			<h2> 로그인</h2>
 		</div>
 		<div class="loginWap">
-			<form action="loginfo.jsp" method="POST">
+			<form action="logCheck.jsp" method="POST">
 				<input class="login" type="text" name="userId" placeholder="아이디(ID)를 입력해 주세요."><br>
 				<input class="login" type="password" name="userPwd" placeholder="비밀번호(password)를 입력해 주세요."><br>
 				<input type="submit" value="로그인">

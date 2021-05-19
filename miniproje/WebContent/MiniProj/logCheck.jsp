@@ -17,8 +17,13 @@
 	LoginOutDAO dao = new LoginOutDAO();
 	
 	vo = dao.login(userid, userPwd);
-	if(vo.getMember_Id().equals(userid)){
-		
+	if(vo.getMember_Id()!=null && vo.getMember_Pwd()!=null && vo.getMember_Id().equals(userid) && vo.getMember_Pwd().equals(userPwd)){
+		request.setAttribute("mem", vo);
+		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+		rd.forward(request,response);
+	}else{
+		RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+		rd.forward(request,response);
 	}
 %>
 </body>

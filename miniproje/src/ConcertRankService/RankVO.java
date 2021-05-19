@@ -1,17 +1,17 @@
 package ConcertRankService;
 
 public class RankVO {
-	private int Hit;
+	private int BookingCount;
 	private String ShowName;
 	private String ShowCode;
 	
 	 
 	 
-	public int getHit() {
-		return Hit;
+	public int getBookingCount() {
+		return BookingCount;
 	}
-	public void setHit(int hit) {
-		Hit = hit;
+	public void setBookingCount(int bookingCount) {
+		BookingCount = bookingCount;
 	}
 	public String getShowName() {
 		return ShowName;

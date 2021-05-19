@@ -32,7 +32,7 @@ public class GetRankListServlet extends HttpServlet {
 			JSONObject obj = new JSONObject();
 			obj.put("ShowCode", vo.getShowCode());
 			obj.put("ShowName", vo.getShowName());
-			obj.put("Hit", vo.getHit());
+			obj.put("bookingCount", vo.getBookingCount());
 		
 			ary.add(obj);
 		}

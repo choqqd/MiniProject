@@ -65,6 +65,12 @@ public class MemberVO {
 	public void setMember_Gender(String member_Gender) {
 		Member_Gender = member_Gender;
 	}
+	@Override
+	public String toString() {
+		return "MemberVO [Member_Code=" + Member_Code + ", Member_Email=" + Member_Email + ", Member_Tel=" + Member_Tel
+				+ ", Member_Address=" + Member_Address + ", Member_Name=" + Member_Name + ", Member_Age=" + Member_Age
+				+ ", Member_Gender=" + Member_Gender + ", Member_Id=" + Member_Id + ", Member_Pwd=" + Member_Pwd + "]";
+	}
 	
 	
 }

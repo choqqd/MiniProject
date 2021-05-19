@@ -6,6 +6,7 @@
 <title>theaterBoard.html</title>
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+<link rel="stylesheet" href="css/theaterBoard.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
 	$(document).ready(function() {
@@ -13,40 +14,44 @@
 			url: '../../theaterBoardServlet',
 			type: 'get',
 			dataType: 'json',
-			success: function(result){
-				console.log(result);
-				console.log(result.length);
-				
-				let table = $('<table id="boardTable" />');
-				table.append(title);
-				for(let k of result){
-					let tr = $('<tr id="boardTrTag" />');
-					tr.append(
-						$('<td>').html(k.board_num),
-						$('<td>').html(k.member_name),
-						$('<td>').html(k.board_title),
-						$('<td>').html(k.board_content),
-						$('<td>').html(k.board_date),
-						$('<td>').html(k.board_hit)
-					);
-					table.append(tr);
-				}
-				$('#show').append(table);
-			},
+			success: tableContent,
 			error: function(reject){
 				window.alert(reject.statusText);
 				console.log('에러코드 : ${reject.status}, 에러메세지 : ${reject.statusText}');
 			}
 		});
+		
+		// Table 내용
+		function tableContent(result){
+			console.log(result);
+			console.log(result.length);
+			// Table
+			let table = $('<table id="boardTable" />');
+			table.append(title);
+			for(let k of result){
+				let tr = $('<tr id="boardTrTag" />');
+				tr.append(
+					$('<td id="tdTag">').html(k.board_num),
+					$('<td id="tdTag">').html(k.board_title),
+					$('<td id="tdTag">').html(k.board_content),
+					$('<td id="tdTag">').html(k.member_name),
+					$('<td id="tdTag">').html(k.board_date),
+					$('<td id="tdTag">').html(k.board_hit)
+				);
+				table.append(tr);
+			}
+			$('#show').append(table);
+		}
+		// Title
 		function title(){
 			let title = $('<tr id="boardTitle" />');
 			title.append(
-				$('<td>').html("번호"),
-				$('<td>').html("이름"),
-				$('<td>').html("제목"),
-				$('<td>').html("내용"),
-				$('<td>').html("등록날짜"),
-				$('<td>').html("조회수"),
+				$('<th>').html("번호"),
+				$('<th>').html("제목"),
+				$('<th>').html("내용"),
+				$('<th>').html("글쓴이"),
+				$('<th>').html("등록날짜"),
+				$('<th>').html("조회수"),
 			)
 			return title;
 		}
@@ -66,7 +71,7 @@
 <link rel="stylesheet" href="../css/shopick-icon.css">
 <!-- style css -->
 <link rel="stylesheet" href="../css/style.css">
-<link rel="stylesheet" href="theaterMain.css">
+<link rel="stylesheet" href="css/theaterMain.css">
 </head>
 <body>
 	<!-- HEADER-AREA START -->

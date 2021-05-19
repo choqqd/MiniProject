@@ -34,7 +34,7 @@
 			<td align="center" width="50"></td>
 			<td align="center" width="300"></td>
 			<td align="center" width="50"></td>
-			<td align="center" width="80"></td>
+			<td align="center" width="70"></td>
 			<td align="center" width="30"></td>		
 		</tr>
 	</table> <br>

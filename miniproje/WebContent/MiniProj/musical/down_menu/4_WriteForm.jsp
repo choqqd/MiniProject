@@ -57,7 +57,7 @@ function check() {
 		</tr>
 		<tr height="30">
 			<td width=15% align="center"> Content </td>
-			<td>&nbsp;<textarea name="contents" rows="30" cols="112"></textarea></td>
+			<td>&nbsp;<textarea name="contents" style="width:98%; height:500px; border:1; overflow:visible; text-overflow: ellipsis;"></textarea></td>
 		</tr>
 		<tr height="30">
 			<td width=15% align="center"> password </td>

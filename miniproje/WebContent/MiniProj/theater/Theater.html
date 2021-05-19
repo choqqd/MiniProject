@@ -14,6 +14,49 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script
 	src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+<style>
+	.boardlist {
+		border-radius:50px;
+		background-color:white;
+		margin-top:50px;
+		height: 600px;
+		border: 0px solid black;
+	}
+	.tr1:hover { 
+	background-color: lightyellow;
+	}
+
+	table.type09 {
+ 		border-collapse: collapse;
+  		text-align: left;
+  		line-height: 1.5;
+  		margin-left:auto;
+  		margin-right:auto;
+		margin-top:50px;
+	}
+	.tr2 {
+ 	padding: 10px;
+  	font-weight: bold;
+ 	vertical-align: top;
+  	color: #369;
+  	border-bottom: 3px solid #036;
+  	font-size: 25px;
+	}
+table.type09 tbody th {
+  width: 150px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  background: #f3f6f7;
+}
+table.type09 td {
+  width: 350px;
+  padding: 10px;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+}
+</style>
 <script>
 	//슬라이더 스크립트 부분
 	$(document).ready(function() {
@@ -26,22 +69,21 @@
 			dataType: 'json', //json ->object
 			success: function (result) {
 				console.log(result);
-				let tbl = $('<table />');
+				let tbl = $('<table class="type09" />');
 				tbl.attr('border', '1');
-				let trTag1 = $('<tr />');
+				let trTag1 = $('<tr class="tr2" />');	
 				trTag1.append(
-					$('<th />').html('번호'),
-					$('<th />').html('이름'),
-					$('<th />').html('제목'),
-					$('<th />').html('날짜'),
-					$('<th />').html('조회수'),
+					$('<th id="tdTag">').html('번호'),
+					$('<th id="tdTag">').html('이름'),
+					$('<th id="tdTag">').html('제목'),
+					$('<th id="tdTag">').html('날짜'),
+					$('<th id="tdTag">').html('조회수'),
 				);
 				tbl.append(trTag1);
 
 
 				for (a = 0; a < result.length; a++) {
-					let trTag = $('<tr />');
-					btn.click(delbtn);
+					let trTag = $('<tr class="tr1"  />');
 
 					trTag.append(
 						$('<td />').html(result[a].board_num),
@@ -264,27 +306,13 @@
 				<h1>지도</h1>
 			</div>
 		</div>
-		<p
-			style="color: black; font-weight: bold; font-size: 30pt; margin-top: 100px;">최근
+		<p style="color: black; font-weight: bold; font-size: 30pt; margin-top: 100px;">최근
 			게시물</p>
-
-		<div id="rankingmap">
-			<!--  
-			<form id='frm' action="userServlet" method='post'
-				enctype="multipart/form-data">
-				<table class='table'>
-					<tr>
-						<td><input type='text' name='board_num' id='board_num'>번호</td>
-						<td><input type='text' name='user_name' id='user_name'>이름</td>
-						<td><input type='text' name='board_title' id='board_title'>제목</td>
-						<td><input type='text' name='board_date' id='board_date'>날짜</td>
-						<td><input type='text' name="board_hit" id="board_hit">조회수</td>
-					</tr>
-				</table>
-				
-			</form>
-			-->
-			<div id="show"></div>
+		<div class="boardlist">
+			<br>
+			<p style="text-align: right; margin-right: 75px;"><a href="http://localhost/miniproje/MiniProj/theater/theaterBoard.jsp"> 게시물 더보기 </a></p>
+			
+			<div id="show" style="margin-top: auto; margin-bottom:auto;"></div>
 		</div>
 	</div>
 

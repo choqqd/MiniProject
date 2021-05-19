@@ -21,7 +21,7 @@ public class TheaterBoardDAO {
 	public List<TheaterVO> MiniboardList() {
 		conn = DBcon.getConnect();
 		List<TheaterVO> list = new ArrayList<TheaterVO>();
-		String sql = "select board_num, board_title, board_content board_date, board_hit from Theater_Board";
+		String sql = "select board_num, board_title, board_content, board_date, board_hit from Theater_Board";
 		try {
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
@@ -114,8 +114,7 @@ public class TheaterBoardDAO {
 		conn = DBcon.getConnect();
 		String selectKey = "select nvl(max(board_num),0)+1 from theater_board";
 		String date = "select TO_CHAR(SYSDATE, 'MM/DD/HH24:MI:SS') FROM DUAL";
-		String inssertSql = "insert into THEATER_BOARD values(?,?,?,?,?,?)";
-		TheaterBoardVO tvo = new TheaterBoardVO();
+		String inssertSql = "insert into THEATER_BOARD values (?,?,?,?,?,?)" ;
 		int key = 0;
 		String resultDate = null;
 		// 게시판 번호의 맥시멈 값에 1을 더한 값을 출력
@@ -134,11 +133,11 @@ public class TheaterBoardDAO {
 			// insert 작업
 			psmt = conn.prepareStatement(inssertSql);
 			psmt.setInt(1, key);
-			psmt.setString(2, tvo.getBoardTitle());
-			psmt.setString(3, tvo.getBoardContent());
-			psmt.setString(4, tvo.getMemberName());
+			psmt.setString(2, vo.getBoardTitle());
+			psmt.setString(3, vo.getBoardContent());
+			psmt.setString(4, vo.getMemberName());
 			psmt.setString(5, resultDate);
-			psmt.setInt(6, tvo.getBoardHit());
+			psmt.setInt(6, vo.getBoardHit());
 			int r = psmt.executeUpdate();
 			if (r != 0) {
 				System.out.println("작업완료");

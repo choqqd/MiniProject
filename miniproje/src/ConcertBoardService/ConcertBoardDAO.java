@@ -70,18 +70,19 @@ public class ConcertBoardDAO {
 		return list;
 	}
 	
-	// 글번호로 게시글 1건 조회
+	// 제목으로 게시글 1건 조회
 	public ConcertBoardVO selecetContents(String title) {
 		conn = DBcon.getConnect();
 		ConcertBoardVO vo = new ConcertBoardVO();
 		
-		String selSql = "select member_name, title, contents, upload_date, hit from concert_board where title = ?";
+		String selSql = "select board_num, member_name, title, contents, upload_date, hit from concert_board where title = ?";
 		
 		try {
 			psmt = conn.prepareStatement(selSql);
 			psmt.setString(1, title);
 			rs = psmt.executeQuery();
 			if(rs.next()) {
+				vo.setBoardnum(rs.getInt("board_num"));
 				vo.setMemberName(rs.getString("member_name"));
 				vo.setTitle(rs.getString("title"));
 				vo.setContents(rs.getString("contents"));
@@ -136,27 +137,39 @@ public class ConcertBoardDAO {
 		return cvo;
 	}
 	
-	// 게시글 번호로 게시글 수정
-	public boolean modifyContents(ConcertBoardVO vo) {
+	// 게시글 수정
+	/*
+	 * public boolean modifyContents(ConcertBoardVO vo) { conn = DBcon.getConnect();
+	 * String upSql =
+	 * "update concert_board set title = ?, contents = ? where board_num = ?";
+	 * 
+	 * int modiCnt = 0;
+	 * 
+	 * try { psmt = conn.prepareStatement(upSql); psmt.setString(1, vo.getTitle());
+	 * psmt.setString(2, vo.getContents()); psmt.setInt(3, vo.getBoardnum());
+	 * 
+	 * modiCnt = psmt.executeUpdate(); System.out.println(modiCnt + "건 수정 완료."); }
+	 * catch (SQLException e) { e.printStackTrace(); } finally { close(); } return
+	 * modiCnt == 0 ? false : true; }
+	 */
+	public ConcertBoardVO editContents(ConcertBoardVO vo) {
 		conn = DBcon.getConnect();
-		String upSql = "update concert_board set title = ?, contents = ? where board_num = ?";
-		
-		int modiCnt = 0;
-		
+		String sql = "update concert_board set member_name= ?, title= ?, contents = ? where board_num= ?";
+
 		try {
-			psmt = conn.prepareStatement(upSql);
-			psmt.setString(1, vo.getTitle());
-			psmt.setString(2, vo.getContents());
-			psmt.setInt(3, vo.getBoardnum());
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getMemberName());
+			psmt.setString(2, vo.getTitle());
+			psmt.setString(3, vo.getContents());
+			psmt.setInt(4, vo.getBoardnum());
 			
-			modiCnt = psmt.executeUpdate();
-			System.out.println(modiCnt + "건 수정 완료.");
+			int ed =  psmt.executeUpdate();
+			System.out.println(ed + "건 수정 완료.");
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-			close();
 		}
-		return modiCnt == 0 ? false : true;
+		
+		return vo;
 	}
 	
 	// 게시글 번호로 게시글 삭제

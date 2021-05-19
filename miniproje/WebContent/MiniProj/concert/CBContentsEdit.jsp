@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Gaze In Daegu :: 게시글 조회</title>
+<title>Gaze In Daegu :: 게시글 수정</title>
 <!-- Google Font -->
 	<link
 		href='https://fonts.googleapis.com/css?family=Roboto:400,500.00,700,300'
@@ -21,7 +21,6 @@
 	<link rel="stylesheet" href="../css/ConcertBoard.css">
 </head>
 <body>
-
 	<!-- HEADER-AREA START -->
 	<header class="header-area">
 		<!-- Header-Top Start -->
@@ -94,36 +93,36 @@
 	<jsp:useBean id="vo" class="ConcertBoardService.ConcertBoardVO"></jsp:useBean>
 	<div class = "wrap">
 		<%
+			String bNum = request.getParameter("boardNum");
+			int boardNum = Integer.parseInt(bNum);
 			String title = request.getParameter("title");
-			vo = dao.selecetContents(title);
-			String contents = vo.getContents();	// DB에서 글 내용을 받아옴.
-			contents = contents.replace("\r\n","<br>");	// 그냥 뿌려주면 개행 처리가 안 되어있기 때문에 replace로 개행을 알려주면
-														// 화면에 뿌려줄 때 개행까지 갓--벽하게 나옴.
-			
+			String name = request.getParameter("memberName");
+			String contents = request.getParameter("contents");
 		%>
-		<table class = 'contentsTbl' align = 'center'>
-		<caption><h2>Concert Board</h2></caption>
-			<tr>
-				<th class= "cTitle" colspan="6"><%=vo.getTitle() %></th>
-			</tr>
-			<tr>
-				<td width="5%">no. <%= vo.getBoardnum() %></td>
-				<td width="5%">작성자</td>
-				<td width="10%" class= "leftTd"><%= vo.getMemberName() %></td>
-				<td width="70%" class="bottomTd"><%= vo.getUploadDate() %></td>
-				<td width="5%">조회수</td>
-				<td width="5%"><%= vo.getHit() %></td>
-			</tr>
-			<tr>
-				<td class= "content" colspan="6"><%= contents %></td>
-			</tr>
-			<tr>
-				<td><a href ="ConcertBoard.jsp"><button class="btn">목록가기</button></a></td>
-				<td><a href="CBContentsEdit.jsp?boardNum=<%= vo.getBoardnum() %>&memberName=<%= vo.getMemberName()%>&title=<%= vo.getTitle() %>&contents=<%= vo.getContents() %>">
-					<button class="btn">글수정</button></a></td>
-				<td colspan="4" class="delBtnTd"><button class="btn">글삭제</button></td>
-			</tr>
-		</table>
+		<form method="post" action="BBSEditAction.jsp?boardNum=<%= bNum %>">
+			<table class = 'upTbl' align = "center">
+			<caption><h2>Concert Review</h2></caption>
+				<tr>
+					<td width="55px" class = "leftTd" style ="border-right:1px solid lightgray;">no. <%= bNum %></td><td width= "55px" class = "leftTd">작성자</td><td class = "leftTd" colspan="3"><input type = "text" name = "name" class="name" value="<%= name %>"></td>
+				</tr>
+				<tr>
+					<td class = "leftTd">제목</td><td class = "leftTd" colspan="3"><input type = "text" name = "title" class = "title" value="<%= title%>"></td>
+				</tr>
+				
+				<tr>
+					<td colspan="4" class = "leftTd">내용</td>
+				</tr>
+				<tr>
+					<td colspan="4"><textarea name = "contents" class = "contents" cols="100" rows="30"><%= contents %></textarea></td>
+				</tr>
+				<tr>
+					<td class="leftTd"><input class = "btn" type = "submit" value = "저장"></td>
+					<td class="leftTd"><input class = "btn" type = "reset" value = "삭제"></td>
+																								<!--┌>button의 자동 submit 방지용  -->
+					<td class="rightTd"><a href="javascript:history.go(-1);"><button class= "btn" type="button">돌아가기</button></a></td>
+				</tr>
+			</table>
+		</form>
 	</div>
 	<div class="footer">
 		<!-- Footer는 Sifoot start -->

@@ -43,7 +43,7 @@
 			function uploadContents() {
 
 				window.alert("업로드 되었습니다.");
-				location.href="ConcertBoard.html";
+				location.href="ConcertBoard.jsp";
 			}
 		});
 	</script>
@@ -122,17 +122,17 @@
 			<table class = 'upTbl' align = "center">
 			<caption><h2>Concert Review</h2></caption>
 				<tr>
-					<td width="50px">작성자</td><td><input type = "text" name = "name" class="name"></td>
+					<td width="50px" class = "leftTd">작성자</td><td class = "leftTd"><input type = "text" name = "name" class="name"></td>
 				</tr>
 				<tr>
-					<td>제목</td><td><input type = "text" name = "title" class = "title"></td>
+					<td class = "leftTd">제목</td><td class = "leftTd"><input type = "text" name = "title" class = "title"></td>
 				</tr>
 				
 				<tr>
-					<td colspan="2">내용</td>
+					<td colspan="2" class = "leftTd">내용</td>
 				</tr>
 				<tr>
-					<td colspan="2"><textarea name = "contents" class = "contents" cols="100" rows="30"></textarea></td>
+					<td colspan="2"><textarea name = "contents" class = "contents" rows="30"></textarea></td>
 				</tr>
 				<tr>
 					<td colspan="2"><input class = "btn" type = "submit" value = "저장">&nbsp;&nbsp;&nbsp;<input class = "btn" type = "reset" value = "삭제"></td>

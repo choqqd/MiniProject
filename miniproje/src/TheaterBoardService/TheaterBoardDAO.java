@@ -18,20 +18,21 @@ public class TheaterBoardDAO {
 	 *     메인 홈페이지 게시판
 	 *     연극 메인 홈페이지 게시판 리스트 뽑아오기
 	 */
-	public List<TheaterVO> MiniboardList() {
+	public List<TheaterBoardVO> MiniboardList() {
 		conn = DBcon.getConnect();
-		List<TheaterVO> list = new ArrayList<TheaterVO>();
-		String sql = "select board_num, board_title, board_content board_date, board_hit from Theater_Board";
+		List<TheaterBoardVO> list = new ArrayList<TheaterBoardVO>();
+		String sql = "select board_num, board_title, member_name, board_date, board_hit from Theater_Board";
 		try {
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
 			while (rs.next()) {
-				TheaterVO vo = new TheaterVO();
-				vo.setBoard_num(rs.getInt("board_num"));
-				vo.setUser_name(rs.getString("board_content"));
-				vo.setBoard_title(rs.getString("board_title"));
-				vo.setBoard_date(rs.getString("board_date"));
-				vo.setBoard_hit(rs.getInt("board_hit"));
+				TheaterBoardVO vo = new TheaterBoardVO();
+				vo.setBoardNum(rs.getInt("board_num"));
+				vo.setBoardTitle(rs.getString("board_title"));
+				vo.setMemberName(rs.getString("member_name"));
+				vo.setBoardDate(rs.getString("board_date"));
+				vo.setBoardHit(rs.getInt("board_hit"));
+				System.out.println(rs);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

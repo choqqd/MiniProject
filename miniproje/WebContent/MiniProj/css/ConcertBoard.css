@@ -109,3 +109,12 @@ caption {
 .delBtnTd {
 	text-align: right;
 }
+
+/*
+Concert Main page Board section css
+*/
+
+.mainTbl {
+	width: 90%;
+	border-bottom: 3px solid darkgray;
+}

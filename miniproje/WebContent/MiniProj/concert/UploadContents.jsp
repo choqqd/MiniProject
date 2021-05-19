@@ -19,36 +19,6 @@
 	<link rel="stylesheet" href="../css/style.css">
 	<!-- Banya's css -->
 	<link rel="stylesheet" href="../css/ConcertBoard.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script>
-		$(document).on('DOMContentLoaded', function() {
-			$('.frm').on('submit', function(e) {
-				e.stopPropagation();
-				e.preventDefault();		// 이게 있으면 DB에 값이 제대로 안 넘어가고 null로 입력됨.
-										// 그렇다고 없자니 serv 페이지가 호출이 되고...
-				let data = 'name='+$('.name').val()+//
-							'&title='+$('.title').val()+//
-							'&contents='+$('.contents').val();
-				console.log(data);
-				
-				$.ajax({
-					url: $('.frm').attr('action'),
-					type: 'post',
-					data: data,
-					dataType: 'json',
-					success: uploadContents,
-					error: function(reject) {
-						console.log(reject);
-					}
-				});
-			})
-			function uploadContents() {
-
-				window.alert("업로드 되었습니다.");
-				location.href="ConcertBoard.jsp";
-			}
-		});
-	</script>
 </head>
 <body>
 	<!-- HEADER-AREA START -->
@@ -119,25 +89,30 @@
 		<!-- Main-Header End -->
 	</header>		
 	<!-- HEADER-AREA END -->
+	<jsp:useBean id="dao" class= "ConcertBoardService.ConcertBoardDAO"></jsp:useBean>
+	<jsp:useBean id="vo" class="ConcertBoardService.ConcertBoardVO"></jsp:useBean>
 	<div class = "wrap">
-		<form class = 'frm' action="../../boarduploadserv" method='post'>
+	<%
+		
+	%>
+		<form action="BBSUpload.jsp" method='post'>
 			<table class = 'upTbl' align = "center">
 			<caption><h2>Concert Review</h2></caption>
 				<tr>
-					<td width="50px">작성자</td><td><input type = "text" name = "name" class="name"></td>
+					<td width="55px" class = "leftTd" style="border-right: 1px solid lightgray;">작성자</td><td class ="leftTd"><input type = "text" name = "name" class="name"></td>
 				</tr>
 				<tr>
-					<td>제목</td><td><input type = "text" name = "title" class = "title"></td>
+					<td class="leftTd" style="border-right: 1px solid lightgray;">제목</td><td><input type = "text" name = "title" class = "title"></td>
 				</tr>
 				
 				<tr>
-					<td colspan="2">내용</td>
+					<td colspan="2" class ="leftTd">내용</td>
 				</tr>
 				<tr>
 					<td colspan="2"><textarea name = "contents" class = "contents" cols="100" rows="30"></textarea></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input class = "btn" type = "submit" value = "저장">&nbsp;&nbsp;&nbsp;<input class = "btn" type = "reset" value = "삭제"></td>
+					<td colspan="2" class="leftTd"><input class = "btn" type = "submit" value = "저장">&nbsp;&nbsp;&nbsp;<input class = "btn" type = "reset" value = "삭제"></td>
 				</tr>
 			</table>
 		</form>

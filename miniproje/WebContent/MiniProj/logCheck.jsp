@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
 <%
@@ -16,13 +17,19 @@
 	MemberVO vo = new MemberVO();
 	LoginOutDAO dao = new LoginOutDAO();
 	
-	vo = dao.login(userid, userPwd);
-	if(vo.getMember_Id()!=null && vo.getMember_Pwd()!=null && vo.getMember_Id().equals(userid) && vo.getMember_Pwd().equals(userPwd)){
-		request.setAttribute("mem", vo);
-		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
-		rd.forward(request,response);
+	if(request.getMethod().equals("POST")){
+		vo = dao.login(userid, userPwd);
+		if(vo.getMember_Id()!=null && vo.getMember_Pwd()!=null && vo.getMember_Id().equals(userid) && vo.getMember_Pwd().equals(userPwd)){
+			request.setAttribute("mem", vo);
+			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+			rd.forward(request,response);
+		}else{
+			out.print("아이디 비번이틀립니다.");
+		}
+	//get방식- 로그아웃
 	}else{
-		RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+		session.invalidate();
+		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 		rd.forward(request,response);
 	}
 %>

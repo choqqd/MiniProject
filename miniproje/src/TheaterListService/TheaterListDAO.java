@@ -21,6 +21,16 @@ public class TheaterListDAO {
 		
 		try {
 			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				TheaterListVO vo = new TheaterListVO();
+				vo.setConcert_hall_code(rs.getString("Concert_hall_code"));
+				vo.setShow_code(rs.getString("Show_code"));
+				vo.setShow_endday(rs.getString("show_endday"));
+				vo.setShow_startday(rs.getString("Show_startday"));
+				
+				
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

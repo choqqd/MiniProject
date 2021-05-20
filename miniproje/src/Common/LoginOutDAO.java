@@ -5,12 +5,34 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import projectVO.LocationVO;
 import projectVO.MemberVO;
 
 public class LoginOutDAO {
 	Connection conn;
 	PreparedStatement psmt;
 	ResultSet rs;
+	
+	public LocationVO getlocation(String add) {
+		String sql = "select * from locations where location_code=?";
+		conn = DBcon.getConnect();
+		LocationVO vo = new LocationVO();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, add);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				vo.setLocation_Code(rs.getString("location_code"));
+				vo.setLocation(rs.getString("location"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return vo;
+	}
 	
 	public MemberVO login(String id, String pwd) {
 		String sql = "select * from member where member_id=? and member_pwd=?";

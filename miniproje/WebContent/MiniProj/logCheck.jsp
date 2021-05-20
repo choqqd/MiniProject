@@ -22,11 +22,13 @@
 		if(vo.getMember_Id()!=null && vo.getMember_Pwd()!=null && vo.getMember_Id().equals(userid) && vo.getMember_Pwd().equals(userPwd)){
 			session.setAttribute("id", vo.getMember_Id());
 			session.setAttribute("name", vo.getMember_Name());
-
+			session.setAttribute("email", vo.getMember_Email());
+			session.setAttribute("address", vo.getMember_Address());
+			session.setAttribute("tel", vo.getMember_Tel());
 			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 			rd.forward(request,response);
 		}else{
-			out.print("아이디 비번이틀립니다.");
+		
 		}
 	//get방식- 로그아웃
 	}else{

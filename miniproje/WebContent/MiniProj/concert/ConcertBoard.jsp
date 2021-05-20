@@ -126,7 +126,7 @@
 						<tr>
 							<td width="5%"><%= list.get(i).getBoardnum() %></td>
 							<td width="15%"><%= list.get(i).getMemberName() %></td>
-							<td width="60%"><a href = "CboardContents.jsp?title=<%= list.get(i).getTitle() %>"><%= list.get(i).getTitle() %></a></td>
+							<td width="60%"><a href = "CboardContents.jsp?title=<%= list.get(i).getTitle() %>&boardNum=<%= list.get(i).getBoardnum() %>"><%= list.get(i).getTitle() %></a></td>
 							<td width="15%"><%= list.get(i).getUploadDate() %></td>
 							<td width="5%"><%= list.get(i).getHit() %></td>
 							</tr>

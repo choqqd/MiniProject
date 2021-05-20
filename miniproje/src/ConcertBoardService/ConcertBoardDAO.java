@@ -98,6 +98,22 @@ public class ConcertBoardDAO {
 		return vo;
 	}
 	
+	// 조회수 증가
+	public void updateHitCount(int boardNum) {
+		conn = DBcon.getConnect();
+		String sql = "update concert_board set hit = hit + 1 where board_num = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, boardNum);
+			int up = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+	}
+	
 	//게시글 올리기
 	public ConcertBoardVO insertContents(ConcertBoardVO vo) {
 		conn = DBcon.getConnect();

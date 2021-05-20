@@ -1,3 +1,4 @@
+<%@page import="java.io.PrintWriter"%>
 <%@page import="projectVO.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -24,11 +25,12 @@
 	<!-- style css -->
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/index.css">
-	<script>
+	<script type="text/javascript">
 		//슬라이더 스크립트 부분
 		$(document).ready(function () {
 			$('.slider').bxSlider();
-		});
+
+		})
 	</script>
 	<style>
 
@@ -56,14 +58,25 @@
 									<ul class="submenu">
 										<li><a href="login.jsp">
 										<%
-											if(session.getAttribute("mem")==null){
+											if(session.getAttribute("id")==null){
 												%>로그인</a><%
 											}else{
 												%><a href = "logCheck.jsp">로그아웃<%
 											}
 										%>
 										</a></li>
-										<li><a href="#">내 정보</a></li>
+										<li><a href="#" onclick="myinfo();" id ="myinfo">내 정보</a></li>
+										<script type ="text/javascript">								
+											function myinfo(){
+												<% 
+												if(session.getAttribute("id")==null){
+													%> window.alert("로그인을 해주세요");<%
+												}else{
+													%>$("#myinfo").attr("href","myinfo.jsp") <%
+												}
+												%>
+											}
+										</script>
 										<li><a href="#">관심목록</a></li>
 									</ul>
 								</li>

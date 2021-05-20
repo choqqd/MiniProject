@@ -256,7 +256,7 @@
 								<li>기대 평점 : ★★★★★ (5.0) 
 									
 					</ul>			
-				<button class="button"><img src="img/bookBtn3.png"></button>
+				<button class="button"><img src="img/bookBtn5.png"></button>
 			</div>		
 		</div>	
 	</div>
@@ -319,35 +319,34 @@
 <!-- 오른쪽 아래 공연 랭킹 정보-->
 	<div class="rank">
 	
-				<iframe width="500" height="500" src="img/con1.png"> </ifram>
-
-			<div>
-			
-				<table>
-						<caption>TOP booking</caption>
-							
-										<tr>
-													<td> 1. 싱어게인
-													</td>
-										</tr>
-										
-										<tr>
-													<td> 2. 10cm & 치즈
-													</td>
-										</tr>
-										
-										<tr>
-													<td> 3. 에일리 콘서트
-													</td>
-										</tr>
-			 							
-										<tr>
-													<td> 4. 장윤정 콘서트 
-													</td>
-										</tr>
-		
-				</table>
-
+					<h3>WEEKLY BEST SELLING TICKETS</h3>
+			<div class="d">
+						<iframe src="about:blank" width="400" height="600" scrolling="no" name="iframe"></iframe>
+						<a href="img/minicon1.png" target="iframe">
+						
+						
+						<p>1. 싱어게인..................Sell '350'</p></a>
+															
+													
+						<a href="img/minicon2.png" target="iframe">
+						
+						
+						<p>2. 십센치 치즈..............Sell '300'</p></a>
+						
+						
+						<a href="img/minicon3.png" target="iframe">
+						
+						
+						<p>3. 에일리 콘서트..........Sell '250'</p></a>
+						
+						
+						<a href="img/minicon4.png" target="iframe">
+						
+						
+						<p>4. 장윤정 콘서트..........Sell '200'</p></a>
+				
+	
+	
 
 </div>
 
@@ -371,7 +370,7 @@
 			
 						<table id="show">
 								
-								
+									
 									<tr>
 									<%
 										if(list2.size() == 0){
@@ -397,7 +396,7 @@
 											}
 										%>	
 										</table>
-										</div>
+									
 </div>
 			
 				

@@ -41,7 +41,7 @@
 						let $tr = $('<tr />');
 						let alink = $('<a />').attr('href', '#'); // 링크클릭시 화면에 데이터
 						
-						
+						 
 						alink.click(linkClickCallBack);
 						$tr.click(function () {
 							console.log('tr클릭');

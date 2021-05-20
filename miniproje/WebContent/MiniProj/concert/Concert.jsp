@@ -317,6 +317,49 @@
 <!-- 아래쪽 게시판 End -->
 
 <!-- 오른쪽 아래 공연 랭킹 정보-->
+	<div class="rank">
+	
+				<iframe width="500" height="500" src="img/con1.png"> </ifram>
+
+			<div>
+			
+				<table>
+						<caption>TOP booking</caption>
+							
+										<tr>
+													<td> 1. 싱어게인
+													</td>
+										</tr>
+										
+										<tr>
+													<td> 2. 10cm & 치즈
+													</td>
+										</tr>
+										
+										<tr>
+													<td> 3. 에일리 콘서트
+													</td>
+										</tr>
+										
+										<tr>
+													<td> 4. 장윤정 콘서트 
+													</td>
+										</tr>
+		
+				</table>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
 
 
 <%
@@ -325,9 +368,9 @@
 	
 	request.setAttribute("RankList", list2);
 %>
-				<div class="rank">
+			
 						<table id="show">
-								<caption>Weekly TOP booking Rank</caption>
+								
 								
 									<tr>
 									<%

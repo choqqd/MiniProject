@@ -16,7 +16,7 @@ public class RankDAO {
 	PreparedStatement psmt;
 	ResultSet rs;
 
-	
+	 
 	public List<RankVO> getRankList() {
 		conn = DBcon.getConnect();
 		List<RankVO> list = new ArrayList<>();

@@ -35,7 +35,7 @@ public class GetRankServlet extends HttpServlet {
 		
 		response.getWriter().print(obj);
 		
-	}
+	} 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

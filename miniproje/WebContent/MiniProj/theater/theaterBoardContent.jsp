@@ -110,20 +110,22 @@
 		TheaterBoardDAO dao = new TheaterBoardDAO();
 		TheaterBoardVO vo = new TheaterBoardVO();
 		vo = dao.getBoardSelect(content);
-		
 		%>
-		<table id="contentTable" border="1">
+		<table id="contentTable">
 			<tr>
-				<th colspan="4">글제목 <%=vo.getBoardTitle()%></th>
+				<th colspan="2">글제목 : <%=vo.getBoardTitle()%></th>
 			</tr>
 			<tr>
-				<th>작성자 : <%=vo.getMemberName()%></th>
-				<th>작성일 : <%=vo.getBoardDate() %></th>
+				<th>작성자 : <%=vo.getMemberName()%> | </th>
+				<th>작성일 : <%=vo.getBoardDate()%></th>
 			</tr>
 			<tr>
-				<td><%=vo.getBoardContent() %></td>
+				<td><%=vo.getBoardContent()%></td>
 			</tr>
-			
+			<tr>
+				<td><a href="theaterBoard.jsp"><button>목록으로</button></a></td>
+				<td><button>글수정</button></td>
+			</tr>
 		</table>
 	</div>
 	<!-- 내용 뿌려주기 끝 -->

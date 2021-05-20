@@ -94,12 +94,23 @@
 	<jsp:useBean id="vo" class="ConcertBoardService.ConcertBoardVO"></jsp:useBean>
 	<div class = "wrap">
 		<%
+			//로그인 정보 받아오기
+			String id = null;
+			if(session.getAttribute("id") != null){
+				id = (String) session.getAttribute("id");
+			}
+			
 			String title = request.getParameter("title");
+			int boardNum = Integer.parseInt(request.getParameter("boardNum"));
+			
+			dao.updateHitCount(boardNum);	// 조회수 카운트
 			vo = dao.selecetContents(title);
+			
 			String contents = vo.getContents();	// DB에서 글 내용을 받아옴.
 			contents = contents.replace("\r\n","<br>");	// 그냥 뿌려주면 개행 처리가 안 되어있기 때문에 replace로 개행을 알려주면
 														// 화면에 뿌려줄 때 개행까지 갓--벽하게 나옴.
 			
+	
 		%>
 		<table class = 'contentsTbl' align = 'center'>
 		<caption><h2>Concert Board</h2></caption>

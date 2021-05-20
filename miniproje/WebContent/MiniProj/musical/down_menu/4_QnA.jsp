@@ -1,6 +1,6 @@
-<%@page import="MusicalBoardServlce.NoticeDAO"%>
+<%@page import="MusicalBoardService.NoticeDAO"%>
 <%@page import="java.util.List"%>
-<%@page import="MusicalBoardServlce.NoticeVO"%>
+<%@page import="MusicalBoardService.NoticeVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>

@@ -1,6 +1,7 @@
+2_Info.jsp
 <%@page import="java.util.List"%>
 <%@page import="projectVO.ShowVO"%>
-<%@page import="MusicalBoardServlce.MusicalDAO"%>
+<%@page import="MusicalBoardService.InfoDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -148,28 +149,40 @@
 			</ul>
 		</div>
 		<!-- 메뉴 END -->
-		c
+		
 	<%
-		MusicalDAO dao = new MusicalDAO();
+		InfoDAO dao = new InfoDAO();
 		ShowVO vo= new ShowVO();
 		
 		List<ShowVO> list = dao.getMusicalList();
+		
 	%>
 
-<button id="insertBtn"><a href="2_Info_Insert.jsp" >공연등록</a></button>
+<button id="insertBtn">
+	<a href="2_Info_Insert.jsp" >공연등록</a>
+</button>
+
 <table>
 		<% 
 		for(int i =0; i < list.size(); i++) {
 		%><tr>
-		<td><img width='200' src='../musical_Img/mama.jfif'></td>
-		<td ><%= list.get(i).getShow_Name()%></td>
-		<td><%= list.get(i).getShow_Startday()%></td>
-		<td>~</td>
-		<td><%= list.get(i).getShow_Endday()%></td>
+		<td><a href="2_Info_select.jsp?show_code=<%= list.get(i).getShow_Code()%>"><img width='200' src='../musical_Img/mama.jfif'></td>
+		<td ><a href="2_Info_select.jsp?show_code=<%= list.get(i).getShow_Code()%>"><%= list.get(i).getShow_Name()%></a></td>
+		<td><a href="2_Info_select.jsp?show_code=<%= list.get(i).getShow_Code()%>"><%= list.get(i).getShow_Startday()%></a></td>
+		<td><a href="2_Info_select.jsp?show_code=<%= list.get(i).getShow_Code()%>">~</a></td>
+		<td><a href="2_Info_select.jsp?show_code=<%= list.get(i).getShow_Code()%>"><%= list.get(i).getShow_Endday()%></a></td>
 		</tr><%	
 		}
 	%>
 </table>
-
+		<!-- FOOTER-AREA START -->
+		<footer>
+			<p class="single-footer" align="center">
+				(주)Gaze in Daegu 대구광역시 중구 국채보상로 537 (수동, 5층) / 대표자:조진호 / <br> 대표
+				GIt:https://github.com/choqqd/Miniproj.git / 개인정보보호책임자:조진호 <br>
+				Copyright © 2021 (주)Gaze in Daegu All Rights Reserved.
+			</p>
+		</footer>
+		<!-- FOOTER-AREA END -->
 </body>
 </html>

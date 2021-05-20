@@ -48,10 +48,10 @@
 								<ul>
 									<li><a href="#">관리 <span><i class="sp-gear"></i></span></a>
 										<ul class="submenu">
-											<li><a href="login.jsp">로그인</a></li>
+											<li><a href="../login.jsp">로그인</a></li>
 											<li><a href="#">내 정보</a></li>
 											<li><a href="#">관심목록</a></li>
-											<li><a href="#">로그아웃</a></li>
+											<li><a href="../logCheck.jsp">로그아웃</a></li>
 										</ul></li>
 								</ul>
 								<div class="header-search">

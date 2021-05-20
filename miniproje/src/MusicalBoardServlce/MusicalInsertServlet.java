@@ -1,6 +1,8 @@
 package MusicalBoardServlce;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -19,12 +21,14 @@ public class MusicalInsertServlet extends HttpServlet {
     public MusicalInsertServlet() {
         super();
     }
+    
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    	req.setCharacterEncoding("UTF-8");
     	String show_Name = req.getParameter("show_Name");
     	String show_Startday = req.getParameter("show_Startday");
     	String show_Endday = req.getParameter("show_Endday");
-    	String Concert_Hall_Cod = req.getParameter("Concert_Hall_Code");
+    	String Concert_Hall_Code = req.getParameter("Concert_Hall_Code");
     	
     	System.out.println(show_Name);
     	
@@ -33,12 +37,16 @@ public class MusicalInsertServlet extends HttpServlet {
     	vo.setShow_Name(show_Name);
     	vo.setShow_Startday(show_Startday);
     	vo.setShow_Endday(show_Endday);
-    	vo.setConcert_Hall_Code(Concert_Hall_Cod);
+    	vo.setConcert_Hall_Code(Concert_Hall_Code);
     	
     	MusicalDAO dao = new MusicalDAO();
     	dao.insertMusical(vo);
+    	req.setAttribute("vo",vo);
+    	
+    	RequestDispatcher rd = req.getRequestDispatcher("MiniProj/musical/down_menu/2_outPut.jsp");
+		rd.forward(req, resp);
+    	
     }
-    
    
 
 

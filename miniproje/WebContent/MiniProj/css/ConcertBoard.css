@@ -15,14 +15,13 @@ body {
 *	ConcertBoard.html에서 사용
 */
 .boardTbl {
-	border-collapse: collapse;
-	border-bottom: 1px solid darkgray;
 	width: 90%;
 }
 
 th {
 	padding: 4px;
 	vertical-align: center;
+	text-align: center;
 }
 
 .titleTr {
@@ -40,6 +39,11 @@ tr {
 
 td {
 	padding: 4px;
+	text-align: center;
+}
+
+.bottomTd{
+	text-align: left;
 }
 
 .btn {
@@ -57,12 +61,20 @@ td {
 	border-collapse: collapse;
 	border-top: 4px solid darkgray;
 	border-bottom: 4px solid darkgray;
-	
+	width: 90%
 }
 
 .title {/*제목 작성 input*/
 	width: 100%;
 	border: 1px solid darkgray;
+}
+
+.leftTd {
+	text-align: left;
+}
+
+.rightTd {
+	text-align: right;
 }
 
 .name {
@@ -72,6 +84,9 @@ td {
 .contents {/*내용 작성 textarea*/
 	border: 1px solid darkgray;
 	resize: none;
+	width:100%;
+	overflow:visible;
+	text-overflow:ellipsis;
 }
 
 caption {
@@ -94,4 +109,25 @@ caption {
 
 .cTitle {
 	padding: 4px;
+	border-bottom: 4px solid darkgray;
+}
+
+.content {
+	padding-left: 50px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	text-align: left;
+}
+
+.delBtnTd {
+	text-align: right;
+}
+
+/*
+Concert Main page Board section css
+*/
+
+.mainTbl {
+	width: 90%;
+	border-bottom: 3px solid darkgray;
 }

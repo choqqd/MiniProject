@@ -1,3 +1,8 @@
+<%@page import="java.io.PrintWriter"%>
+<%@page import="ConcertBoardService.ConcertBoardDAO"%>
+<%@page import="ConcertBoardService.ConcertBoardVO"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,36 +22,6 @@
 	<link rel="stylesheet" href="../css/style.css">
 	<!-- Banya's css -->
 	<link rel="stylesheet" href="../css/ConcertBoard.css">
-	<script src='http://localhost/webProj/Js/jquery-3.6.0.min.js'></script>
-	<script>
-		$(document).on('DOMContentLoaded', function() {
-			$('.frm').on('submit', function(e) {
-				e.stopPropagation();
-				e.preventDefault();		// 이게 있으면 DB에 값이 제대로 안 넘어가고 null로 입력됨.
-										// 그렇다고 없자니 serv 페이지가 호출이 되고...
-				let data = 'name='+$('.name').val()+//
-							'&title='+$('.title').val()+//
-							'&contents='+$('.contents').val();
-				console.log(data);
-				
-				$.ajax({
-					url: $('.frm').attr('action'),
-					type: 'post',
-					data: data,
-					dataType: 'json',
-					success: uploadContents,
-					error: function(reject) {
-						console.log(reject);
-					}
-				});
-			})
-			function uploadContents() {
-
-				window.alert("업로드 되었습니다.");
-				location.href="ConcertBoard.jsp";
-			}
-		});
-	</script>
 </head>
 <body>
 	<!-- HEADER-AREA START -->
@@ -68,10 +43,10 @@
 							<ul>
 								<li><a href="#">관리 <span><i class="sp-gear"></i></span></a>
 									<ul class="submenu">
-										<li><a href="#">로그인</a></li>
+										<li><a href="../login.jsp">로그인</a></li>
 										<li><a href="#">내 정보</a></li>
 										<li><a href="#">관심목록</a></li>
-										<li><a href="#">로그아웃</a></li>
+										<li><a href="../logCheck.jsp">로그아웃</a></li>
 									</ul></li>
 							</ul>
 							<div class="header-search">
@@ -100,10 +75,10 @@
 						<div class="main-menu pull-right">
 							<nav>
 								<ul>
-									<li><a href="../index.html">home</a></li>
-									<li><a href="Concert.html">콘서트</a></li>
-									<li><a href="../musical/Musical.html">뮤지컬</a></li>
-									<li><a href="../theater/Theater.html">연극</a></li>
+									<li><a href="../index.jsp">home</a></li>
+									<li><a href="Concert.jsp">콘서트</a></li>
+									<li><a href="../musical/Musical.jsp">뮤지컬</a></li>
+									<li><a href="../theater/Theater.jsp">연극</a></li>
 									<li><a href="">게시판</a></li>
 									<li><a href="">공연장</a></li>
 									<li><a href="">이벤트/쿠폰</a></li>
@@ -117,25 +92,47 @@
 		<!-- Main-Header End -->
 	</header>		
 	<!-- HEADER-AREA END -->
+	<jsp:useBean id="dao" class= "ConcertBoardService.ConcertBoardDAO"></jsp:useBean>
+	<jsp:useBean id="vo" class="ConcertBoardService.ConcertBoardVO"></jsp:useBean>
 	<div class = "wrap">
-		<form class = 'frm' action="../../boarduploadserv" method='post'>
+	<%
+	//로그인 정보 받아오기
+	String id = null;
+	String name = null;
+	if(session.getAttribute("id") != null){
+		id = (String) session.getAttribute("id");
+		name = (String) session.getAttribute("name");
+	}
+	// 로그인이 되지 않았다면
+	if(id == null){
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("window.alert('로그인이 필요합니다!')");
+		script.println("location.href='../login.jsp'");
+		script.println("</script>");
+	}
+		
+	%>
+		<form action="BBSUpload.jsp" method='post'>
 			<table class = 'upTbl' align = "center">
 			<caption><h2>Concert Review</h2></caption>
 				<tr>
-					<td width="50px" class = "leftTd">작성자</td><td class = "leftTd"><input type = "text" name = "name" class="name"></td>
+					<td width="55px" class = "leftTd" style="border-right: 1px solid lightgray;">작성자</td><td class ="leftTd" colspan="2"><%=name %></td>
 				</tr>
 				<tr>
-					<td class = "leftTd">제목</td><td class = "leftTd"><input type = "text" name = "title" class = "title"></td>
+					<td class="leftTd" style="border-right: 1px solid lightgray;">제목</td><td colspan="2"><input type = "text" name = "title" class = "title"></td>
 				</tr>
 				
 				<tr>
-					<td colspan="2" class = "leftTd">내용</td>
+					<td colspan="3" class ="leftTd">내용</td>
 				</tr>
 				<tr>
-					<td colspan="2"><textarea name = "contents" class = "contents" rows="30"></textarea></td>
+					<td colspan="3"><textarea name = "contents" class = "contents" cols="100" rows="30"></textarea></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input class = "btn" type = "submit" value = "저장">&nbsp;&nbsp;&nbsp;<input class = "btn" type = "reset" value = "삭제"></td>
+					<td class="leftTd"><input class = "btn" type = "submit" value = "저장"></td>
+					<td class="leftTd"><input class = "btn" type = "reset" value = "삭제"></td>
+					<td class="rightTd"><a href="ConcertBoard.jsp"><button type= "button" class="btn">돌아가기</button></a></td>
 				</tr>
 			</table>
 		</form>

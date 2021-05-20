@@ -141,6 +141,9 @@
 				<input class="login" type="password" name="userPwd" placeholder="비밀번호(password)를 입력해 주세요."><br>
 				<input type="submit" value="로그인">
 			</form>
+			<form action="logInsert.jsp" method="post">
+			<input type="submit" value="회원가입">
+			</form>
 		</div>
 	</div>
 

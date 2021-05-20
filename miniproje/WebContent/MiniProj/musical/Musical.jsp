@@ -1,4 +1,6 @@
-<!doctype html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html class="no-js" lang="">
 <head>
 <meta charset="utf-8">
@@ -16,6 +18,7 @@
 	$(document).ready(function() {
 		$('.slider').bxSlider();
 	});
+
 </script>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,7 +37,7 @@
 <!-- style css -->
 <link rel="stylesheet" href="../css/style.css">
 <!-- main css -->
-<link rel="stylesheet" href="Musical_dam.css">
+<link rel="stylesheet" href="main.css">
 </head>
 <body>
 	<!-- HEADER-AREA START -->
@@ -128,10 +131,10 @@
 		<!-- 메뉴 START -->
 		<div class='submenu'>
 			<ul>
-        		 <li onclick="contentView(0)"><a>예매</a></li>
-      			 <li onclick="contentView(1)"><a>공연정보</a></li>
-        		 <li onclick="contentView(2)"><a>관람후기</a></li>
-        		 <li onclick="contentView(3)"><a>Q&A</a></li>
+        		 <li ><a href="down_menu/1_Reservation.jsp" >예매</a></li>
+      			 <li ><a href="down_menu/2_Info.jsp">공연정보</a></li>
+        		 <li ><a href="down_menu/3_Review.jsp">관람후기</a></li>
+        		 <li ><a href="down_menu/4_QnA.jsp">Q&A</a></li>
 			</ul>
 		</div>
 		<!-- 메뉴 END -->
@@ -229,32 +232,9 @@
 					src="https://www.youtube.com/embed/?enablejsapi=1&origin=http%3A%2F%2Fticket.yes24.com&widgetid=1"></iframe>
 				</div>
 			</section>
-		</div>
+		</div> <br><br>
 		<!-- MV END -->
-		
-		<!-- 캘린더 + 랭크 START -->
-		<div class="crwrap">
-			<!-- 캘린더 START -->
-			<div class='calender'>
-				<h3>캘린더</h3>
-			</div>
-			<!-- 캘린더 END -->
-
-			<!-- 랭크 START -->
-			<aside class='rank'><br>
-					<h3 id='rktitle'>WEEKLY RANKING</h3>
-					<ol>
-						<li id='weli'><img class='rankimg' src='../img/logo.png'>1111</li>
-						<li id='weli'><img class='rankimg' src='../img/logo.png'>2222</li>
-						<li id='weli'><img class='rankimg' src='../img/logo.png'>3333</li>
-						<li id='weli'><img class='rankimg' src='../img/logo.png'>4444</li>
-					</ol>
-			</aside>
-			<!-- 랭크 end -->
-		</div>
-		</div>
-		<!-- 캘린더 + 랭크 END -->
-				
+	
 		<!-- FOOTER-AREA START -->
 		<footer>
 			<p class="single-footer" align="center">
@@ -269,22 +249,7 @@
 	</div>
 	<!-- 메뉴 Script -->
 	<script>
-		function contentView(value) {
-  			switch(value) {
-        		case 0:
-            		$("#mContent").load('down_menu/1_Reservation.html');
-            	break;
-      			case 1:
-            		$("#mContent").load('down_menu/info.jsp');
-        			break;
-      			case 2:
-            		$("#mContent").load('down_menu/3_Review.html');
-        			break;
-      			case 3:
-            		$("#mContent").load('down_menu/4_QnA.html');
-        			break;
-    		}
-  		}
+
 	</script>
 	<!-- MUSICAL END -->
 </body>

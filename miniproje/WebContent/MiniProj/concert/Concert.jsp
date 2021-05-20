@@ -1,3 +1,6 @@
+<%@page import="ConcertBoardService.ConcertBoardDAO"%>
+<%@page import="java.util.List"%>
+<%@page import="ConcertBoardService.ConcertBoardVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!doctype html>
@@ -26,7 +29,7 @@
 <!-- style css -->
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="css.css">
-
+<link rel="stylesheet" href="../css/ConcertBoard.css">
 </head>
 
 <body>
@@ -49,10 +52,10 @@
 							<ul>
 								<li><a href="#">관리 <span><i class="sp-gear"></i></span></a>
 									<ul class="submenu">
-										<li><a href="#">로그인</a></li>
+										<li><a href="../login.jsp">로그인</a></li>
 										<li><a href="#">내 정보</a></li>
 										<li><a href="#">관심목록</a></li>
-										<li><a href="#">로그아웃</a></li>
+										<li><a href="../logCheck.jsp">로그아웃</a></li>
 									</ul></li>
 							</ul>
 							<div class="header-search">
@@ -81,8 +84,8 @@
 						<div class="main-menu pull-right">
 							<nav>
 								<ul>
-									<li><a href="../index.html">home</a></li>
-									<li><a href="Concert.html">콘서트</a></li>
+									<li><a href="../index.jsp">home</a></li>
+									<li><a href="Concert.jsp">콘서트</a></li>
 									<li><a href="../musical/Musical.html">뮤지컬</a></li>
 									<li><a href="../theater/Theater.html">연극</a></li>
 									<li><a href="">게시판</a></li>
@@ -261,20 +264,53 @@
 
 <!-- 아래쪽 게시판 -->
 
-	<div class="board">
-			board
-			<span>Board</span>
-				<ul>
-					<li>test</li>
-					<li>test</li>
-					<li>test</li>
-					<li>test</li>
-					<li>test</li>
-					
-				</ul>
-	
-
-
+	<div class="board" align="center">
+	<%
+		ConcertBoardDAO dao = new ConcertBoardDAO();
+		List<ConcertBoardVO> list = dao.getBoarderList();
+		
+		request.setAttribute("list", list);
+	%>
+		<table class="mainTbl">
+		<caption><a href="ConcertBoard.jsp"><h4>Concert Review</h4></a></caption>
+			<tr class = "titleTr">
+				<th>no.</th><th>작성자</th><th>제목</th><th>등록일</th><th>조회수</th>
+			</tr>
+			<tr>
+			<%
+				if(list.size() == 0){
+			%>
+					<tr>
+						<td class= "emptyBoard" colspan="6">아직 게시글이 등록되지 않았습니다. 첫 게시글을 남겨보세요!</td>
+					</tr>
+				<%
+					} else {
+						if(list.size() > 5) {
+							for(int i = 0; i < 5; i++){
+					%>
+						<tr>
+							<td width="5%"><%= list.get(i).getBoardnum() %></td>
+							<td width="15%"><%= list.get(i).getMemberName() %></td>
+							<td width="50%"><a href = "CboardContents.jsp?title=<%= list.get(i).getTitle() %>"><%= list.get(i).getTitle() %></a></td>
+							<td width="20%"><%= list.get(i).getUploadDate() %></td>
+							<td width="10%"><%= list.get(i).getHit() %></td>
+						</tr>
+					<%
+							}
+						} else {
+							for(int i = 0; i < list.size(); i++){%>
+								<tr>
+								<td width="5%"><%= list.get(i).getBoardnum() %></td>
+								<td width="15%"><%= list.get(i).getMemberName() %></td>
+								<td width="50%"><a href = "CboardContents.jsp?title=<%= list.get(i).getTitle() %>"><%= list.get(i).getTitle() %></a></td>
+								<td width="20%"><%= list.get(i).getUploadDate() %></td>
+								<td width="10%"><%= list.get(i).getHit() %></td>
+							</tr>
+					<%		}
+						}
+					}
+				%>
+		</table>
 	</div>
 <!-- 아래쪽 게시판 End -->
 

@@ -15,23 +15,24 @@ public class TheaterBoardDAO {
 	ResultSet rs;
 
 	/*--------------------
-	 *     메인 홈페이지 게시판
-	 *     연극 메인 홈페이지 게시판 리스트 뽑아오기
-	 */
-	public List<TheaterVO> MiniboardList() {
+	*     메인 홈페이지 게시판
+	*     연극 메인 홈페이지 게시판 리스트 뽑아오기
+	*/
+	public List<TheaterBoardVO> MiniboardList() {
 		conn = DBcon.getConnect();
-		List<TheaterVO> list = new ArrayList<TheaterVO>();
-		String sql = "select board_num, board_title, member_id, board_date, board_hit from Theater_Board";
+		List<TheaterBoardVO> list = new ArrayList<TheaterBoardVO>();
+		String sql = "select board_num, board_title, member_name, board_date, board_hit from Theater_Board ORDER BY BOARD_DATE DESC";
 		try {
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
 			while (rs.next()) {
-				TheaterVO vo = new TheaterVO();
-				vo.setBoard_num(rs.getInt("board_num"));
-				vo.setUser_name(rs.getString("member_id"));
-				vo.setBoard_title(rs.getString("board_title"));
-				vo.setBoard_date(rs.getString("board_date"));
-				vo.setBoard_hit(rs.getInt("board_hit"));
+				TheaterBoardVO vo = new TheaterBoardVO();
+				vo.setBoardNum(rs.getInt("board_num"));
+				vo.setBoardTitle(rs.getString("board_title"));
+				vo.setMemberName(rs.getString("member_name"));
+				vo.setBoardDate(rs.getString("board_date"));
+				vo.setBoardHit(rs.getInt("board_hit"));
+				list.add(vo);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -42,7 +43,6 @@ public class TheaterBoardDAO {
 	}
 
 	public void MiniboardInsert(TheaterVO vo) {
-
 		String sql = "insert into theater_board(board_num, user_name, board_title, board_hit, board_date) "
 				+ "values ((select max(board_num)+1 from theater_board), ?,?,?,?)";
 
@@ -78,14 +78,14 @@ public class TheaterBoardDAO {
 		}
 	}
 
-	/* -----------------------------------
-	 * 				 게시판 페이지 영역
+	/*
+	 * ----------------------------------- 게시판 페이지 영역
 	 */
 
 	// 게시판 전체 리스트
 	public List<TheaterBoardVO> theaterBoardList() {
 		List<TheaterBoardVO> list = new ArrayList<TheaterBoardVO>();
-		String sql = "select * from theater_board";
+		String sql = "select * from THEATER_BOARD ORDER by 1 desc";
 		conn = DBcon.getConnect();
 
 		try {
@@ -96,7 +96,6 @@ public class TheaterBoardDAO {
 				tvo.setBoardNum(rs.getInt("board_num"));
 				tvo.setMemberName(rs.getString("member_name"));
 				tvo.setBoardTitle(rs.getString("board_title"));
-				tvo.setMemberId(rs.getString("member_id"));
 				tvo.setBoardContent(rs.getString("board_content"));
 				tvo.setBoardDate(rs.getString("board_date"));
 				tvo.setBoardHit(rs.getInt("board_hit"));
@@ -111,12 +110,13 @@ public class TheaterBoardDAO {
 	}
 
 	// 게시물 insert
-	public TheaterBoardVO insertBoard(TheaterBoardVO vo) {
+	public void insertBoard(TheaterBoardVO vo) {
 		conn = DBcon.getConnect();
 		String selectKey = "select nvl(max(board_num),0)+1 from theater_board";
-		String inssertSql = "insert into THEATER_BOARD values(?,?,to_char(sysdate, 'YYYY-MM-DD'),?,?,?,?)";
-		TheaterBoardVO tvo = new TheaterBoardVO();
+		String date = "select TO_CHAR(SYSDATE, 'MM/DD/HH24:MI:SS') FROM DUAL";
+		String inssertSql = "insert into THEATER_BOARD values (?,?,?,?,?,?)";
 		int key = 0;
+		String resultDate = null;
 		// 게시판 번호의 맥시멈 값에 1을 더한 값을 출력
 		try {
 			psmt = conn.prepareStatement(selectKey);
@@ -124,16 +124,20 @@ public class TheaterBoardDAO {
 			if (rs.next()) {
 				key = rs.getInt(1);
 			}
+			// 현재 월 / 달 / 시간 반환
+			psmt = conn.prepareStatement(date);
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				resultDate = rs.getString(1);
+			}
 			// insert 작업
 			psmt = conn.prepareStatement(inssertSql);
 			psmt.setInt(1, key);
-			psmt.setString(2, tvo.getMemberId());
-			psmt.setString(3, tvo.getBoardDate());
-			psmt.setString(4, tvo.getBoardContent());
-			psmt.setInt(5, tvo.getBoardHit());
-			psmt.setString(6, tvo.getBoardTitle());
-			psmt.setString(7, tvo.getMemberName());
-
+			psmt.setString(2, vo.getBoardTitle());
+			psmt.setString(3, vo.getBoardContent());
+			psmt.setString(4, vo.getMemberName());
+			psmt.setString(5, resultDate);
+			psmt.setInt(6, vo.getBoardHit());
 			int r = psmt.executeUpdate();
 			if (r != 0) {
 				System.out.println("작업완료");
@@ -145,17 +149,16 @@ public class TheaterBoardDAO {
 		} finally {
 			close();
 		}
-		return tvo;
 	}
 
 	// 게시글 한건 조회
-	public TheaterBoardVO getBoardSelect(TheaterBoardVO vo) {
+	public TheaterBoardVO getBoardSelect(String content) {
 		conn = DBcon.getConnect();
-		String sql = "select * from theater_board where board_num = ?";
+		String sql = "select * from theater_board where board_content = ?";
 		TheaterBoardVO tvo = new TheaterBoardVO();
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, vo.getBoardNum());
+			psmt.setString(1, content);
 			rs = psmt.executeQuery();
 			if (rs.next()) {
 				tvo.setBoardNum(rs.getInt("board_num"));
@@ -171,7 +174,6 @@ public class TheaterBoardDAO {
 			close();
 		}
 		return tvo;
-
 	}
 
 	// DB연동 게시글 삭제
@@ -192,7 +194,7 @@ public class TheaterBoardDAO {
 			e.printStackTrace();
 		}
 	}
-	
+
 	// update
 	public boolean updateBoard(TheaterBoardVO vo) {
 		conn = DBcon.getConnect();
@@ -209,7 +211,7 @@ public class TheaterBoardDAO {
 			e.printStackTrace();
 		}
 		return tlqkf == 0 ? false : true;
-		
+
 	}
 
 	// Close 메소드

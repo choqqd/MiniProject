@@ -1,3 +1,8 @@
+<%@page import="java.util.List"%>
+<%@page import="TheaterBoardService.TheaterBoardDAO"%>
+<%@page import="TheaterBoardService.TheaterBoardVO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,57 +12,8 @@
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 <link rel="stylesheet" href="css/theaterBoard.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script>
-	$(document).ready(function() {
-		$.ajax({
-			url: '../../theaterBoardServlet',
-			type: 'get',
-			dataType: 'json',
-			success: tableContent,
-			error: function(reject){
-				window.alert(reject.statusText);
-				console.log('에러코드 : ${reject.status}, 에러메세지 : ${reject.statusText}');
-			}
-		});
-		
-		// Table 내용
-		function tableContent(result){
-			console.log(result);
-			console.log(result.length);
-			// Table
-			let table = $('<table id="boardTable" />');
-			table.append(title);
-			for(let k of result){
-				let tr = $('<tr id="boardTrTag" />');
-				tr.append(
-					$('<td id="tdTag">').html(k.board_num),
-					$('<td id="tdTag">').html(k.board_title),
-					$('<td id="tdTag">').html(k.board_content),
-					$('<td id="tdTag">').html(k.member_name),
-					$('<td id="tdTag">').html(k.board_date),
-					$('<td id="tdTag">').html(k.board_hit),
-				);
-				table.append(tr);
-			}
-			table.append(insertBtn);
-			$('#show').append(table);
-		}
-		// Title
-		function title(){
-			let title = $('<tr id="boardTitle" />');
-			title.append(
-				$('<th>').html("번호"),
-				$('<th>').html("제목"),
-				$('<th>').html("내용"),
-				$('<th>').html("글쓴이"),
-				$('<th>').html("등록날짜"),
-				$('<th>').html("조회수"),
-			)
-			return title;
-		}
-	});
-</script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script
 	src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 <script type="text/javascript"></script>
@@ -149,7 +105,40 @@
 	</header>
 	<!-- 게시판 영역 -->
 	<div id="show">
-		<button id="insertBtn" type="button">글등록</button>
+		<h1 style="text-align: center; margin: 20px auto;">후기게시판</h1>
+		<table id="boardTable">
+			<tr id="boardTrTag">
+				<th>번호</th>
+				<th>제목</th>
+				<th>내용</th>
+				<th>글쓴이</th>
+				<th>등록날짜</th>
+				<th>조회수</th>
+			</tr>
+			<%
+			TheaterBoardDAO dao = new TheaterBoardDAO();
+			List<TheaterBoardVO> list = dao.theaterBoardList();
+			for (int i = 0; i < list.size(); i++) {
+			%>
+			<tr id="trTag">
+				<td style="width: 10%"><%=list.get(i).getBoardNum()%></td>
+				<td style="width: 14%"><%=list.get(i).getBoardTitle()%></td>
+				<td style="width: 40%"><a
+					href="theaterBoardContent.jsp?content=<%=list.get(i).getBoardContent()%>"><%=list.get(i).getBoardContent()%></a></td>
+				<td style="width: 12%"><%=list.get(i).getMemberName()%></td>
+				<td style="width: 12%"><%=list.get(i).getBoardDate()%></td>
+				<td style="width: 12%"><%=list.get(i).getBoardHit()%></td>
+			</tr>
+			<%
+			}
+			%>
+			<tr>
+				<td colspan="6">
+					<button id="insertBtn" type="button"
+						onclick="location.href='insertContent.jsp'">글등록</button>
+				</td>
+			</tr>
+		</table>
 	</div>
 	<!-- 게시판 영역 끝-->
 	<!-- Footer -->

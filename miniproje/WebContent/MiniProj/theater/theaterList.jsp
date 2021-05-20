@@ -1,63 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>theaterBoard.html</title>
+<title>theaterlist.jsp</title>
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 <link rel="stylesheet" href="css/theaterBoard.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script>
-	$(document).ready(function() {
-		$.ajax({
-			url: '../../theaterBoardServlet',
-			type: 'get',
-			dataType: 'json',
-			success: tableContent,
-			error: function(reject){
-				window.alert(reject.statusText);
-				console.log('에러코드 : ${reject.status}, 에러메세지 : ${reject.statusText}');
-			}
-		});
-		
-		// Table 내용
-		function tableContent(result){
-			console.log(result);
-			console.log(result.length);
-			// Table
-			let table = $('<table id="boardTable" />');
-			table.append(title);
-			for(let k of result){
-				let tr = $('<tr id="boardTrTag" />');
-				tr.append(
-					$('<td id="tdTag">').html(k.board_num),
-					$('<td id="tdTag">').html(k.board_title),
-					$('<td id="tdTag">').html(k.board_content),
-					$('<td id="tdTag">').html(k.member_name),
-					$('<td id="tdTag">').html(k.board_date),
-					$('<td id="tdTag">').html(k.board_hit),
-				);
-				table.append(tr);
-			}
-			table.append(insertBtn);
-			$('#show').append(table);
-		}
-		// Title
-		function title(){
-			let title = $('<tr id="boardTitle" />');
-			title.append(
-				$('<th>').html("번호"),
-				$('<th>').html("제목"),
-				$('<th>').html("내용"),
-				$('<th>').html("글쓴이"),
-				$('<th>').html("등록날짜"),
-				$('<th>').html("조회수"),
-			)
-			return title;
-		}
-	});
-</script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script
 	src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 <script type="text/javascript"></script>
@@ -73,10 +27,10 @@
 <!-- style css -->
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="css/theaterMain.css">
+<title>연극 정보 리스트</title>
 </head>
 <body>
-	<!-- HEADER-AREA START -->
-	<header class="header-area">
+<header class="header-area">
 		<!-- Header-Top Start -->
 		<div class="header-top hidden-xs">
 			<div class="container">
@@ -146,13 +100,15 @@
 			</div>
 		</div>
 		<!-- Main-Header End -->
-	</header>
-	<!-- 게시판 영역 -->
-	<div id="show">
-		<button id="insertBtn" type="button">글등록</button>
-	</div>
-	<!-- 게시판 영역 끝-->
-	<!-- Footer -->
+		</header>
+		<div class="theaterList">
+		
+		
+		
+		</div>
+		
+		
+		<!-- Footer -->
 	<div class="footer" style="text-align: center;">
 		<p class="single-footer">
 			(주)Gaze in Daegu 대구광역시 중구 국채보상로 537 (수동, 5층) / 대표자:조진호 / <br> 대표

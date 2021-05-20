@@ -1,9 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
-<title>Gaze In Daegu :: Concert 게시판 글작성</title>
-	<!-- Google Font -->
+<title>Gaze In Daegu :: 게시글 조회</title>
+<!-- Google Font -->
 	<link
 		href='https://fonts.googleapis.com/css?family=Roboto:400,500.00,700,300'
 		rel='stylesheet' type='text/css'>
@@ -17,38 +19,9 @@
 	<link rel="stylesheet" href="../css/style.css">
 	<!-- Banya's css -->
 	<link rel="stylesheet" href="../css/ConcertBoard.css">
-	<script src='http://localhost/webProj/Js/jquery-3.6.0.min.js'></script>
-	<script>
-		$(document).on('DOMContentLoaded', function() {
-			$('.frm').on('submit', function(e) {
-				e.stopPropagation();
-				e.preventDefault();		// 이게 있으면 DB에 값이 제대로 안 넘어가고 null로 입력됨.
-										// 그렇다고 없자니 serv 페이지가 호출이 되고...
-				let data = 'name='+$('.name').val()+//
-							'&title='+$('.title').val()+//
-							'&contents='+$('.contents').val();
-				console.log(data);
-				
-				$.ajax({
-					url: $('.frm').attr('action'),
-					type: 'post',
-					data: data,
-					dataType: 'json',
-					success: uploadContents,
-					error: function(reject) {
-						console.log(reject);
-					}
-				});
-			})
-			function uploadContents() {
-
-				window.alert("업로드 되었습니다.");
-				location.href="ConcertBoard.jsp";
-			}
-		});
-	</script>
 </head>
 <body>
+
 	<!-- HEADER-AREA START -->
 	<header class="header-area">
 		<!-- Header-Top Start -->
@@ -68,10 +41,10 @@
 							<ul>
 								<li><a href="#">관리 <span><i class="sp-gear"></i></span></a>
 									<ul class="submenu">
-										<li><a href="#">로그인</a></li>
+										<li><a href="../login.jsp">로그인</a></li>
 										<li><a href="#">내 정보</a></li>
 										<li><a href="#">관심목록</a></li>
-										<li><a href="#">로그아웃</a></li>
+										<li><a href="../logCheck.jsp">로그아웃</a></li>
 									</ul></li>
 							</ul>
 							<div class="header-search">
@@ -100,8 +73,8 @@
 						<div class="main-menu pull-right">
 							<nav>
 								<ul>
-									<li><a href="../index.html">home</a></li>
-									<li><a href="Concert.html">콘서트</a></li>
+									<li><a href="../index.jsp">home</a></li>
+									<li><a href="Concert.jsp">콘서트</a></li>
 									<li><a href="../musical/Musical.html">뮤지컬</a></li>
 									<li><a href="../theater/Theater.html">연극</a></li>
 									<li><a href="">게시판</a></li>
@@ -117,28 +90,40 @@
 		<!-- Main-Header End -->
 	</header>		
 	<!-- HEADER-AREA END -->
+	<jsp:useBean id="dao" class= "ConcertBoardService.ConcertBoardDAO"></jsp:useBean>
+	<jsp:useBean id="vo" class="ConcertBoardService.ConcertBoardVO"></jsp:useBean>
 	<div class = "wrap">
-		<form class = 'frm' action="../../boarduploadserv" method='post'>
-			<table class = 'upTbl' align = "center">
-			<caption><h2>Concert Review</h2></caption>
-				<tr>
-					<td width="50px" class = "leftTd">작성자</td><td class = "leftTd"><input type = "text" name = "name" class="name"></td>
-				</tr>
-				<tr>
-					<td class = "leftTd">제목</td><td class = "leftTd"><input type = "text" name = "title" class = "title"></td>
-				</tr>
-				
-				<tr>
-					<td colspan="2" class = "leftTd">내용</td>
-				</tr>
-				<tr>
-					<td colspan="2"><textarea name = "contents" class = "contents" rows="30"></textarea></td>
-				</tr>
-				<tr>
-					<td colspan="2"><input class = "btn" type = "submit" value = "저장">&nbsp;&nbsp;&nbsp;<input class = "btn" type = "reset" value = "삭제"></td>
-				</tr>
-			</table>
-		</form>
+		<%
+			String title = request.getParameter("title");
+			vo = dao.selecetContents(title);
+			String contents = vo.getContents();	// DB에서 글 내용을 받아옴.
+			contents = contents.replace("\r\n","<br>");	// 그냥 뿌려주면 개행 처리가 안 되어있기 때문에 replace로 개행을 알려주면
+														// 화면에 뿌려줄 때 개행까지 갓--벽하게 나옴.
+			
+		%>
+		<table class = 'contentsTbl' align = 'center'>
+		<caption><h2>Concert Board</h2></caption>
+			<tr>
+				<th class= "cTitle" colspan="6"><%=vo.getTitle() %></th>
+			</tr>
+			<tr>
+				<td width="5%">no. <%= vo.getBoardnum() %></td>
+				<td width="5%">작성자</td>
+				<td width="10%" class= "leftTd"><%= vo.getMemberName() %></td>
+				<td width="70%" class="bottomTd"><%= vo.getUploadDate() %></td>
+				<td width="5%">조회수</td>
+				<td width="5%"><%= vo.getHit() %></td>
+			</tr>
+			<tr>
+				<td class= "content" colspan="6"><%= contents %></td>
+			</tr>
+			<tr>
+				<td><a href ="ConcertBoard.jsp"><button class="btn">목록가기</button></a></td>
+				<td><a href="CBContentsEdit.jsp?boardNum=<%= vo.getBoardnum() %>&memberId=<%= vo.getMemberId() %>&memberName=<%= vo.getMemberName()%>&title=<%= vo.getTitle() %>&contents=<%= vo.getContents() %>">
+					<button class="btn">글수정</button></a></td>
+				<td colspan="4" class="delBtnTd"><a href="BBSDeleteAction.jsp?boardNum=<%= vo.getBoardnum() %>&memberId=<%= vo.getMemberId()%>"><button class="btn">글삭제</button></a></td>
+			</tr>
+		</table>
 	</div>
 	<div class="footer">
 		<!-- Footer는 Sifoot start -->

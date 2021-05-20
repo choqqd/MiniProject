@@ -1,4 +1,4 @@
-package MusicalBoardServlce;
+package MusicalBoardService;
 
 import java.io.IOException;
 import java.util.List;
@@ -18,10 +18,10 @@ import projectVO.ShowVO;
 
 
 @WebServlet("/musicalListServler")
-public class MusicalListServler extends HttpServlet {
+public class Info_Listservlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
   
-    public MusicalListServler() {
+    public Info_Listservlet() {
         super();
     }
 
@@ -34,7 +34,7 @@ public class MusicalListServler extends HttpServlet {
     	
     	JSONArray ary= new JSONArray();
     	
-    	MusicalDAO dao = new MusicalDAO();
+    	InfoDAO dao = new InfoDAO();
     	List<ShowVO> list = dao.getMusicalList();
     	
     	for(ShowVO vo : list) {

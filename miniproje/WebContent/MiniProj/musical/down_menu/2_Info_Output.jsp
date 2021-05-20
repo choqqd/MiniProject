@@ -1,7 +1,3 @@
-2_Info.jsp
-<%@page import="java.util.List"%>
-<%@page import="projectVO.ShowVO"%>
-<%@page import="MusicalBoardService.InfoDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -34,21 +30,13 @@
 
 <!--all css here-->
 <!-- bootstrap v3.3.6 css -->
-<link rel="stylesheet" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" href="/miniproje/MiniProj/css/bootstrap.min.css">
 <!-- flaticon css -->
-<link rel="stylesheet" href="../../css/shopick-icon.css">
+<link rel="stylesheet" href="/miniproje/MiniProj/css/shopick-icon.css">
 <!-- style css -->
-<link rel="stylesheet" href="../../css/style.css">
+<link rel="stylesheet" href="/miniproje/MiniProj/css/style.css">
 <!-- main css -->
-<link rel="stylesheet" href="../Musical_dam.css">
-<style>
-#insertBtn {
-	border: 1px solid black;
-	background-color: lightgray;
-	margin:10% 20%;
-}
-
-</style>
+<link rel="stylesheet" href="/miniproje/MiniProj/musical/Musical_dam.css">
 </head>
 <body>
 <!-- HEADER-AREA START -->
@@ -141,41 +129,17 @@
 		
 		<!-- 메뉴 START -->
 		<div class='submenu'>
-			<ul>
-        		 <li ><a href="1_Reservation.html" >예매</a></li>
-      			 <li ><a href="2_Info.jsp">공연정보</a></li>
-        		 <li ><a href="3_Review.html">관람후기</a></li>
-        		 <li ><a href="4_QnA.jsp">Q&A</a></li>
+			<ul>/miniproje/MiniProj/musical/down_menu/2_Info.jsp
+        		 <li ><a href="/miniproje/MiniProj/musical/down_menu/1_Reservation.html" >예매</a></li>
+      			 <li ><a href="/miniproje/MiniProj/musical/down_menu/2_Info.jsp">공연정보</a></li>
+        		 <li ><a href="/miniproje/MiniProj/musical/down_menu/3_Review.html">관람후기</a></li>
+        		 <li ><a href="/miniproje/MiniProj/musical/down_menu/4_QnA.jsp">Q&A</a></li>
 			</ul>
 		</div>
 		<!-- 메뉴 END -->
 		
-	<%
-		InfoDAO dao = new InfoDAO();
-		ShowVO vo= new ShowVO();
-		
-		List<ShowVO> list = dao.getMusicalList();
-		
-	%>
-
-<button id="insertBtn">
-	<a href="2_Info_Insert.jsp" >공연등록</a>
-</button>
-
-<table>
-		<% 
-		for(int i =0; i < list.size(); i++) {
-		%><tr>
-		<td><a href="2_Info_select.jsp?show_code=<%= list.get(i).getShow_Code()%>"><img width='200' src='../musical_Img/mama.jfif'></td>
-		<td ><a href="2_Info_select.jsp?show_code=<%= list.get(i).getShow_Code()%>"><%= list.get(i).getShow_Name()%></a></td>
-		<td><a href="2_Info_select.jsp?show_code=<%= list.get(i).getShow_Code()%>"><%= list.get(i).getShow_Startday()%></a></td>
-		<td><a href="2_Info_select.jsp?show_code=<%= list.get(i).getShow_Code()%>">~</a></td>
-		<td><a href="2_Info_select.jsp?show_code=<%= list.get(i).getShow_Code()%>"><%= list.get(i).getShow_Endday()%></a></td>
-		</tr><%	
-		}
-	%>
-</table>
-		<!-- FOOTER-AREA START -->
+	
+	<h3>${vo.show_Name } 등록이 완료 되었습니다</h3>
 		<footer>
 			<p class="single-footer" align="center">
 				(주)Gaze in Daegu 대구광역시 중구 국채보상로 537 (수동, 5층) / 대표자:조진호 / <br> 대표
@@ -183,6 +147,8 @@
 				Copyright © 2021 (주)Gaze in Daegu All Rights Reserved.
 			</p>
 		</footer>
-		<!-- FOOTER-AREA END -->
+
+	
+
 </body>
 </html>

@@ -1,3 +1,6 @@
+<%@page import="java.io.PrintWriter"%>
+<%@page import="ConcertBoardService.ConcertBoardDAO"%>
+<%@page import="ConcertBoardService.ConcertBoardVO"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -40,10 +43,10 @@
 							<ul>
 								<li><a href="#">관리 <span><i class="sp-gear"></i></span></a>
 									<ul class="submenu">
-										<li><a href="login.jsp">로그인</a></li>
+										<li><a href="../login.jsp">로그인</a></li>
 										<li><a href="#">내 정보</a></li>
 										<li><a href="#">관심목록</a></li>
-										<li><a href="#">로그아웃</a></li>
+										<li><a href="../logCheck.jsp">로그아웃</a></li>
 									</ul></li>
 							</ul>
 							<div class="header-search">
@@ -74,8 +77,8 @@
 								<ul>
 									<li><a href="../index.jsp">home</a></li>
 									<li><a href="Concert.jsp">콘서트</a></li>
-									<li><a href="../musical/Musical.html">뮤지컬</a></li>
-									<li><a href="../theater/Theater.html">연극</a></li>
+									<li><a href="../musical/Musical.jsp">뮤지컬</a></li>
+									<li><a href="../theater/Theater.jsp">연극</a></li>
 									<li><a href="">게시판</a></li>
 									<li><a href="">공연장</a></li>
 									<li><a href="">이벤트/쿠폰</a></li>
@@ -93,13 +96,28 @@
 	<jsp:useBean id="vo" class="ConcertBoardService.ConcertBoardVO"></jsp:useBean>
 	<div class = "wrap">
 	<%
+	//로그인 정보 받아오기
+	String id = null;
+	String name = null;
+	if(session.getAttribute("id") != null){
+		id = (String) session.getAttribute("id");
+		name = (String) session.getAttribute("name");
+	}
+	// 로그인이 되지 않았다면
+	if(id == null){
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("window.alert('로그인이 필요합니다!')");
+		script.println("location.href='../login.jsp'");
+		script.println("</script>");
+	}
 		
 	%>
 		<form action="BBSUpload.jsp" method='post'>
 			<table class = 'upTbl' align = "center">
 			<caption><h2>Concert Review</h2></caption>
 				<tr>
-					<td width="55px" class = "leftTd" style="border-right: 1px solid lightgray;">작성자</td><td class ="leftTd" colspan="2"><input type = "text" name = "name" class="name"></td>
+					<td width="55px" class = "leftTd" style="border-right: 1px solid lightgray;">작성자</td><td class ="leftTd" colspan="2"><%=name %></td>
 				</tr>
 				<tr>
 					<td class="leftTd" style="border-right: 1px solid lightgray;">제목</td><td colspan="2"><input type = "text" name = "title" class = "title"></td>

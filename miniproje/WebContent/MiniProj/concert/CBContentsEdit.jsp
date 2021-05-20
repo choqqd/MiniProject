@@ -1,3 +1,5 @@
+<%@page import="java.io.PrintWriter"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -40,10 +42,10 @@
 							<ul>
 								<li><a href="#">관리 <span><i class="sp-gear"></i></span></a>
 									<ul class="submenu">
-										<li><a href="login.jsp">로그인</a></li>
+										<li><a href="../login.jsp">로그인</a></li>
 										<li><a href="#">내 정보</a></li>
 										<li><a href="#">관심목록</a></li>
-										<li><a href="#">로그아웃</a></li>
+										<li><a href="../logCheck.jsp">로그아웃</a></li>
 									</ul></li>
 							</ul>
 							<div class="header-search">
@@ -93,36 +95,81 @@
 	<jsp:useBean id="vo" class="ConcertBoardService.ConcertBoardVO"></jsp:useBean>
 	<div class = "wrap">
 		<%
-			String bNum = request.getParameter("boardNum");
-			int boardNum = Integer.parseInt(bNum);
+			//로그인 정보 받아오기
+			String id = null;
+			if(session.getAttribute("id") != null){
+				id = (String) session.getAttribute("id");
+			}
+			// 로그인이 되지 않았다면
+			if(id == null){
+				PrintWriter script = response.getWriter();
+				script.println("<script>");
+				script.println("window.alert('로그인이 필요합니다!')");
+				script.println("location.href='../login.jsp'");
+				script.println("</script>");
+			}
+			
+			// 게시글 번호를 받아왔는지 확인
+			int boardNum = 0;
+			if(request.getParameter("boardNum") != null){
+				boardNum = Integer.parseInt(request.getParameter("boardNum"));
+			}
+			if(boardNum == 0){
+				PrintWriter script = response.getWriter();
+				script.println("<script>");
+				script.println("window.alert('유효하지 않은 글입니다.')");
+				script.println("history.go(-1)"); // 뒤로 가기
+				script.println("</script>");
+			}
+			
+			String mId = request.getParameter("memberId");
 			String title = request.getParameter("title");
 			String name = request.getParameter("memberName");
 			String contents = request.getParameter("contents");
+			System.out.println(id);
+			System.out.println(mId);
 		%>
-		<form method="post" action="BBSEditAction.jsp?boardNum=<%= bNum %>">
-			<table class = 'upTbl' align = "center">
-			<caption><h2>Concert Review</h2></caption>
-				<tr>
-					<td width="55px" class = "leftTd" style ="border-right:1px solid lightgray;">no. <%= bNum %></td><td width= "55px" class = "leftTd">작성자</td><td class = "leftTd" colspan="3"><input type = "text" name = "name" class="name" value="<%= name %>"></td>
-				</tr>
-				<tr>
-					<td class = "leftTd">제목</td><td class = "leftTd" colspan="3"><input type = "text" name = "title" class = "title" value="<%= title%>"></td>
-				</tr>
-				
-				<tr>
-					<td colspan="4" class = "leftTd">내용</td>
-				</tr>
-				<tr>
-					<td colspan="4"><textarea name = "contents" class = "contents" cols="100" rows="30"><%= contents %></textarea></td>
-				</tr>
-				<tr>
-					<td class="leftTd"><input class = "btn" type = "submit" value = "저장"></td>
-					<td class="leftTd"><input class = "btn" type = "reset" value = "삭제"></td>
-																								<!--┌>button의 자동 submit 방지용  -->
-					<td class="rightTd"><a href="javascript:history.go(-1);"><button class= "btn" type="button">돌아가기</button></a></td>
-				</tr>
-			</table>
-		</form>
+		<%-- <c:set var="id" value="${id }"></c:set>
+		<c:set var="mId" value="${mId }"></c:set>
+		<c:choose>
+			<c:when test="${id eq mId }"> --%>
+		<% if(id.equals(mId)){ %>	
+				<form method="post" action="BBSEditAction.jsp?boardNum=<%= boardNum %>">
+					<table class = 'upTbl' align = "center">
+					<caption><h2>Concert Review</h2></caption>
+						<tr>
+							<td width="55px" class = "leftTd" style ="border-right:1px solid lightgray;">no. <%= boardNum %></td><td width= "55px" class = "leftTd">작성자</td><td class = "leftTd" colspan="3"><%= name %></td>
+						</tr>
+						<tr>
+							<td class = "leftTd">제목</td><td class = "leftTd" colspan="3"><input type = "text" name = "title" class = "title" value="<%= title%>"></td>
+						</tr>
+						
+						<tr>
+							<td colspan="4" class = "leftTd">내용</td>
+						</tr>
+						<tr>
+							<td colspan="4"><textarea name = "contents" class = "contents" cols="100" rows="30"><%= contents %></textarea></td>
+						</tr>
+						<tr>
+							<td class="leftTd"><input class = "btn" type = "submit" value = "저장"></td>
+							<td class="leftTd"><input class = "btn" type = "reset" value = "삭제"></td>
+																										<!--┌>button의 자동 submit 방지용  -->
+							<td class="rightTd"><a href="javascript:history.go(-1);"><button class= "btn" type="button">돌아가기</button></a></td>
+						</tr>
+					</table>
+				</form>
+		<%-- 	</c:when>
+			<c:otherwise> --%>
+		<%	} else {
+				PrintWriter script = response.getWriter();
+				script.println("<script>");
+				script.println("window.alert('수정권한이 없습니다.')");
+				script.println("history.go(-1)"); // 뒤로 가기
+				script.println("</script>");
+			}
+				%>
+		<%-- 	</c:otherwise>
+		</c:choose> --%>
 	</div>
 	<div class="footer">
 		<!-- Footer는 Sifoot start -->

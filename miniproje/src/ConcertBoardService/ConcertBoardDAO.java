@@ -75,7 +75,7 @@ public class ConcertBoardDAO {
 		conn = DBcon.getConnect();
 		ConcertBoardVO vo = new ConcertBoardVO();
 		
-		String selSql = "select board_num, member_name, title, contents, upload_date, hit from concert_board where title = ?";
+		String selSql = "select * from concert_board where title = ?";
 		
 		try {
 			psmt = conn.prepareStatement(selSql);
@@ -83,6 +83,7 @@ public class ConcertBoardDAO {
 			rs = psmt.executeQuery();
 			if(rs.next()) {
 				vo.setBoardnum(rs.getInt("board_num"));
+				vo.setMemberId(rs.getString("member_id"));
 				vo.setMemberName(rs.getString("member_name"));
 				vo.setTitle(rs.getString("title"));
 				vo.setContents(rs.getString("contents"));
@@ -104,7 +105,7 @@ public class ConcertBoardDAO {
 		ConcertBoardVO cvo = new ConcertBoardVO();
 		
 		String numbering = "select nvl(max(board_num),0)+1 from concert_board";
-		String insert = "insert into concert_board(board_num, member_name, title, contents, upload_date) values(?,?,?,?,to_char(sysdate, 'YYYY-MM-DD'))";
+		String insert = "insert into concert_board(board_num, member_id, member_name, title, contents, upload_date) values(?,?,?,?,?,to_char(sysdate, 'YYYY-MM-DD'))";
 		
 		//게시글 번호 저장 변수
 		int bNum = 0;
@@ -124,10 +125,10 @@ public class ConcertBoardDAO {
 		try {
 			psmt =  conn.prepareStatement(insert);
 			psmt.setInt(1, bNum);
-			//psmt.setString(2, vo.getMemberId());
-			psmt.setString(2, vo.getMemberName());
-			psmt.setString(3, vo.getTitle());
-			psmt.setString(4, vo.getContents());
+			psmt.setString(2, vo.getMemberId());
+			psmt.setString(3, vo.getMemberName());
+			psmt.setString(4, vo.getTitle());
+			psmt.setString(5, vo.getContents());
 			
 			int in = psmt.executeUpdate();
 			System.out.println(in + "건 입력 완료.");
@@ -154,14 +155,13 @@ public class ConcertBoardDAO {
 	 */
 	public ConcertBoardVO editContents(ConcertBoardVO vo) {
 		conn = DBcon.getConnect();
-		String sql = "update concert_board set member_name= ?, title= ?, contents = ? where board_num= ?";
+		String sql = "update concert_board set title= ?, contents = ? where board_num= ?";
 
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, vo.getMemberName());
-			psmt.setString(2, vo.getTitle());
-			psmt.setString(3, vo.getContents());
-			psmt.setInt(4, vo.getBoardnum());
+			psmt.setString(1, vo.getTitle());
+			psmt.setString(2, vo.getContents());
+			psmt.setInt(3, vo.getBoardnum());
 			
 			int ed =  psmt.executeUpdate();
 			System.out.println(ed + "건 수정 완료.");

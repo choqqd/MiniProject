@@ -52,10 +52,10 @@
 							<ul>
 								<li><a href="#">관리 <span><i class="sp-gear"></i></span></a>
 									<ul class="submenu">
-										<li><a href="login.jsp">로그인</a></li>
+										<li><a href="../login.jsp">로그인</a></li>
 										<li><a href="#">내 정보</a></li>
 										<li><a href="#">관심목록</a></li>
-										<li><a href="#">로그아웃</a></li>
+										<li><a href="../logCheck.jsp">로그아웃</a></li>
 									</ul></li>
 							</ul>
 							<div class="header-search">
@@ -285,16 +285,28 @@
 					</tr>
 				<%
 					} else {
-						for(int i = 0; i < 5; i++){
-				%>
-					<tr>
-						<td width="5%"><%= list.get(i).getBoardnum() %></td>
-						<td width="15%"><%= list.get(i).getMemberName() %></td>
-						<td width="50%"><a href = "CboardContents.jsp?title=<%= list.get(i).getTitle() %>"><%= list.get(i).getTitle() %></a></td>
-						<td width="20%"><%= list.get(i).getUploadDate() %></td>
-						<td width="10%"><%= list.get(i).getHit() %></td>
+						if(list.size() > 5) {
+							for(int i = 0; i < 5; i++){
+					%>
+						<tr>
+							<td width="5%"><%= list.get(i).getBoardnum() %></td>
+							<td width="15%"><%= list.get(i).getMemberName() %></td>
+							<td width="50%"><a href = "CboardContents.jsp?title=<%= list.get(i).getTitle() %>"><%= list.get(i).getTitle() %></a></td>
+							<td width="20%"><%= list.get(i).getUploadDate() %></td>
+							<td width="10%"><%= list.get(i).getHit() %></td>
 						</tr>
-				<%
+					<%
+							}
+						} else {
+							for(int i = 0; i < list.size(); i++){%>
+								<tr>
+								<td width="5%"><%= list.get(i).getBoardnum() %></td>
+								<td width="15%"><%= list.get(i).getMemberName() %></td>
+								<td width="50%"><a href = "CboardContents.jsp?title=<%= list.get(i).getTitle() %>"><%= list.get(i).getTitle() %></a></td>
+								<td width="20%"><%= list.get(i).getUploadDate() %></td>
+								<td width="10%"><%= list.get(i).getHit() %></td>
+							</tr>
+					<%		}
 						}
 					}
 				%>

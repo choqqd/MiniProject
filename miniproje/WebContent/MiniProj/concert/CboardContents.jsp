@@ -41,10 +41,10 @@
 							<ul>
 								<li><a href="#">관리 <span><i class="sp-gear"></i></span></a>
 									<ul class="submenu">
-										<li><a href="login.jsp">로그인</a></li>
+										<li><a href="../login.jsp">로그인</a></li>
 										<li><a href="#">내 정보</a></li>
 										<li><a href="#">관심목록</a></li>
-										<li><a href="#">로그아웃</a></li>
+										<li><a href="../logCheck.jsp">로그아웃</a></li>
 									</ul></li>
 							</ul>
 							<div class="header-search">
@@ -119,9 +119,9 @@
 			</tr>
 			<tr>
 				<td><a href ="ConcertBoard.jsp"><button class="btn">목록가기</button></a></td>
-				<td><a href="CBContentsEdit.jsp?boardNum=<%= vo.getBoardnum() %>&memberName=<%= vo.getMemberName()%>&title=<%= vo.getTitle() %>&contents=<%= vo.getContents() %>">
+				<td><a href="CBContentsEdit.jsp?boardNum=<%= vo.getBoardnum() %>&memberId=<%= vo.getMemberId() %>&memberName=<%= vo.getMemberName()%>&title=<%= vo.getTitle() %>&contents=<%= vo.getContents() %>">
 					<button class="btn">글수정</button></a></td>
-				<td colspan="4" class="delBtnTd"><a href="BBSDeleteAction.jsp?boardNum=<%= vo.getBoardnum() %>"><button class="btn">글삭제</button></a></td>
+				<td colspan="4" class="delBtnTd"><a href="BBSDeleteAction.jsp?boardNum=<%= vo.getBoardnum() %>&memberId=<%= vo.getMemberId()%>"><button class="btn">글삭제</button></a></td>
 			</tr>
 		</table>
 	</div>

@@ -38,7 +38,7 @@
 <!-- style css -->
 <link rel="stylesheet" href="../../css/style.css">
 <!-- main css -->
-<link rel="stylesheet" href="../Musical_dam.css">
+<link rel="stylesheet" href="../main.css">
 </head>
 <body>
 	<!-- HEADER-AREA START -->

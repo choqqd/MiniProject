@@ -1,3 +1,4 @@
+<%@page import="projectVO.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -55,7 +56,7 @@
 									<ul class="submenu">
 										<li><a href="login.jsp">
 										<%
-											if(request.getAttribute("mem")==null){
+											if(session.getAttribute("mem")==null){
 												%>로그인</a><%
 											}else{
 												%><a href = "logCheck.jsp">로그아웃<%
@@ -95,8 +96,8 @@
 							<nav>
 								<ul>
 									<li><a href="index.jsp">home</a></li>
-									<li><a href="concert/Concert.html">콘서트</a></li>
-									<li><a href="musical/Musical.html">뮤직컬</a></li>
+									<li><a href="concert/Concert.jsp">콘서트</a></li>
+									<li><a href="musical/Musical.html">뮤지컬</a></li>
 									<li><a href="theater/Theater.html">연극</a></li>
 									<li><a href="">게시판</a></li>
 									<li><a href="">공연장</a></li>
@@ -181,14 +182,19 @@
 				ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ<br>
 				ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ<br>
 				ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ<br>
+				
+				<%
+				out.print(session.getAttribute("id")+"/"+session.getAttribute("name"));
+				%>
+				
 			</div>
 		</div>
 	</section>
 	<div class="footer">
 		<!-- Footer는 Sifoot start -->
 		<p class="single-footer" align="center">
-			(주)Gaze in Daegu 대구광역시 중구 국채보상로 537 (수동, 5층) / 대표자:조진호 / <br> 대표
-			GIt:https://github.com/choqqd/Miniproj.git / 개인정보보호책임자:조진호 <br>
+			(주)Gaze in Daegu 대구광역시 중구 국채보상로 537 (수동, 5층) / 대표자: (주)그 미소는 꽃이야 / <br> 대표
+			GIt:https://github.com/choqqd/Miniproj.git / 개인정보보호책임자: (주)그 미소는 꽃이야 <br>
 			Copyright © 2021 (주)Gaze in Daegu All Rights Reserved.
 		</p>
 	</div>

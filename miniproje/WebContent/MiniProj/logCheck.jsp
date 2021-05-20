@@ -20,7 +20,9 @@
 	if(request.getMethod().equals("POST")){
 		vo = dao.login(userid, userPwd);
 		if(vo.getMember_Id()!=null && vo.getMember_Pwd()!=null && vo.getMember_Id().equals(userid) && vo.getMember_Pwd().equals(userPwd)){
-			request.setAttribute("mem", vo);
+			session.setAttribute("id", vo.getMember_Id());
+			session.setAttribute("name", vo.getMember_Name());
+
 			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 			rd.forward(request,response);
 		}else{

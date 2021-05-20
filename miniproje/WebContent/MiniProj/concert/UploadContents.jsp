@@ -99,20 +99,22 @@
 			<table class = 'upTbl' align = "center">
 			<caption><h2>Concert Review</h2></caption>
 				<tr>
-					<td width="55px" class = "leftTd" style="border-right: 1px solid lightgray;">작성자</td><td class ="leftTd"><input type = "text" name = "name" class="name"></td>
+					<td width="55px" class = "leftTd" style="border-right: 1px solid lightgray;">작성자</td><td class ="leftTd" colspan="2"><input type = "text" name = "name" class="name"></td>
 				</tr>
 				<tr>
-					<td class="leftTd" style="border-right: 1px solid lightgray;">제목</td><td><input type = "text" name = "title" class = "title"></td>
+					<td class="leftTd" style="border-right: 1px solid lightgray;">제목</td><td colspan="2"><input type = "text" name = "title" class = "title"></td>
 				</tr>
 				
 				<tr>
-					<td colspan="2" class ="leftTd">내용</td>
+					<td colspan="3" class ="leftTd">내용</td>
 				</tr>
 				<tr>
-					<td colspan="2"><textarea name = "contents" class = "contents" cols="100" rows="30"></textarea></td>
+					<td colspan="3"><textarea name = "contents" class = "contents" cols="100" rows="30"></textarea></td>
 				</tr>
 				<tr>
-					<td colspan="2" class="leftTd"><input class = "btn" type = "submit" value = "저장">&nbsp;&nbsp;&nbsp;<input class = "btn" type = "reset" value = "삭제"></td>
+					<td class="leftTd"><input class = "btn" type = "submit" value = "저장"></td>
+					<td class="leftTd"><input class = "btn" type = "reset" value = "삭제"></td>
+					<td class="rightTd"><a href="ConcertBoard.jsp"><button type= "button" class="btn">돌아가기</button></a></td>
 				</tr>
 			</table>
 		</form>

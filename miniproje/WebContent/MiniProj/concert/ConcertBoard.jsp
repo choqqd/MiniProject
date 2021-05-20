@@ -135,7 +135,7 @@
 						}
 					%>
 						<tr>
-							<td class= "bottomTd" colspan="6"><button class = "btn" type = "button" onclick ="a.href='uploadContents.jsp'">글쓰기</button></td>
+							<td class= "bottomTd" colspan="6"><a href="UploadContents.jsp"><button class = "btn" type = "button">글쓰기</button></a></td>
 						</tr>
 					</table>
 				</div>

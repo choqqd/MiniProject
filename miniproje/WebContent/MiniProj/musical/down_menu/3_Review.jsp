@@ -1,12 +1,11 @@
-<%@page import="java.util.function.Function"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title></title>
-<!-- slider ��ũ -->
+<!-- slider 링크 -->
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 <script
@@ -14,7 +13,7 @@
 <script
 	src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 <script>
-	//�����̴� ��ũ��Ʈ �κ�
+	//슬라이더 스크립트 부분
 	$(document).ready(function() {
 		$('.slider').bxSlider();
 	});
@@ -57,12 +56,12 @@
 					<div class="col-md-6 col-sm-6">
 						<div class="header-top-right pull-right">
 							<ul>
-								<li><a href="#">���� <span><i class="sp-gear"></i></span></a>
+								<li><a href="#">관리 <span><i class="sp-gear"></i></span></a>
 									<ul class="submenu">
-										<li><a href="#">�α���</a></li>
-										<li><a href="#">�� ����</a></li>
-										<li><a href="#">���ɸ��</a></li>
-										<li><a href="#">�α׾ƿ�</a></li>
+										<li><a href="#">로그인</a></li>
+										<li><a href="#">내 정보</a></li>
+										<li><a href="#">관심목록</a></li>
+										<li><a href="#">로그아웃</a></li>
 									</ul></li>
 							</ul>
 							<div class="header-search">
@@ -93,12 +92,12 @@
 							<nav>
 								<ul>
 									<li><a href="">home</a></li>
-									<li><a href="">�ܼ�Ʈ</a></li>
-									<li><a href="">������</a></li>
-									<li><a href="">����</a></li>
-									<li><a href="">�Խ���</a></li>
-									<li><a href="">������</a></li>
-									<li><a href="">�̺�Ʈ/����</a></li>
+									<li><a href="">콘서트</a></li>
+									<li><a href="">뮤직컬</a></li>
+									<li><a href="">연극</a></li>
+									<li><a href="">게시판</a></li>
+									<li><a href="">공연장</a></li>
+									<li><a href="">이벤트/쿠폰</a></li>
 								</ul>
 							</nav>
 						</div>
@@ -108,53 +107,40 @@
 		</div>
 	</header>
 	<!-- Main-Header End -->
+	
+	
+	<!-- MUSICAL START -->
+	<div>
+		<!-- HEADER-AREA END -->
+		<section>
+			<div class="slider">
+				<div>
+					<img class="im" src="../musical_Img/banner1.JPG" alt="">
+				</div>
+				<div>
+					<img class="im" src="../musical_Img/banner2.JPG" alt="">
+				</div>
+				<div>
+					<img class="im" src="../musical_Img/banner3.JPG" alt="">
+				</div>
+			</div>
+		</section>
 
-<%
-//int num=0, ... �Է¿���!
-//try {
-//	if(request.getParameter("num")!=null) {
-//		num = Integer.parseInt(request.getParameter());
-//		num = Integer.parseInt(request.getParameter());
-//		num = Integer.parseInt(request.getParameter());
-//		num = Integer.parseInt(request.getParameter());
-//	}
-//}
-%>
-<br><br>
-<h1 align="center">Write</h1>
-<form method="post" name="writeform" action="writePro.jsp" onsubmit="return check()">
-	<input type="hidden" name="name" value="<%%>">
-	<input type="hidden" name="title" value="<%%>">
-	<input type="hidden" name="contents" value="<%%>">
-	<input type="hidden" name="password" value="<%%>">
-
-	<table width=80% border="3" bordercolor="lightgray" align="center">
-		<tr height="30">
-			<td width=15% align="center"> Writer </td>
-			<td>&nbsp;<input type="text" size="20" name="writer"></td>
-		</tr>
-		<tr height="30">
-			<td width=15% align="center"> Title </td>
-			<td>&nbsp;<input type="text" size="50" name="title"></td>
-		</tr>
-		<tr height="30">
-			<td width=15% align="center"> Content </td>
-			<td>&nbsp;<textarea name="contents" style="width:98%; height:500px; border:1; overflow:visible; text-overflow: ellipsis;"></textarea></td>
-		</tr>
-		<tr height="30">
-			<td width=15% align="center"> password </td>
-			<td>&nbsp;<input type="password" size="20" name="pwd"></td>
-		</tr>
-		<tr height="40">
-			<td colspan=2 align="center">
-				<input type="submit" value="Save">&nbsp;&nbsp;
-				<input type="reset" value="Reset">&nbsp;&nbsp;
-				<input type="button" value="Go Back" onClick="window.location='4_QnA.jsp'" />
-			</td>
-		</tr>
-	</table>
-</form>
-
+		<!-- 메뉴 START -->
+		<div class='submenu'>
+			<ul>
+				<li><a href="1_Reservation.jsp">예매</a></li>
+				<li><a href="2_Info.jsp">공연정보</a></li>
+				<li><a href="3_Review.jsp">관람후기</a></li>
+				<li><a href="4_QnA.jsp">Q&A</a></li>
+			</ul>
+		</div>
+		<!-- 메뉴 END -->	
+</head>
+<body>
+	<div> <br> <br> 
+		<h1 align="center">Review</h1>
+	</div> <br> <br> 
 
 </body>
 </html>

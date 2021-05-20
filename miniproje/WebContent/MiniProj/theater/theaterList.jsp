@@ -1,14 +1,12 @@
-<%@page import="java.util.List"%>
-<%@page import="TheaterBoardService.TheaterBoardDAO"%>
-<%@page import="TheaterBoardService.TheaterBoardVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>theaterBoard.html</title>
+<title>theaterlist.jsp</title>
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 <link rel="stylesheet" href="css/theaterBoard.css">
@@ -29,10 +27,10 @@
 <!-- style css -->
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="css/theaterMain.css">
+<title>연극 정보 리스트</title>
 </head>
 <body>
-	<!-- HEADER-AREA START -->
-	<header class="header-area">
+<header class="header-area">
 		<!-- Header-Top Start -->
 		<div class="header-top hidden-xs">
 			<div class="container">
@@ -102,46 +100,15 @@
 			</div>
 		</div>
 		<!-- Main-Header End -->
-	</header>
-	<!-- 게시판 영역 -->
-	<div id="show">
-		<h1 style="text-align: center; margin: 20px auto;">후기게시판</h1>
-		<table id="boardTable">
-			<tr id="boardTrTag">
-				<th>번호</th>
-				<th>제목</th>
-				<th>내용</th>
-				<th>글쓴이</th>
-				<th>등록날짜</th>
-				<th>조회수</th>
-			</tr>
-			<%
-			TheaterBoardDAO dao = new TheaterBoardDAO();
-			List<TheaterBoardVO> list = dao.theaterBoardList();
-			for (int i = 0; i < list.size(); i++) {
-			%>
-			<tr id="trTag">
-				<td style="width: 10%"><%=list.get(i).getBoardNum()%></td>
-				<td style="width: 14%"><%=list.get(i).getBoardTitle()%></td>
-				<td style="width: 40%"><a
-					href="theaterBoardContent.jsp?content=<%=list.get(i).getBoardContent()%>"><%=list.get(i).getBoardContent()%></a></td>
-				<td style="width: 12%"><%=list.get(i).getMemberName()%></td>
-				<td style="width: 12%"><%=list.get(i).getBoardDate()%></td>
-				<td style="width: 12%"><%=list.get(i).getBoardHit()%></td>
-			</tr>
-			<%
-			}
-			%>
-			<tr>
-				<td colspan="6">
-					<button id="insertBtn" type="button"
-						onclick="location.href='insertContent.jsp'">글등록</button>
-				</td>
-			</tr>
-		</table>
-	</div>
-	<!-- 게시판 영역 끝-->
-	<!-- Footer -->
+		</header>
+		<div class="theaterList">
+		
+		
+		
+		</div>
+		
+		
+		<!-- Footer -->
 	<div class="footer" style="text-align: center;">
 		<p class="single-footer">
 			(주)Gaze in Daegu 대구광역시 중구 국채보상로 537 (수동, 5층) / 대표자:조진호 / <br> 대표

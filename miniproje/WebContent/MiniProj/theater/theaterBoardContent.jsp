@@ -1,8 +1,8 @@
-<%@page import="java.util.List"%>
-<%@page import="TheaterBoardService.TheaterBoardDAO"%>
 <%@page import="TheaterBoardService.TheaterBoardVO"%>
+<%@page import="TheaterBoardService.TheaterBoardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -103,44 +103,30 @@
 		</div>
 		<!-- Main-Header End -->
 	</header>
-	<!-- 게시판 영역 -->
-	<div id="show">
-		<h1 style="text-align: center; margin: 20px auto;">후기게시판</h1>
-		<table id="boardTable">
-			<tr id="boardTrTag">
-				<th>번호</th>
-				<th>제목</th>
-				<th>내용</th>
-				<th>글쓴이</th>
-				<th>등록날짜</th>
-				<th>조회수</th>
-			</tr>
-			<%
-			TheaterBoardDAO dao = new TheaterBoardDAO();
-			List<TheaterBoardVO> list = dao.theaterBoardList();
-			for (int i = 0; i < list.size(); i++) {
-			%>
-			<tr id="trTag">
-				<td style="width: 10%"><%=list.get(i).getBoardNum()%></td>
-				<td style="width: 14%"><%=list.get(i).getBoardTitle()%></td>
-				<td style="width: 40%"><a
-					href="theaterBoardContent.jsp?content=<%=list.get(i).getBoardContent()%>"><%=list.get(i).getBoardContent()%></a></td>
-				<td style="width: 12%"><%=list.get(i).getMemberName()%></td>
-				<td style="width: 12%"><%=list.get(i).getBoardDate()%></td>
-				<td style="width: 12%"><%=list.get(i).getBoardHit()%></td>
-			</tr>
-			<%
-			}
-			%>
+	<!-- 내용 뿌려주기 -->
+	<div id="showContent">
+		<%
+		String content = request.getParameter("content");
+		TheaterBoardDAO dao = new TheaterBoardDAO();
+		TheaterBoardVO vo = new TheaterBoardVO();
+		vo = dao.getBoardSelect(content);
+		
+		%>
+		<table id="contentTable" border="1">
 			<tr>
-				<td colspan="6">
-					<button id="insertBtn" type="button"
-						onclick="location.href='insertContent.jsp'">글등록</button>
-				</td>
+				<th colspan="4">글제목 <%=vo.getBoardTitle()%></th>
 			</tr>
+			<tr>
+				<th>작성자 : <%=vo.getMemberName()%></th>
+				<th>작성일 : <%=vo.getBoardDate() %></th>
+			</tr>
+			<tr>
+				<td><%=vo.getBoardContent() %></td>
+			</tr>
+			
 		</table>
 	</div>
-	<!-- 게시판 영역 끝-->
+	<!-- 내용 뿌려주기 끝 -->
 	<!-- Footer -->
 	<div class="footer" style="text-align: center;">
 		<p class="single-footer">

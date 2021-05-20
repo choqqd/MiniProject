@@ -1,4 +1,6 @@
-<!doctype html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html class="no-js" lang="">
 <head>
 <meta charset="utf-8">
@@ -35,7 +37,7 @@
 <!-- style css -->
 <link rel="stylesheet" href="../css/style.css">
 <!-- main css -->
-<link rel="stylesheet" href="Musical_dam.css">
+<link rel="stylesheet" href="main.css">
 </head>
 <body>
 	<!-- HEADER-AREA START -->
@@ -129,9 +131,9 @@
 		<!-- 메뉴 START -->
 		<div class='submenu'>
 			<ul>
-        		 <li ><a href="down_menu/1_Reservation.html" >예매</a></li>
+        		 <li ><a href="down_menu/1_Reservation.jsp" >예매</a></li>
       			 <li ><a href="down_menu/2_Info.jsp">공연정보</a></li>
-        		 <li ><a href="down_menu/3_Review.html">관람후기</a></li>
+        		 <li ><a href="down_menu/3_Review.jsp">관람후기</a></li>
         		 <li ><a href="down_menu/4_QnA.jsp">Q&A</a></li>
 			</ul>
 		</div>

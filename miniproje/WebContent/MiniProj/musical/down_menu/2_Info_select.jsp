@@ -146,6 +146,9 @@
 		String showcode = request.getParameter("show_code");
 		svo = dao.getshow(showcode);
 		%>
+		<input type="button" value="뒤로가기" onClick="window.location='2_Info.jsp'" />
+		
+	
 		<table border='1'>
 			<tr>
 				<td>제목</td>
@@ -179,7 +182,7 @@
 				<td>공연장 전화번호</td>
 				<td><%=svo.getConcert_Hall_Tel()%></td>
 			</tr>
-				<input type="button" value="뒤로가기" onClick="window.location='2_Info.jsp'" />
+				
 			
 		</table>
 </body>

@@ -321,7 +321,7 @@
 	
 					<h3>WEEKLY BEST SELLING TICKETS</h3>
 			<div class="d">
-						<iframe src="about:blank" width="400" height="600" scrolling="no" name="iframe"></iframe>
+						<iframe src="img/minicon1.png" width="400" height="600" scrolling="no" name="iframe"></iframe>
 						<a href="img/minicon1.png" target="iframe">
 						
 						

@@ -1,4 +1,4 @@
-package MusicalBoardServlce;
+package MusicalBoardService;
 
 import java.io.IOException;
 
@@ -15,10 +15,10 @@ import projectVO.ShowVO;
 
 
 @WebServlet("/musicalInsertServlet")
-public class MusicalInsertServlet extends HttpServlet {
+public class Info_InsertServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public MusicalInsertServlet() {
+    public Info_InsertServlet() {
         super();
     }
     
@@ -39,7 +39,7 @@ public class MusicalInsertServlet extends HttpServlet {
     	vo.setShow_Endday(show_Endday);
     	vo.setConcert_Hall_Code(Concert_Hall_Code);
     	
-    	MusicalDAO dao = new MusicalDAO();
+    	InfoDAO dao = new InfoDAO();
     	dao.insertMusical(vo);
     	req.setAttribute("vo",vo);
     	

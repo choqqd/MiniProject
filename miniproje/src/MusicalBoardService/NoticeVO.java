@@ -1,4 +1,4 @@
-package MusicalBoardServlce;
+package MusicalBoardService;
 
 public class NoticeVO {
 	private int Notice_Num;

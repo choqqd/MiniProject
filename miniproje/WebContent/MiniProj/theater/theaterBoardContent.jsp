@@ -112,7 +112,7 @@
 		vo = dao.getBoardSelect(content);
 		
 		%>
-		<table border="1">
+		<table id="contentTable" border="1">
 			<tr>
 				<th colspan="4">글제목 <%=vo.getBoardTitle()%></th>
 			</tr>

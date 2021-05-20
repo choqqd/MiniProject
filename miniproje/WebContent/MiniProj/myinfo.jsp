@@ -1,3 +1,5 @@
+<%@page import="projectVO.LocationVO"%>
+<%@page import="Common.LoginOutDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,48 +17,41 @@
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/index.css">
 	<style>
-		.session {
-			width: 1000px;
-			min-height: 800px;
-			margin: 0 auto;
-			background-color: rgb(242, 244, 247);
+		.infoshow{
+			width: 800px;
+			margin: 50px auto;
+			border: 1px solid black;
+			background: white;
 		}
-
-		.loginTitle {
-			text-align: center;
-			margin: 80px auto 40px;
-			background-color: rgb(242, 244, 247);
+		h2{
+		text-align: center;
+		display: block;
+		font-weight: bold;
 		}
-
-		.loginWap {
-			border: 2px solid black;
-			height: 350px;
-			border-radius: 20px;
-			margin: 40px;
-			text-align: center;
-			
+		th{
+		width: 200px;
+		height: 50px;
+		text-align: center;
 		}
-
-		input {
-			color: -internal-light-dark(black, white);
-			display: inline-block;
-			text-align: start;
-			background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
-			margin: 0 auto;
+		td{
+		height: 50px;
+		padding-left: 20px; 
 		}
-
-		.login {
-			width: 312px;
-			height: 44px;
-			margin-top : 20px;
-			margin-bottom: 15px;
-			line-height: 46px;
-			padding: 0 10px;
-		    border: 1px solid #d4d4d4;
- 		    border-radius: 3px;
+		.inpu{
+			background: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+  			border: 1px solid #d4d4d4;
+  			border-radius: 3px;
+  			width: 300px;
+		}
+		.pwbtn{
+			ackground: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+  			border: 1px solid #d4d4d4;
+  			border-radius: 3px;
+  			float: right;
+  			margin-right: 20px;
 		}
 	</style>
-	<title>Login | Gaze in daegu</title>
+	<title>내 정보 | Gaze in daegu</title>
 </head>
 
 <body>
@@ -79,14 +74,7 @@
 							<ul>
 								<li><a href="#">관리 <span><i class="sp-gear"></i></span></a>
 									<ul class="submenu">
-										<li><a href="login.jsp">
-										<%
-											if(session.getAttribute("mem")==null){
-												%>로그인</a><%
-											}else{
-												%><a href = "logCheck.jsp">로그아웃<%
-											}
-										%></a></li>
+										<li><a href="#">로그인</a></li>
 										<li><a href="#">내 정보</a></li>
 										<li><a href="#">관심목록</a></li>
 										<li><a href="#">로그아웃</a></li>
@@ -120,9 +108,9 @@
 						<div class="main-menu pull-right">
 							<nav>
 								<ul>
-									<li><a href="index.jsp">home</a></li>
+									<li><a href="index.html">home</a></li>
 									<li><a href="concert/Concert.html">콘서트</a></li>
-									<li><a href="musical/Musical.jsp">뮤지컬</a></li>
+									<li><a href="musical/Musical.html">뮤직컬</a></li>
 									<li><a href="theater/Theater.html">연극</a></li>
 									<li><a href="">게시판</a></li>
 									<li><a href="">공연장</a></li>
@@ -137,35 +125,43 @@
 		<!-- Main-Header End -->
 	</header>
 	<!-- HEADER-AREA END -->
-	<!-- Login box -->
-	<div class="session">
-		<div class="loginTitle">
-			<h2> 로그인</h2>
-		</div>
-		<div class="loginWap">
-			<form action="logCheck.jsp" method="POST">
-				<input class="login" type="text" name="userId" placeholder="아이디(ID)를 입력해 주세요."><br>
-				<input class="login" type="password" name="userPwd" placeholder="비밀번호(password)를 입력해 주세요."><br>
-				<input type="submit" value="로그인">
+	<div class = "infoshow">
+	<%
+	String add = (String)session.getAttribute("address");
+	LoginOutDAO dao = new LoginOutDAO();
+	LocationVO vo = new LocationVO();
+	vo = dao.getlocation(add);
+	%>
+	
+		<h2>내 정 보</h2>
+		<table border ="1" class="myinfo" width=100%>
+			<tr>
+				<th>아이디</th><td colspan="2"><%out.print(session.getAttribute("id")); %></td>
+			</tr>
+			<tr>
+				<th>이름</th><td colspan="2"><%out.print(session.getAttribute("name")); %></td>
+			</tr>
+			<form action="" method="post">
+				<tr>
+					<th rowspan="3">비밀번호</th><td> 현재 비밀번호</td><td> <input type="password" name="" class="inpu"></td>
+				</tr>
+				<tr>
+					<td>새 비밀번호</td><td> <input type="password" name="" class="inpu"></td>
+				</tr>
+				<tr>
+					<td>새 비밀번호 확인</td><td> <input type="password" name="" class="inpu"><input type="submit" value="비밀번호 변경" class="pwbtn"></td>
+				</tr>
 			</form>
-			<form action="logInsert.jsp" method="post">
-			<input type="submit" value="회원가입">
-			</form>
-		</div>
-	</div>
-
-
-
-
-
-	<div class="footer">
-		<!-- Footer는 Sifoot start -->
-		<p class="single-footer" align="center">
-			(주)Gaze in Daegu 대구광역시 중구 국채보상로 537 (수동, 5층) / 대표자: 그미소는 꽃이야 / <br> 대표
-			GIt:https://github.com/choqqd/Miniproj.git / 개인정보보호책임자: 그미소는 꽃이야 <br>
-			Copyright © 2021 (주)Gaze in Daegu All Rights Reserved.
-		</p>
+			<tr>
+				<th>이메일</th><td colspan="2"><input type="text" class = "inpu" value="<%=session.getAttribute("email") %>"></td>
+			</tr>
+			<tr>
+				<th>주소</th><td colspan="2"><%out.print(vo.getLocation()); %></td>
+			</tr>
+			<tr>
+				<th>전화번호</th><td colspan="2"><%out.print(session.getAttribute("tel")); %></td>
+			</tr>
+		</table>
 	</div>
 </body>
-
 </html>

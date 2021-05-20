@@ -177,12 +177,13 @@ public class TheaterBoardDAO {
 	}
 
 	// DB연동 게시글 삭제
-	public void delBoard(TheaterBoardVO vo) {
+	public TheaterBoardVO delBoard(int boardNum) {
 		conn = DBcon.getConnect();
 		String sql = "delete from theater_board where board_num = ?";
+		TheaterBoardVO vo = new TheaterBoardVO();
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, vo.getBoardNum());
+			psmt.setInt(1, boardNum);
 			int n = psmt.executeUpdate();
 			if (n != 0) {
 				System.out.println("삭제완료");
@@ -193,6 +194,7 @@ public class TheaterBoardDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return vo;
 	}
 
 	// update

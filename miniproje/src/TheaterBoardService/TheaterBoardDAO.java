@@ -21,7 +21,7 @@ public class TheaterBoardDAO {
 	public List<TheaterBoardVO> MiniboardList() {
 		conn = DBcon.getConnect();
 		List<TheaterBoardVO> list = new ArrayList<TheaterBoardVO>();
-		String sql = "select board_num, board_title, member_name, board_date, board_hit from Theater_Board";
+		String sql = "select board_num, board_title, member_name, board_date, board_hit from Theater_Board ORDER BY BOARD_DATE DESC";
 		try {
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();

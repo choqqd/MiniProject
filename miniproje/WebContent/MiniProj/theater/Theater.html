@@ -82,12 +82,12 @@ table.type09 td {
 				tbl.append(trTag1);
 
 
-				for (a = 0; a < result.length; a++) {
+				for (a = 0; a < 5; a++) {
 					let trTag = $('<tr class="tr1"  />');
 
 					trTag.append(
 						$('<td />').html(result[a].board_num),
-						$('<td />').html(result[a].user_name),
+						$('<td />').html(result[a].member_name),
 						$('<td />').html(result[a].board_title),
 						$('<td />').html(result[a].board_date),
 						$('<td />').html(result[a].board_hit),

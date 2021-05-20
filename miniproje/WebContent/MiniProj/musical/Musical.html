@@ -16,6 +16,7 @@
 	$(document).ready(function() {
 		$('.slider').bxSlider();
 	});
+
 </script>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -128,10 +129,10 @@
 		<!-- 메뉴 START -->
 		<div class='submenu'>
 			<ul>
-        		 <li onclick="contentView(0)"><a>예매</a></li>
-      			 <li onclick="contentView(1)"><a>공연정보</a></li>
-        		 <li onclick="contentView(2)"><a>관람후기</a></li>
-        		 <li onclick="contentView(3)"><a>Q&A</a></li>
+        		 <li ><a href="down_menu/1_Reservation.html" >예매</a></li>
+      			 <li ><a href="down_menu/2_Info.jsp">공연정보</a></li>
+        		 <li ><a href="down_menu/3_Review.html">관람후기</a></li>
+        		 <li ><a href="down_menu/4_QnA.jsp">Q&A</a></li>
 			</ul>
 		</div>
 		<!-- 메뉴 END -->
@@ -246,22 +247,7 @@
 	</div>
 	<!-- 메뉴 Script -->
 	<script>
-		function contentView(value) {
-  			switch(value) {
-        		case 0:
-            		$("#mContent").load('down_menu/1_Reservation.html');
-            	break;
-      			case 1:
-            		$("#mContent").load('down_menu/info.jsp');
-        			break;
-      			case 2:
-            		$("#mContent").load('down_menu/3_Review.html');
-        			break;
-      			case 3:
-            		$("#mContent").load('down_menu/4_QnA.jsp');
-        			break;
-    		}
-  		}
+
 	</script>
 	<!-- MUSICAL END -->
 </body>

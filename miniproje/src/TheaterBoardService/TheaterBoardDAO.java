@@ -85,7 +85,7 @@ public class TheaterBoardDAO {
 	// 게시판 전체 리스트
 	public List<TheaterBoardVO> theaterBoardList() {
 		List<TheaterBoardVO> list = new ArrayList<TheaterBoardVO>();
-		String sql = "select * from THEATER_BOARD ORDER by 1";
+		String sql = "select * from THEATER_BOARD ORDER by 1 desc";
 		conn = DBcon.getConnect();
 
 		try {
@@ -152,13 +152,13 @@ public class TheaterBoardDAO {
 	}
 
 	// 게시글 한건 조회
-	public TheaterBoardVO getBoardSelect(TheaterBoardVO vo) {
+	public TheaterBoardVO getBoardSelect(String content) {
 		conn = DBcon.getConnect();
-		String sql = "select * from theater_board where board_num = ?";
+		String sql = "select * from theater_board where board_content = ?";
 		TheaterBoardVO tvo = new TheaterBoardVO();
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, vo.getBoardNum());
+			psmt.setString(1, content);
 			rs = psmt.executeQuery();
 			if (rs.next()) {
 				tvo.setBoardNum(rs.getInt("board_num"));
@@ -174,7 +174,6 @@ public class TheaterBoardDAO {
 			close();
 		}
 		return tvo;
-
 	}
 
 	// DB연동 게시글 삭제

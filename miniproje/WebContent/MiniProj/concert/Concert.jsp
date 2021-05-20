@@ -251,7 +251,7 @@
 								<li>기대 평점 : ★★★★★ (5.0) 
 									
 					</ul>			
-				<button class="button"><img src="img/bookBtn.jpg"></button>
+				<button class="button"><img src="img/bookBtn3.png"></button>
 			</div>		
 		</div>	
 	</div>

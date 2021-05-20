@@ -1,3 +1,5 @@
+<%@page import="ConcertRankService.RankVO"%>
+<%@page import="ConcertRankService.RankDAO"%>
 <%@page import="ConcertBoardService.ConcertBoardDAO"%>
 <%@page import="java.util.List"%>
 <%@page import="ConcertBoardService.ConcertBoardVO"%>
@@ -269,7 +271,7 @@
 		ConcertBoardDAO dao = new ConcertBoardDAO();
 		List<ConcertBoardVO> list = dao.getBoarderList();
 		
-		request.setAttribute("list", list);
+		request.setAttribute("list2", list);
 	%>
 		<table class="mainTbl">
 		<caption><a href="ConcertBoard.jsp"><h4>Concert Review</h4></a></caption>
@@ -315,45 +317,44 @@
 <!-- 아래쪽 게시판 End -->
 
 <!-- 오른쪽 아래 공연 랭킹 정보-->
+
+
+<%
+	RankDAO dao2 = new RankDAO();
+	List<RankVO> list2 = dao2.getRankList();
+	
+	request.setAttribute("RankList", list2);
+%>
 				<div class="rank">
-				
-					
-					
-					
-					
-					
-					<div class="subject"><span>Weekly Rank</span></div>
-					
-						
-
-
-								<!--  <a href="" class="playBtn" onclick="movieLayer">
-										<img alt=""></a>-->
-
+						<table id="show">
+								<caption>Weekly TOP booking Rank</caption>
 								
-								db에서 가져오는 형태로 새로 해야됨.
-								doget으로 테이블형태로 가져오던지 아래와 같은 형태로 받아와서
-								클릭하면 포스터 변화 
-								<ol id="">
-									<li>
-									<a href="" onclick="" class=selected >싱어게인 콘서트</a>
-
-										</li>
-										<li>
-									<a href="" onclick="" class="" >10cm||치즈</a>
-
-										</li>
-											<li>
-									<a href="" onclick="" class="" >에일리 콘서트</a>
-
-										</li>
-											<li>
-									<a href="" onclick="" class="">장윤정 콘서트</a>
-
-										</li>
-								</ol>	
-
-														
+									<tr>
+									<%
+										if(list2.size() == 0){
+									%>
+										
+										<%
+											} else {
+												if(list2.size() > 5) {
+													for(int i = 0; i < 5; i++){
+											%>
+												<tr>
+													<td><%= list2.get(i).getShowName() %></td>
+												</tr>
+											<%
+													}
+												} else {
+													for(int i = 0; i < list2.size(); i++){%>
+														<tr>
+															<td><%= list2.get(i).getShowName() %></td>
+														</tr>
+											<%		}
+												}
+											}
+										%>	
+										</table>
+										</div>
 </div>
 			
 				

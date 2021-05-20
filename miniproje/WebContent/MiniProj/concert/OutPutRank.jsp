@@ -34,7 +34,7 @@
 				dataType: 'json', //json -> object
 				success: function (result) {
 					console.log(result);
-
+ 
 					$table.append(getTitle());
 					// 테이블 데이터 부분
 					for (let obj of result) {

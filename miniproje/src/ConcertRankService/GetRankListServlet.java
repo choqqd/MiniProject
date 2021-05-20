@@ -25,7 +25,7 @@ public class GetRankListServlet extends HttpServlet {
 		response.setContentType("text/html;charset-UTF-8");
 
 		JSONArray ary= new JSONArray();
-		 
+		  
 		RankDAO dao = new RankDAO();
 		List<RankVO> list = dao.getRankList();
 		for(RankVO vo : list) {

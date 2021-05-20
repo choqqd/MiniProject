@@ -23,7 +23,7 @@ public class GetRankServlet extends HttpServlet {
 			throws ServletException, IOException {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset-UTF-8");
-
+ 
 		RankDAO dao = new RankDAO();
 		RankVO vo = (RankVO) dao.getRankList();
 

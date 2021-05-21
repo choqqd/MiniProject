@@ -102,9 +102,20 @@
 		<!-- Main-Header End -->
 		</header>
 		<div class="theaterList">
-		<form>
-		
-		</form>
+		<c:choose>
+			<c:when test="${empty list }">
+				<p>연극 정보없음.</p>
+			</c:when>
+			<c:otherwise>
+			<table>
+				<c:forEach items="${list }" var="theater">
+				<tr>
+					<td>${theater.Show_name }</td><td>${theater.show_endday }</td><td>${theater.Show_startday }</td>
+				</tr>
+				 </c:forEach>
+			</table>
+			</c:otherwise>
+		</c:choose>
 		</div>
 		<!-- Footer -->
 	<div class="footer" style="text-align: center;">

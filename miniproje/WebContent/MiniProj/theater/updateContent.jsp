@@ -29,6 +29,7 @@
 <!-- style css -->
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="css/theaterMain.css">
+<link rel="stylesheet" href="css/update.css">
 </head>
 <body>
 	<!-- HEADER-AREA START -->
@@ -104,14 +105,15 @@
 		<!-- Main-Header End -->
 	</header>
 	<!-- 수정 -->
-	<div>
+	<div id="show">
 		<%
 		String boardNum = request.getParameter("boardNum");
 		TheaterBoardDAO dao = new TheaterBoardDAO();
 		TheaterBoardVO vo = dao.getContentSelect(Integer.parseInt(boardNum));
 		%>
+		<h3 style="text-align: center">게시물 수정</h3>
 		<form action="updateAction.jsp?boardNum=<%=boardNum %>" method="post">
-			<table>
+			<table id="updateTable">
 				<tr>
 					<td><%=vo.getMemberName()%></td><td><%=vo.getBoardNum() %></td>
 				</tr>
@@ -123,10 +125,11 @@
 				</tr>
 				<tr>
 					<td>
-						<input type="submit" value="저장">
-						<button>돌아가기</button></td>
+						<input type="submit" value="저장" id="submitBtn">
+					</td>
 				</tr>
 			</table>
+			<a href="theaterBoard.jsp"><button>돌아가기</button></a>
 		</form>
 	</div>
 	<!-- 수정 끝 -->

@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+#show {
+	width: 80%;
+	height: auto;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	margin: 100px auto;
+}
+
+#updateTable {
+	width:90%;
+	margin: 10px auto;
+}
+
+#submitBtn {
+	border: 1px solid black;
+}

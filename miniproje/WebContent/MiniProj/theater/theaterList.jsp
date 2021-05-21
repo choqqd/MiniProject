@@ -110,7 +110,7 @@
 			<table>
 				<c:forEach items="${list }" var="theater">
 				<tr>
-					<td>${theater.Show_name }</td><td>${theater.show_endday }</td><td>${theater.Show_startday }</td>
+					<td>${theater.show_name }</td><td>${theater.show_endday }</td><td>${theater.Show_startday }</td>
 				</tr>
 				 </c:forEach>
 			</table>

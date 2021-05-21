@@ -14,12 +14,17 @@ public class TheaterListDAO {
 	PreparedStatement psmt;
 	ResultSet rs;
 	
+	private static TheaterListDAO dao = new TheaterListDAO();
+	
+	public static TheaterListDAO getInstance() {
+		// TODO Auto-generated method stub
+		return dao;
+	}
 	public List<TheaterListVO> theaterAllList() {
 		List<TheaterListVO> list = new ArrayList<TheaterListVO>();
 		String sql = "select * from show where SHOW_CODE like 'T%';";
-		
+		conn = DBcon.getConnect();
 		try {
-			conn = DBcon.getConnect();
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
 			while(rs.next()) {
@@ -64,6 +69,9 @@ public class TheaterListDAO {
 				}
 			}
 		}
+
+
+
 	
 	
 }

@@ -123,7 +123,8 @@
 			</tr>
 			<tr>
 				<td><a href="theaterBoard.jsp"><button>목록으로</button></a></td>
-				<td><a href="updateContent.jsp"></a><button>글수정</button></td>
+				<td><a href="updateContent.jsp?boardNum=<%=vo.getBoardNum() %>">
+				<h3><%=vo.getBoardNum() %></h3><button>글수정</button></a></td>
 				<td><a href="DeleteAction.jsp?boardNum=<%= vo.getBoardNum() %>"><button>글삭제</button></a></td>
 			</tr>
 		</table>

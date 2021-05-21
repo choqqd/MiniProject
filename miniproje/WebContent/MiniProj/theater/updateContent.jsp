@@ -1,5 +1,8 @@
+<%@page import="TheaterBoardService.TheaterBoardVO"%>
+<%@page import="TheaterBoardService.TheaterBoardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -100,14 +103,37 @@
 		</div>
 		<!-- Main-Header End -->
 	</header>
-	<!-- 게시판 수정 -->
-	<jsp:useBean id="dao" class="TheaterBoardService.TheaterBoardDAO"></jsp:useBean>
-	<jsp:useBean id="vo" class="TheaterBoardService.TheaterBoardVO"></jsp:useBean>
-	<div id="updateContent">
+	<!-- 수정 -->
+	<div>
 		<%
+		String boardNum = request.getParameter("boardNum");
+		TheaterBoardDAO dao = new TheaterBoardDAO();
+		TheaterBoardVO vo = dao.getContentSelect(Integer.parseInt(boardNum));
 		%>
+			<table>
+				<tr>
+					<td><%=vo.getMemberName()%></td>
+				</tr>
+				<tr>
+					<td><input type="text" value="<%=vo.getBoardTitle()%>"></td>
+				</tr>
+				<tr>
+					<td><input type="text" value="<%=vo.getBoardContent()%>"></td>
+				</tr>
+				<tr>
+					<td><a
+						href="updateAction.jsp?boardNum=<%=vo.getBoardNum()%>
+								&boardTitle=<%=vo.getBoardTitle()%>
+								&boardContent=<%=vo.getBoardContent()%>">
+							<button>수정하기</button>
+					</a>
+						<button>돌아가기</button></td>
+				</tr>
+			</table>
 	</div>
-	<!-- 게시판 수정 끝-->
+
+
+	<!-- 수정 끝 -->
 	<!-- Footer -->
 	<div class="footer" style="text-align: center;">
 		<p class="single-footer">

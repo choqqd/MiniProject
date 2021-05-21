@@ -176,6 +176,31 @@ public class TheaterBoardDAO {
 		return tvo;
 	}
 
+	// 게시글 한건 조회
+	public TheaterBoardVO getContentSelect(int num) {
+		conn = DBcon.getConnect();
+		String numberSql = "select * from theater_board where board_num = ?";
+		TheaterBoardVO tvo = new TheaterBoardVO();
+		try {
+			psmt = conn.prepareStatement(numberSql);
+			psmt.setInt(1, num);
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				tvo.setBoardNum(rs.getInt("board_num"));
+				tvo.setMemberName(rs.getString("member_name"));
+				tvo.setBoardTitle(rs.getString("board_title"));
+				tvo.setBoardContent(rs.getString("board_content"));
+				tvo.setBoardDate(rs.getString("board_date"));
+				tvo.setBoardHit(rs.getInt("board_hit"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return tvo;
+	}
+
 	// DB연동 게시글 삭제
 	public TheaterBoardVO delBoard(int boardNum) {
 		conn = DBcon.getConnect();
@@ -198,21 +223,20 @@ public class TheaterBoardDAO {
 	}
 
 	// update
-	public boolean updateBoard(TheaterBoardVO vo) {
+	public TheaterBoardVO updateBoard(TheaterBoardVO vo) {
 		conn = DBcon.getConnect();
-		String sql = "update theater_board set board_title = ?, board_content = ? member_name = ? where board_num = ?";
+		String sql = "update theater_board set board_title = ?, board_content = ? where board_num = ?";
 		int tlqkf = 0;
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, vo.getBoardTitle());
 			psmt.setString(2, vo.getBoardContent());
-			psmt.setString(3, vo.getMemberName());
-			psmt.setInt(4, vo.getBoardNum());
+			psmt.setInt(3, vo.getBoardNum());
 			tlqkf = psmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return tlqkf == 0 ? false : true;
+		return vo;
 
 	}
 

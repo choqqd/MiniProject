@@ -102,12 +102,10 @@
 		<!-- Main-Header End -->
 		</header>
 		<div class="theaterList">
+		<form>
 		
-		
-		
+		</form>
 		</div>
-		
-		
 		<!-- Footer -->
 	<div class="footer" style="text-align: center;">
 		<p class="single-footer">

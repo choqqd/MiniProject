@@ -3,6 +3,7 @@ package TheaterBoardService;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,11 +31,9 @@ public class TheaterListServlet extends HttpServlet {
 		TheaterDAO dao = new TheaterDAO();
 		List<ShowVO> list = dao.getTheaterList();
 		
-		JSONArray ary = new JSONArray();
-		for(ShowVO vo : list) {
-		}
-	}
-
+		req.setAttribute("list",list);
+		RequestDispatcher rd = req.getRequestDispatcher("theater/theaterList.jsp");
+		rd.forward(req, resp);
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 	}

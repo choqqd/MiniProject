@@ -88,7 +88,7 @@
 								<ul>
 									<li><a href="../index.jsp">home</a></li>
 									<li><a href="Concert.jsp">콘서트</a></li>
-									<li><a href="../musical/Musical.html">뮤지컬</a></li>
+									<li><a href="../musical/Musical.jsp">뮤지컬</a></li>
 									<li><a href="../theater/Theater.html">연극</a></li>
 									<li><a href="">게시판</a></li>
 									<li><a href="">공연장</a></li>
@@ -256,7 +256,7 @@
 								<li>기대 평점 : ★★★★★ (5.0) 
 									
 					</ul>			
-				<button class="button"><img src="img/bookBtn5.png"></button>
+				<button class="button" name="booking"><a href="etc/booking.jsp"><img src="img/bookBtn5.png"></a></button>
 			</div>		
 		</div>	
 	</div>

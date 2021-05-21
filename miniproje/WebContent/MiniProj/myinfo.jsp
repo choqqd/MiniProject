@@ -20,7 +20,6 @@
 		.infoshow{
 			width: 800px;
 			margin: 50px auto;
-			border: 1px solid black;
 			background: white;
 		}
 		h2{
@@ -52,6 +51,7 @@
 		}
 	</style>
 	<title>내 정보 | Gaze in daegu</title>
+
 </head>
 
 <body>
@@ -141,27 +141,33 @@
 			<tr>
 				<th>이름</th><td colspan="2"><%out.print(session.getAttribute("name")); %></td>
 			</tr>
-			<form action="" method="post">
+			<form action="#" method="post">
 				<tr>
-					<th rowspan="3">비밀번호</th><td> 현재 비밀번호</td><td> <input type="password" name="" class="inpu"></td>
+					<th rowspan="3">비밀번호</th><td> 현재 비밀번호</td>
+					<td> <input type="password" name="inpass" class="inpu"></td>
 				</tr>
 				<tr>
-					<td>새 비밀번호</td><td> <input type="password" name="" class="inpu"></td>
+					<td>새 비밀번호</td>
+					<td><input type="password" name="newpass" class="inpu"></td>
 				</tr>
 				<tr>
-					<td>새 비밀번호 확인</td><td> <input type="password" name="" class="inpu"><input type="submit" value="비밀번호 변경" class="pwbtn"></td>
+					<td>새 비밀번호 확인</td>
+					<td><input type="password" name="newpass1" class="inpu">
+					<input type="submit" value="비밀번호 변경" class="pwbtn"></td>
 				</tr>
 			</form>
-			<tr>
-				<th>이메일</th><td colspan="2"><input type="text" class = "inpu" value="<%=session.getAttribute("email") %>"></td>
-			</tr>
-			<tr>
-				<th>주소</th><td colspan="2"><%out.print(vo.getLocation()); %></td>
-			</tr>
-			<tr>
-				<th>전화번호</th><td colspan="2"><%out.print(session.getAttribute("tel")); %></td>
-			</tr>
+			<form actiom = "#" method="post">
+				<tr>
+					<th>이메일</th><td colspan="2"><input type="text" class = "inpu" value="<%=session.getAttribute("email") %>"></td>
+				</tr>
+				<tr>
+					<th>주소</th><td colspan="2"><%out.print(vo.getLocation()); %></td>
+				</tr>
+				<tr>
+					<th>전화번호</th><td colspan="2"><%out.print(session.getAttribute("tel")); %></td>
+				</tr>
 		</table>
+		</form>
 	</div>
 </body>
 </html>

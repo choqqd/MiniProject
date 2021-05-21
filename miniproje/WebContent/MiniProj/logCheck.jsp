@@ -25,6 +25,7 @@
 			session.setAttribute("email", vo.getMember_Email());
 			session.setAttribute("address", vo.getMember_Address());
 			session.setAttribute("tel", vo.getMember_Tel());
+			session.setAttribute("pass", vo.getMember_Pwd());
 			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 			rd.forward(request,response);
 		}else{

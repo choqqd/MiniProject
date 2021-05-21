@@ -1,4 +1,7 @@
-<%@page import="java.util.function.Function"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="MusicalBoardService.NoticeDAO"%>
+<%@page import="java.util.List"%>
+<%@page import="MusicalBoardService.NoticeVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -109,34 +112,63 @@
 	</header>
 	<!-- Main-Header End -->
 
-<%
-	int num=0, ref=1, re_step=0, re_level=0;
-	try {
-		if(request.getParameter("num") != null) {
-			num = Integer.parseInt(request.getParameter("num"));
-			ref = Integer.parseInt(request.getParameter("ref"));
-			re_step = Integer.parseInt(request.getParameter("re_step"));
-			re_level = Integer.parseInt(request.getParameter("re_level"));
-		}
-	} catch (Exception e){
-		e.printStackTrace();
-	}
-%>
-<br><br>
-<h1 align="center">Write</h1>
-<form method="post" name="writeform" action="4_InsertProc.jsp">
-	<table width=80% border="3" bordercolor="lightgray" align="center">
+
+	<!-- MUSICAL START -->
+	<div>
+		<!-- HEADER-AREA END -->
+		<section>
+			<div class="slider">
+				<div>
+					<img class="im" src="../musical_Img/banner1.JPG" alt="">
+				</div>
+				<div>
+					<img class="im" src="../musical_Img/banner2.JPG" alt="">
+				</div>
+				<div>
+					<img class="im" src="../musical_Img/banner3.JPG" alt="">
+				</div>
+			</div>
+		</section>
+
+		<!-- 메뉴 START -->
+		<div class='submenu'>
+			<ul>
+				<li><a href="1_Reservation.jsp">예매</a></li>
+				<li><a href="2_Info.jsp">공연정보</a></li>
+				<li><a href="3_Review.jsp">관람후기</a></li>
+				<li><a href="4_QnA.jsp">Q&A</a></li>
+			</ul>
+		</div>
+		<!-- 메뉴 END -->
+		
+		<!-- 게시판 -->
+		
+	<jsp:useBean id="dao" class= "MusicalBoardService.NoticeDAO"></jsp:useBean>
+	<jsp:useBean id="vo" class="MusicalBoardService.NoticeVO"></jsp:useBean>
+		<%
+		String title = request.getParameter("title");
+		
+		String contents = vo.getNotice_Contents();
+		contents = contents.replace("\r\n","<br>");
+		
+		%>
+		
+		
+		<table width=80% border="3" bordercolor="lightgray" align="center">
 		<tr height="30">
-			<td width=15% align="center"> Writer </td>
-			<td>&nbsp;<input type="text" size="20" name="writer"></td>
+			<td width=15% align="center"> Q&A!!! </td>
+			<td>&nbsp;<input type="text" size="20" name="writer">
+			<%=vo.getMember_Id() %> </td>
 		</tr>
 		<tr height="30">
 			<td width=15% align="center"> Title </td>
-			<td>&nbsp;<input type="text" size="50" name="title"></td>
+			<td>&nbsp;<input type="text" size="50" name="title">
+			<%=vo.getNotice_Title() %></td>
 		</tr>
 		<tr height="30">
 			<td width=15% align="center"> Content </td>
-			<td>&nbsp;<textarea name="contents" style="width:98%; height:500px; border:1; overflow:visible; text-overflow: ellipsis;"></textarea></td>
+			<td>&nbsp;<textarea name="contents" style="width:98%; height:500px; border:1; overflow:visible; text-overflow: ellipsis;"></textarea>
+			<%=vo.getNotice_Contents() %></td>
 		</tr>
 		<tr height="30">
 			<td width=15% align="center"> password </td>
@@ -144,14 +176,12 @@
 		</tr>
 		<tr height="40">
 			<td colspan=2 align="center">
-				<input type="submit" value="Save"  onClick="window.location='4_SelectForm.jsp'">&nbsp;&nbsp;
+				<input type="submit" value="Save">&nbsp;&nbsp;
 				<input type="reset" value="Reset">&nbsp;&nbsp;
 				<input type="button" value="Go Back" onClick="window.location='4_QnA.jsp'" />
 			</td>
 		</tr>		
 	</table>
-</form>
-<br><br>
 
-</body>
+	</body>
 </html>

@@ -141,40 +141,45 @@
 		</div>
 		<!-- 메뉴 END -->
 		
-		<!-- 게시판 START -->
-	<br><br>
-	
-	<h1 align="center">QnA!!!</h1> <br>
-	<table width=80% border="3" align="center" bordercolor="lightgray">
-		<tr height="50">
-			<td align="center">No</td>
-			<td align="center">Title</td>
-			<td align="center">Writer</td>
-			<td align="center">Date</td>
-			<td align="center">View</td>
-		</tr>
+		<!-- 게시판 -->
+		
 		<%
-		NoticeDAO dao = new NoticeDAO();
-		List<NoticeVO> list = dao.getNoticeList();
-		for(int i=0; i<list.size(); i++) {
+			NoticeDAO dao = new NoticeDAO();
+			List<NoticeVO> list = dao.getNoticeList();
+			
+			request.setAttribute("list", list);
 		%>
 		
-		<tr height="30">
-			<td align="center" width="30"><%=list.get(i).getNotice_Hit() %></td>	
-			<td align="center" width="300"><%=list.get(i).getMember_Id() %></td>
-			<td align="center" width="50"><%=list.get(i).getNotice_Contents() %></td>
-			<td align="center" width="70"><%=list.get(i).getMember_Id() %></td>
-			<td align="center" width="30"><%=list.get(i).getNotice_Date() %></td>	
-		</tr>
-		
-		<%} %>
-	</table> <br>
-		<table width=90%>
-		<tr><td align="right">
-			<input type="button" value="Write" button style="width: 55pt; height: 25pt;" 
-			onClick="window.location='4_WriteForm.jsp'" />
-		</td></tr>		
-	</table> <br> <br>
+		<br><br>
+		<h1 align="center">QnA!!!</h1> <br>
+			<table width=80% border="3" align="center" bordercolor="lightgray">
+				<tr height="50">
+					<td align="center">No</td>
+					<td align="center">Title</td>
+					<td align="center">Writer</td>
+					<td align="center">Date</td>
+					<td align="center">View</td>
+				</tr>
+			<%
+				for(int i = 0; i <list.size(); i++) {
+				%>
+					<tr height="30">
+					<td align="center" width="30"><%=list.get(i).getNotice_Num()%></td>	
+					<td align="center" width="300"><a href = "4_SelectForm.jsp?title=<%=list.get(i).getNotice_Title()%>&NoticeNum=<%=list.get(i).getNotice_Num()%>"><%=list.get(i).getNotice_Title() %></a></td>
+					<td align="center" width="50"><%=list.get(i).getMember_Id()%></td>
+					<td align="center" width="70"><%=list.get(i).getNotice_Date()%></td>
+					<td align="center" width="30"><%=list.get(i).getNotice_Hit()%></td>	
+					</tr>
+					<%
+					}
+					%>
+				</table> <br>
+					<table width=90%>
+					<tr><td align="right">
+						<input type="button" value="Write" button style="width: 55pt; height: 25pt;" 
+						onClick="window.location='4_WriteForm.jsp'" />
+					</td></tr>		
+				</table> <br> <br>
 
-</body>
+	</body>
 </html>

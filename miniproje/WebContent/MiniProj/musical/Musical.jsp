@@ -141,35 +141,17 @@
 			</ul>
 		</div>
 		<!-- 메뉴 END -->
-		
-		<%
-			InfoDAO dao = new InfoDAO();
-			ShowVO vo= new ShowVO();
-			List<ShowVO> list = dao.getMusicalList();
-		%>
-		
-	<ul>
-		<% 
-			// 화면에 띄우기 옆으로 
-			for(int i =0; i < list.size(); i++) {
-		%>
-			<li>
-				<a href="../2_Info_select.jsp?show_code=<%= list.get(i).getShow_Code()%>">
-				<img width='200' src='musical_Img/mama.jfif'><br>
-				<%= list.get(i).getShow_Name()%></a>
-			</li>
-		<%	
-		}
-		%>
-	</ul>
+
 		
 		<!-- 상단 포스터 -->
-		<!-- <div id="mContent">
+		<div id="mContent">
 		<section class='topSec-area'>
 			<p id="hot-font">WHAT'S HOT</p>
 			<div>
 				<div class="main-div">
+					<a href="">
 					<img class="poster" src='musical_Img/mama.jfif'>
+					</a>
 					<div>
 						<span><h3 id="poster-title">마마, 돈크라이</h3></span> 
 						타고난 천재성으로 일찍 교수 생활을 시작한 프로페서 V이지만 수줍음 많은 성격의...<br>
@@ -177,7 +159,9 @@
 					</div>
 				</div>
 				<div class="main-div">
+					<a href="">
 					<img class="poster" src='musical_Img/bluerain.jfif'>
+					</a>
 					<div>
 						<span><h3 id="poster-title">블루레인</h3></span> 
 						타고난 천재성으로 일찍 교수 생활을 시작한 프로페서 V이지만 수줍음 많은 성격의...<br>
@@ -185,7 +169,9 @@
 					</div>
 				</div>
 				<div class="main-div">
+					<a href="">
 					<img class="poster" src='musical_Img/midnight.jfif'>
+					</a>
 					<div>
 						<span><h3 id="poster-title">미드나잇(Mid-night)</h3></span> 
 						타고난 천재성으로 일찍 교수 생활을 시작한 프로페서 V이지만 수줍음 많은 성격의...<br>
@@ -193,7 +179,9 @@
 					</div>
 				</div>
 				<div class="main-div">
+					<a href="">
 					<img class="poster" src='musical_Img/moonstory.jfif'>
+					</a>
 					<div>
 						<span><h3 id="poster-title">문스토리</h3></span> 
 						타고난 천재성으로 일찍 교수 생활을 시작한 프로페서 V이지만 수줍음 많은 성격의...<br>
@@ -204,7 +192,9 @@
 
 			<div>
 				<div class="main-div">
+					<a href="">
 					<img class="poster" src='musical_Img/moonstory.jfif'>
+					</a>
 					<div>
 						<span><h3 id="poster-title">마마, 돈크라이</h3></span> 
 						타고난 천재성으로 일찍 교수 생활을 시작한 프로페서 V이지만 수줍음 많은 성격의...<br>
@@ -212,7 +202,9 @@
 					</div>
 				</div>
 				<div class="main-div">
+					<a href="">
 					<img class="poster" src='musical_Img/romance.jfif'>
+					</a>
 					<div>
 						<span><h3 id="poster-title">마마, 돈크라이</h3></span> 
 						타고난 천재성으로 일찍 교수 생활을 시작한 프로페서 V이지만 수줍음 많은 성격의...<br>
@@ -220,7 +212,9 @@
 					</div>
 				</div>
 				<div class="main-div">
+					<a href="">
 					<img class="poster" src='musical_Img/midnight.jfif'>
+					</a>
 					<div>
 						<span><h3 id="poster-title">마마, 돈크라이</h3></span> 
 						타고난 천재성으로 일찍 교수 생활을 시작한 프로페서 V이지만 수줍음 많은 성격의...<br>
@@ -228,7 +222,9 @@
 					</div>
 				</div>
 				<div class="main-div">
+					<a href="">
 					<img class="poster" src='musical_Img/bluerain.jfif'>
+					</a>
 					<div>
 						<span><h3 id="poster-title">마마, 돈크라이</h3></span> 
 						타고난 천재성으로 일찍 교수 생활을 시작한 프로페서 V이지만 수줍음 많은 성격의...<br>
@@ -237,7 +233,7 @@
 				</div>
 			</div>
 		</section>
-		</div> -->
+		</div> 
 		<!--상단 포스터 end-->
 
 

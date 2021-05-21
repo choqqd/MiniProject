@@ -1,4 +1,3 @@
-2_Info.jsp
 <%@page import="java.util.List"%>
 <%@page import="projectVO.ShowVO"%>
 <%@page import="MusicalBoardService.InfoDAO"%>
@@ -8,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>/down_menu/2_Info.jsp</title>
 <!-- slider 링크 -->
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">

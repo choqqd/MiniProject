@@ -130,6 +130,15 @@ public class InfoDAO {
 		}
 	}
 	
+	// 수정 
+	private void updateMusical(ShowVO vo) {
+		DBcon.getConnect();
+		conn = DBcon.getConnect();
+		String sql ="update show set mail=?,name=?,passwd=? where show_code=?";
+
+	}
+	
+	
 	// 삭제 
 	public void deleteMusical(String show_code) {
 		DBcon.getConnect();

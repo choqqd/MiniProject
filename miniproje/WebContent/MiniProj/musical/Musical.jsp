@@ -1,3 +1,6 @@
+<%@page import="java.util.List"%>
+<%@page import="projectVO.ShowVO"%>
+<%@page import="MusicalBoardService.InfoDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -93,10 +96,10 @@
 					<div class="main-menu pull-right">
 						<nav>
 							<ul>
-								<li><a href="">home</a></li>
-								<li><a href="">콘서트</a></li>
-								<li><a href="">뮤직컬</a></li>
-								<li><a href="">연극</a></li>
+								<li><a href="../index.jsp">home</a></li>
+								<li><a href="../concert/Concert.jsp">콘서트</a></li>
+								<li><a href="Musical.jsp">뮤직컬</a></li>
+								<li><a href="../theater/Theater.html">연극</a></li>
 								<li><a href="">게시판</a></li>
 								<li><a href="">공연장</a></li>
 								<li><a href="">이벤트/쿠폰</a></li>
@@ -139,9 +142,29 @@
 		</div>
 		<!-- 메뉴 END -->
 		
+		<%
+			InfoDAO dao = new InfoDAO();
+			ShowVO vo= new ShowVO();
+			List<ShowVO> list = dao.getMusicalList();
+		%>
+		
+	<ul>
+		<% 
+			// 화면에 띄우기 옆으로 
+			for(int i =0; i < list.size(); i++) {
+		%>
+			<li>
+				<a href="../2_Info_select.jsp?show_code=<%= list.get(i).getShow_Code()%>">
+				<img width='200' src='musical_Img/mama.jfif'><br>
+				<%= list.get(i).getShow_Name()%></a>
+			</li>
+		<%	
+		}
+		%>
+	</ul>
 		
 		<!-- 상단 포스터 -->
-		<div id="mContent">
+		<!-- <div id="mContent">
 		<section class='topSec-area'>
 			<p id="hot-font">WHAT'S HOT</p>
 			<div>
@@ -214,8 +237,12 @@
 				</div>
 			</div>
 		</section>
+		</div> -->
 		<!--상단 포스터 end-->
-		
+
+
+
+
 		<!-- MV START -->
 		<div class="mvwrap">
 			<section class='mvsec'>
@@ -244,8 +271,6 @@
 			</p>
 		</footer>
 		<!-- FOOTER-AREA END -->
-		
-	
 	<!-- 메뉴 Script -->
 	<script>
 	</script>

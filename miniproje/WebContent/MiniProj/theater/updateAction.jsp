@@ -5,12 +5,13 @@
 	pageEncoding="UTF-8"%>
 
 <%
+	request.setCharacterEncoding("utf-8");
 	TheaterBoardDAO dao = new TheaterBoardDAO();
 	TheaterBoardVO vo = new TheaterBoardVO();
 
 	String number = request.getParameter("boardNum");
-	String title = request.getParameter("Title");
-	String content = request.getParameter("Content");
+	String title = request.getParameter("title");
+	String content = request.getParameter("content");
 	
 	
 	vo.setBoardNum(Integer.parseInt(number));

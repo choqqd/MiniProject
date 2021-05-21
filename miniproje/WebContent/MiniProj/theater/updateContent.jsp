@@ -110,29 +110,25 @@
 		TheaterBoardDAO dao = new TheaterBoardDAO();
 		TheaterBoardVO vo = dao.getContentSelect(Integer.parseInt(boardNum));
 		%>
+		<form action="updateAction.jsp?boardNum=<%=boardNum %>" method="post">
 			<table>
 				<tr>
-					<td><%=vo.getMemberName()%></td>
+					<td><%=vo.getMemberName()%></td><td><%=vo.getBoardNum() %></td>
 				</tr>
 				<tr>
-					<td><input type="text" value="<%=vo.getBoardTitle()%>"></td>
+					<td><input type="text" name="title" value="<%=vo.getBoardTitle()%>"></td>
 				</tr>
 				<tr>
-					<td><input type="text" value="<%=vo.getBoardContent()%>"></td>
+					<td><input type="text" name="content" value="<%=vo.getBoardContent()%>"></td>
 				</tr>
 				<tr>
-					<td><a
-						href="updateAction.jsp?boardNum=<%=vo.getBoardNum()%>
-								&boardTitle=<%=vo.getBoardTitle()%>
-								&boardContent=<%=vo.getBoardContent()%>">
-							<button>수정하기</button>
-					</a>
+					<td>
+						<input type="submit" value="저장">
 						<button>돌아가기</button></td>
 				</tr>
 			</table>
+		</form>
 	</div>
-
-
 	<!-- 수정 끝 -->
 	<!-- Footer -->
 	<div class="footer" style="text-align: center;">

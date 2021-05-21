@@ -118,6 +118,13 @@
 			<%
 			TheaterBoardDAO dao = new TheaterBoardDAO();
 			List<TheaterBoardVO> list = dao.theaterBoardList();
+			if (list.size() == 0) {
+			%>
+			<tr>
+				<td colspan="6" style="font-size: 16pt; font-weight: bold;">첫 게시글을 써보세요!</td>
+			</tr>
+			<%
+			} else {
 			for (int i = 0; i < list.size(); i++) {
 			%>
 			<tr id="trTag">
@@ -129,6 +136,9 @@
 				<td style="width: 12%"><%=list.get(i).getBoardDate()%></td>
 				<td style="width: 12%"><%=list.get(i).getBoardHit()%></td>
 			</tr>
+			<%
+			}
+			%>
 			<%
 			}
 			%>

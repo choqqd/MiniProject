@@ -48,7 +48,7 @@ public class InfoDAO {
 	
 	
 	// 한건 조회 
-	public InfoVO getshow(String SHOW_CODE) {
+	public InfoVO getshow(String Show_code) {
 		String sql = "select s.SHOW_NAME,s.SHOW_CODE,s.SHOW_STARTDAY,s.SHOW_ENDDAY,\r\n"
 				+ "i.SHOW_INFO_AGE,i.SHOW_INFO_CASTING,c.CONCERT_HALL_NAME,c.CONCERT_HALL_TEL,c.CONCERT_HALL_ADDRESS\r\n"
 				+ "from show s , SHOW_INFOMATION i ,CONCERT_HALL c\r\n"
@@ -62,7 +62,7 @@ public class InfoDAO {
 		try {
 			
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, SHOW_CODE);
+			psmt.setString(1, Show_code);
 			rs = psmt.executeQuery();
 			
 			while (rs.next()) {
@@ -107,13 +107,13 @@ public class InfoDAO {
 	
 	// 뮤지컬 공연 등록
 	public void insertMusical(ShowVO vo) {
+		DBcon.getConnect();
+		conn = DBcon.getConnect();
 		String sql = "INSERT INTO show VALUES(\r\n"
 				+ "      (select CONCAT(SUBSTR(max(SHOW_CODe),1,1),SUBSTR(max(SHOW_CODe),2,2)+1)\r\n"
 				+ "      from show \r\n"
 				+ "      where SHOW_CODE like 'M%'),\r\n"
 				+ "      ?,?,?,?)";
-		DBcon.getConnect();
-		conn = DBcon.getConnect();
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, vo.getShow_Name());
@@ -130,7 +130,23 @@ public class InfoDAO {
 		}
 	}
 	
-	
+	// 삭제 
+	public void deleteMusical(String show_code) {
+		DBcon.getConnect();
+		conn = DBcon.getConnect();
+		String sql = "delete from show where show_code=?";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1,show_code);
+			int r = psmt.executeUpdate();
+			System.out.println(r+ "건 삭제되었습니다 ");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+	}
 
 
 	public void close() {

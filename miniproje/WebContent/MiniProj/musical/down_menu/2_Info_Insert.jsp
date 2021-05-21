@@ -35,7 +35,7 @@
 <!-- style css -->
 <link rel="stylesheet" href="../../css/style.css">
 <!-- main css -->
-<link rel="stylesheet" href="../Musical_dam.css">
+<link rel="stylesheet" href="../main.css">
 </head>
 <body>
 	<!-- HEADER-AREA START -->
@@ -129,35 +129,34 @@
 		<!-- 메뉴 START -->
 		<div class='submenu'>
 			<ul>
-				<li><a href="1_Reservation.html">예매</a></li>
+				<li><a href="1_Reservation.jsp">예매</a></li>
 				<li><a href="2_Info.jsp">공연정보</a></li>
-				<li><a href="3_Review.html">관람후기</a></li>
+				<li><a href="3_Review.jsp">관람후기</a></li>
 				<li><a href="4_QnA.jsp">Q&A</a></li>
 			</ul>
 		</div>
 		<!-- 메뉴 END -->
-		
+
 		<form action='../../../musicalInsertServlet' method="post">
-			뮤지컬 제목 : <input type="text" name="show_Name" ><br>
-			공연 시작일 : <input type="text" name="show_Startday"><br>
-			공연 종료일 : <input type="text" name="show_Endday" ><br>
-			공연장 선택 : <select name="Concert_Hall_Code">
+			뮤지컬 제목 : <input type="text" name="show_Name"><br> 공연
+			시작일 : <input type="text" name="show_Startday"><br> 공연
+			종료일 : <input type="text" name="show_Endday"><br> 공연장 선택
+			: <select name="Concert_Hall_Code">
 				<option value="1">대구문화</option>
 				<option value="2">대덕</option>
 				<option value="3">계명</option>
 				<option value="4">웃는</option>
 				<option value="5">문화복지</option>
 				<option value="6">사문진</option>
-			</select><br> 
-			<input type="submit" value="등록"> 
-			<input type="reset" value="취소">
-			<input type="button" value="뒤로가기" onClick="window.location='2_Info.jsp'" />
+			</select><br> <input type="submit" value="등록"> <input
+				type="reset" value="취소"> <input type="button" value="뒤로가기"
+				onClick="window.location='2_Info.jsp'" />
 		</form>
-				<!-- FOOTER-AREA START -->
+		<!-- FOOTER-AREA START -->
 		<footer>
 			<p class="single-footer" align="center">
-				(주)Gaze in Daegu 대구광역시 중구 국채보상로 537 (수동, 5층) / 대표자:조진호 / <br> 대표
-				GIt:https://github.com/choqqd/Miniproj.git / 개인정보보호책임자:조진호 <br>
+				(주)Gaze in Daegu 대구광역시 중구 국채보상로 537 (수동, 5층) / 대표자:조진호 / <br>
+				대표 GIt:https://github.com/choqqd/Miniproj.git / 개인정보보호책임자:조진호 <br>
 				Copyright © 2021 (주)Gaze in Daegu All Rights Reserved.
 			</p>
 		</footer>

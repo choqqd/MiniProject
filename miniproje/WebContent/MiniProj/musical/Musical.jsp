@@ -245,12 +245,11 @@
 		</footer>
 		<!-- FOOTER-AREA END -->
 		
-		
-	</div>
+	
 	<!-- 메뉴 Script -->
 	<script>
-
 	</script>
 	<!-- MUSICAL END -->
+	
 </body>
 </html>

@@ -19,6 +19,8 @@
 	//슬라이더 스크립트 부분
 	$(document).ready(function() {
 		$('.slider').bxSlider();
+		
+
 	});
 </script>
 <meta name="description" content="">
@@ -38,7 +40,7 @@
 <!-- style css -->
 <link rel="stylesheet" href="../../css/style.css">
 <!-- main css -->
-<link rel="stylesheet" href="../Musical_dam.css">
+<link rel="stylesheet" href="../main.css">
 </head>
 <body>
 	<!-- HEADER-AREA START -->
@@ -132,23 +134,29 @@
 		<!-- 메뉴 START -->
 		<div class='submenu'>
 			<ul>
-				<li><a href="1_Reservation.html">예매</a></li>
-				<li><a href="2_Info.jsp">공연정보</a></li>
-				<li><a href="3_Review.html">관람후기</a></li>
-				<li><a href="4_QnA.jsp">Q&A</a></li>
+				<li><a href="down_menu/1_Reservation.jsp">예매</a></li>
+				<li><a href="down_menu/2_Info.jsp">공연정보</a></li>
+				<li><a href="down_menu/3_Review.jsp">관람후기</a></li>
+				<li><a href="down_menu/4_QnA.jsp">Q&A</a></li>
 			</ul>
 		</div>
 		<!-- 메뉴 END -->
 		<jsp:useBean id="dao" class="MusicalBoardService.InfoDAO"></jsp:useBean>
 		<jsp:useBean id="svo" class="MusicalBoardService.InfoVO"></jsp:useBean>
-		
+
 		<%
-		String showcode = request.getParameter("show_code");
-		svo = dao.getshow(showcode);
+			String showcode = request.getParameter("show_code");
+			svo = dao.getshow(showcode);
 		%>
-		<input type="button" value="뒤로가기" onClick="window.location='2_Info.jsp'" />
-		
-	
+		<input type="button" value="뒤로가기"
+			onClick="window.location='2_Info.jsp'" />
+
+		<button>수정</button>
+		<
+		<button>삭제</button>
+
+
+
 		<table border='1'>
 			<tr>
 				<td>제목</td>
@@ -166,24 +174,22 @@
 				<td>출연진</td>
 				<td><%=svo.getShow_Info_Casting()%></td>
 			</tr>
-						<tr>
+			<tr>
 				<td>연령</td>
 				<td><%=svo.getShow_Info_Age()%></td>
 			</tr>
-						<tr>
+			<tr>
 				<td>공연장 주소</td>
 				<td><%=svo.getConcert_Hall_Address()%></td>
 			</tr>
-						<tr>
+			<tr>
 				<td>장소</td>
 				<td><%=svo.getConcert_Hall_Name()%></td>
 			</tr>
-						<tr>
+			<tr>
 				<td>공연장 전화번호</td>
 				<td><%=svo.getConcert_Hall_Tel()%></td>
 			</tr>
-				
-			
 		</table>
 </body>
 </html>

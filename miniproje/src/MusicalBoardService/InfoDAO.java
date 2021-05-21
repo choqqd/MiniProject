@@ -135,7 +135,6 @@ public class InfoDAO {
 		DBcon.getConnect();
 		conn = DBcon.getConnect();
 		String sql = "delete from show where show_code=?";
-		
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1,show_code);

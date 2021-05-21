@@ -137,14 +137,16 @@
 			</ul>
 		</div>
 		<!-- 메뉴 END -->
+		
 		<jsp:useBean id="dao" class="MusicalBoardService.InfoDAO"></jsp:useBean>
 		<jsp:useBean id="svo" class="MusicalBoardService.InfoVO"></jsp:useBean>
-
 		<%
 			String showcode = request.getParameter("show_code");
 			svo = dao.getshow(showcode);
+			
 		%>
 		<form>
+			공연코드 : <input type="text" name="show_code" readonly value="<%=svo.getShow_Code()%>"><br>
 			제목 : <input type="text" name="Show_Name" readonly value="<%=svo.getShow_Name()%>"><br>
 			시작일 : <input type="text" name="Show_Startday" readonly value="<%=svo.getShow_Startday()%>"><br>
 			종료일 : <input type="text" name="Show_Endday" readonly  value="<%=svo.getShow_Endday()%>"><br>

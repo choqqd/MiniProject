@@ -139,7 +139,7 @@
 		<!-- 메뉴 END -->
 		
 	
-	<h3>${vo.show_Name } 등록이 완료 되었습니다</h3>
+	<h3>${vo.show_Name } 수정이 완료 되었습니다</h3>
 
 		<footer>
 			<p class="single-footer" align="center">

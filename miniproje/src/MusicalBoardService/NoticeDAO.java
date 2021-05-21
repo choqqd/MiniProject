@@ -42,7 +42,7 @@ public class NoticeDAO {
 	//전체조회(list)
 	NoticeVO vo = new NoticeVO();
 	public List<NoticeVO> getNoticeList() {
-		String sql = "SELECT * FROM MUSICAL_NOTICE";
+		String sql = "SELECT NOTICE_NUM, NOTICE_TITLE, MEMBER_ID, NOTICE_DATE, NOTICE_HIT FROM MUSICAL_NOTICE ORDER BY NOTICE_NUM DESC";
 		conn = DBcon.getConnect();
 		List<NoticeVO> noticeList = new ArrayList<NoticeVO>();
 		try {
@@ -52,7 +52,6 @@ public class NoticeDAO {
 				NoticeVO notice = new NoticeVO();
 				notice.setNotice_Num(rs.getInt("Notice_Num"));
 				notice.setMember_Id(rs.getString("Member_Id"));
-				notice.setNotice_Pwd(rs.getString("Notice_Pwd"));
 				notice.setNotice_Title(rs.getString("Notice_Title"));
 				notice.setNotice_Contents(rs.getString("Notice_Contents"));
 				notice.setNotice_Date(rs.getString("Notice_Date"));

@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="MusicalBoardService.NoticeDAO"%>
 <%@page import="java.util.List"%>
 <%@page import="MusicalBoardService.NoticeVO"%>
@@ -132,16 +133,18 @@
 		<!-- 메뉴 START -->
 		<div class='submenu'>
 			<ul>
-				<li><a href="1_Reservation.html">예매</a></li>
+				<li><a href="1_Reservation.jsp">예매</a></li>
 				<li><a href="2_Info.jsp">공연정보</a></li>
-				<li><a href="3_Review.html">관람후기</a></li>
+				<li><a href="3_Review.jsp">관람후기</a></li>
 				<li><a href="4_QnA.jsp">Q&A</a></li>
 			</ul>
 		</div>
 		<!-- 메뉴 END -->
+		
+		<!-- 게시판 START -->
 	<br><br>
+	
 	<h1 align="center">QnA!!!</h1> <br>
-
 	<table width=80% border="3" align="center" bordercolor="lightgray">
 		<tr height="50">
 			<td align="center">No</td>
@@ -150,22 +153,21 @@
 			<td align="center">Date</td>
 			<td align="center">View</td>
 		</tr>
-		
 		<%
-			//List list = null;
-			//int num = 0;
-			//for(int i=0; i<list.size(); i++) {
-			//	NoticeVO vo = (NoticeVO)list.get(i);
-			//}
+		NoticeDAO dao = new NoticeDAO();
+		List<NoticeVO> list = dao.getNoticeList();
+		for(int i=0; i<list.size(); i++) {
 		%>
 		
 		<tr height="30">
-			<td align="center" width="50"></td>
-			<td align="center" width="300"></td>
-			<td align="center" width="50"></td>
-			<td align="center" width="70"></td>
-			<td align="center" width="30"></td>		
+			<td align="center" width="30"><%=list.get(i).getNotice_Hit() %></td>	
+			<td align="center" width="300"><%=list.get(i).getMember_Id() %></td>
+			<td align="center" width="50"><%=list.get(i).getNotice_Contents() %></td>
+			<td align="center" width="70"><%=list.get(i).getMember_Id() %></td>
+			<td align="center" width="30"><%=list.get(i).getNotice_Date() %></td>	
 		</tr>
+		
+		<%} %>
 	</table> <br>
 		<table width=90%>
 		<tr><td align="right">

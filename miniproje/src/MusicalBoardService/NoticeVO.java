@@ -8,6 +8,29 @@ public class NoticeVO {
 	private String Notice_Contents;
 	private String Notice_Date;
 	private int Notice_Hit;
+	private int Ref;
+	private int Re_Step;
+	private int Re_Level;
+	
+	
+	public int getRef() {
+		return Ref;
+	}
+	public void setRef(int ref) {
+		Ref = ref;
+	}
+	public int getRe_Step() {
+		return Re_Step;
+	}
+	public void setRe_Step(int re_Step) {
+		Re_Step = re_Step;
+	}
+	public int getRe_Level() {
+		return Re_Level;
+	}
+	public void setRe_Level(int re_Level) {
+		Re_Level = re_Level;
+	}
 	public int getNotice_Num() {
 		return Notice_Num;
 	}

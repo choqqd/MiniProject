@@ -84,13 +84,13 @@
 							<nav>
 								<ul>
 									<li><a
-										href="http://localhost/miniproje/MiniProj/index.html">home</a></li>
+										href="http://localhost/miniproje/MiniProj/index.jsp">home</a></li>
 									<li><a
-										href="http://localhost/miniproje/MiniProj/concert/Concert.html">콘서트</a></li>
+										href="http://localhost/miniproje/MiniProj/concert/Concert.jsp">콘서트</a></li>
 									<li><a
-										href="http://localhost/miniproje/MiniProj/musical/Musical.html">뮤직컬</a></li>
+										href="http://localhost/miniproje/MiniProj/musical/Musical.jsp">뮤직컬</a></li>
 									<li><a
-										href="http://localhost/miniproje/MiniProj/theater/Theater.html">연극</a></li>
+										href="http://localhost/miniproje/MiniProj/theater/Theater.jsp">연극</a></li>
 									<li><a href="">게시판</a></li>
 									<li><a href="">공연장</a></li>
 									<li><a href="">이벤트/쿠폰</a></li>
@@ -121,7 +121,8 @@
 			if (list.size() == 0) {
 			%>
 			<tr>
-				<td colspan="6" style="font-size: 16pt; font-weight: bold;">첫 게시글을 써보세요!</td>
+				<td colspan="6" style="font-size: 16pt; font-weight: bold;">첫
+					게시글을 써보세요!</td>
 			</tr>
 			<%
 			} else {

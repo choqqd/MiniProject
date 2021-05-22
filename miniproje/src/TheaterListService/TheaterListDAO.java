@@ -34,6 +34,7 @@ public class TheaterListDAO {
 				vo.setShow_code(rs.getString("Show_code"));
 				vo.setShow_endday(rs.getString("show_endday"));
 				vo.setShow_startday(rs.getString("Show_startday"));
+				list.add(vo);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

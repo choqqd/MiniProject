@@ -123,7 +123,7 @@
 									<li><a href="index.jsp">home</a></li>
 									<li><a href="concert/Concert.html">콘서트</a></li>
 									<li><a href="musical/Musical.jsp">뮤지컬</a></li>
-									<li><a href="theater/Theater.html">연극</a></li>
+									<li><a href="theater/Theater.jsp">연극</a></li>
 									<li><a href="">게시판</a></li>
 									<li><a href="">공연장</a></li>
 									<li><a href="">이벤트/쿠폰</a></li>

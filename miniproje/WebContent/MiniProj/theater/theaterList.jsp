@@ -1,6 +1,9 @@
+<%@page import="TheaterListService.TheaterListVO"%>
+<%@page import="java.util.List"%>
+<%@page import="TheaterListService.TheaterListDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +33,7 @@
 <title>연극 정보 리스트</title>
 </head>
 <body>
-<header class="header-area">
+	<header class="header-area">
 		<!-- Header-Top Start -->
 		<div class="header-top hidden-xs">
 			<div class="container">
@@ -100,24 +103,27 @@
 			</div>
 		</div>
 		<!-- Main-Header End -->
-		</header>
-		<div class="theaterList">
-		<c:choose>
-			<c:when test="${empty list }">
-				<p>연극 정보없음.</p>
-			</c:when>
-			<c:otherwise>
-			<table>
-				<c:forEach items="${list }" var="theater">
-				<tr>
-					<td>${theater.show_name }</td><td>${theater.show_endday }</td><td>${theater.Show_startday }</td>
-				</tr>
-				 </c:forEach>
-			</table>
-			</c:otherwise>
-		</c:choose>
-		</div>
-		<!-- Footer -->
+	</header>
+	<div class="theaterList">
+		<p>연극 정보없음.</p>
+		<table>
+			<%
+			TheaterListDAO dao = new TheaterListDAO();
+			List<TheaterListVO> list = dao.theaterAllList();
+			for (TheaterListVO member : list) {
+			%>
+			<tr>
+				<td>${list.show_name }</td>
+				<td>${list.show_endday }</td>
+				<td>${list.Show_startday }</td>
+			</tr>
+			<%
+			}
+			%>
+
+		</table>
+	</div>
+	<!-- Footer -->
 	<div class="footer" style="text-align: center;">
 		<p class="single-footer">
 			(주)Gaze in Daegu 대구광역시 중구 국채보상로 537 (수동, 5층) / 대표자:조진호 / <br> 대표

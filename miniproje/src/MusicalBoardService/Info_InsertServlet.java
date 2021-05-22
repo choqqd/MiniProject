@@ -43,7 +43,7 @@ public class Info_InsertServlet extends HttpServlet {
     	dao.insertMusical(vo);
     	req.setAttribute("vo",vo);
     	
-    	RequestDispatcher rd = req.getRequestDispatcher("MiniProj/musical/result/2_outPut.jsp");
+    	RequestDispatcher rd = req.getRequestDispatcher("MiniProj/musical/result/2_insertOutput.jsp");
 		rd.forward(req, resp);
     	
     }

@@ -110,7 +110,7 @@ public class InfoDAO {
 		DBcon.getConnect();
 		conn = DBcon.getConnect();
 		String sql = "INSERT INTO show VALUES(\r\n"
-				+ "      (select CONCAT(SUBSTR(max(SHOW_CODe),1,1),SUBSTR(max(SHOW_CODe),2,2)+1)\r\n"
+				+ "      (select CONCAT(SUBSTR(max(SHOW_CODE),1,1),SUBSTR(max(SHOW_CODe),2,2)+1)\r\n"
 				+ "      from show \r\n"
 				+ "      where SHOW_CODE like 'M%'),\r\n"
 				+ "      ?,?,?,?)";

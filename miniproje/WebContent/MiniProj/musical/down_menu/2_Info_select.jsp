@@ -19,7 +19,6 @@
 	//슬라이더 스크립트 부분
 	$(document).ready(function() {
 		$('.slider').bxSlider();
-		
 
 	});
 </script>
@@ -145,26 +144,33 @@
 		<jsp:useBean id="svo" class="MusicalBoardService.InfoVO"></jsp:useBean>
 
 		<%
-			String show_code = request.getParameter("show_code");
-			svo = dao.getshow(show_code);
-			request.getAttribute("show_code");
+		String show_code = request.getParameter("show_code");
+		svo = dao.getshow(show_code);
 		%>
-		
-		
-		<form action="../../../deleteServlet"  method="post">
-			공연코드 : <input type="text" name="show_code" readonly value="<%=svo.getShow_Code()%>"><br>
-			제목 : <input type="text" name="Show_Name" readonly value="<%=svo.getShow_Name()%>"><br>
-			시작일 : <input type="text" name="Show_Startday" readonly value="<%=svo.getShow_Startday()%>"><br>
-			종료일 : <input type="text" name="Show_Endday" readonly  value="<%=svo.getShow_Endday()%>"><br>
-			출연진 : <input type="text" name="Show_Info_Casting" readonly value="<%=svo.getShow_Info_Casting()%>"><br>
-			연령 : <input type="text" name="Show_Info_Age" readonly  value="<%=svo.getShow_Info_Age()%>"><br>
-			공연장 : <input type="text" name="Concert_Hall_Name" readonly value="<%=svo.getConcert_Hall_Name()%>"><br>
-			주소 : <input type="text" name="Concert_Hall_Address" readonly value="<%=svo.getConcert_Hall_Address()%>"><br>
-			전화번호 : <input type="text" name="Concert_Hall_Tel" readonly value="<%=svo.getConcert_Hall_Tel()%>"><br>
-			<input type="submit" value="삭제">
-			<input type="button" value="수정" onClick="window.location='2_Info_Update.jsp'" />
-			<input type="button" value="뒤로가기" onClick="window.location='2_Info.jsp'" />
+s
+
+		<form action="../../../deleteServlet" method="post">
+			공연코드 : <input type="text" name="show_code" readonly
+				value="<%=svo.getShow_Code()%>"><br> 제목 : <input
+				type="text" name="Show_Name" readonly
+				value="<%=svo.getShow_Name()%>"><br> 시작일 : <input
+				type="text" name="Show_Startday" readonly
+				value="<%=svo.getShow_Startday()%>"><br> 종료일 : <input
+				type="text" name="Show_Endday" readonly
+				value="<%=svo.getShow_Endday()%>"><br> 출연진 : <input
+				type="text" name="Show_Info_Casting" readonly
+				value="<%=svo.getShow_Info_Casting()%>"><br> 연령 : <input
+				type="text" name="Show_Info_Age" readonly
+				value="<%=svo.getShow_Info_Age()%>"><br> 공연장 : <input
+				type="text" name="Concert_Hall_Name" readonly
+				value="<%=svo.getConcert_Hall_Name()%>"><br> 주소 : <input
+				type="text" name="Concert_Hall_Address" readonly
+				value="<%=svo.getConcert_Hall_Address()%>"><br> 전화번호 :
+			<input type="text" name="Concert_Hall_Tel" readonly
+				value="<%=svo.getConcert_Hall_Tel()%>"><br> <input
+				type="submit" value="삭제"> <input type="button" value="수정"
+				onClick="window.location='2_Info_Update.jsp'" /> <input
+				type="button" value="뒤로가기" onClick="window.location='2_Info.jsp'" />
 		</form>
-	
 </body>
 </html>

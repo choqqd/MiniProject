@@ -16,6 +16,7 @@
 	<!-- style css -->
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/index.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<style>
 		.infoshow{
 			width: 800px;
@@ -51,7 +52,56 @@
 		}
 	</style>
 	<title>내 정보 | Gaze in daegu</title>
-
+<script>
+	$(function(){
+		var id = $('#tbs').children().children().eq(0).children().eq(1).html();
+		$('#passCheck').click(function(){
+			if($('#inpass').val()==<%=session.getAttribute("pass")%>){
+				if($('#newpass').val()==$('#newpass1').val()){
+					console.log($('#newpass').val())
+					$.ajax({
+						url: '/ajaxMemberPass',
+						data: {id: id, pass: $('#newpass').val()},
+						type: 'post',
+						success: function(data){
+							console.log(data);
+						},
+						error: function(err){
+							console.log(err);
+						}
+					});
+				}else{
+					alert('새로입력하신 비밀번호가 틀립니다.');
+					$('#newpass').val("");
+					$('#newpass1').val("");
+					$('#newpass').focus();
+				}
+			}else{
+				alert('현재 비밀번호가 틀립니다. 다시입력해주세요.');
+				$('#inpass').val("");
+				$('#inpass').focus();
+			}
+		})
+	})
+	
+			function formCheck(){
+			if(frm.memberId.value == ""){
+				alert("아이디를 입력하세요.")
+				frm.memberId.focus();
+				return false;
+			}
+			if(frm.idCheck.value == 'unChecked'){
+				alert("중복체크를 하세요.");
+				return false;
+			}
+			if(frm.memberPwd.value == ""){
+				alert("비밀번호를 입력하세요.")
+				frm.memberPwd.focus();
+				return false;
+			}
+			frm.submit();
+		}
+</script>
 </head>
 
 <body>
@@ -134,29 +184,27 @@
 	%>
 	
 		<h2>내 정 보</h2>
-		<table border ="1" class="myinfo" width=100%>
+		<form id="frm" actiom="#" method="post">
+		<table id="tbs" border ="1" class="myinfo" width=100%>
 			<tr>
 				<th>아이디</th><td colspan="2"><%out.print(session.getAttribute("id")); %></td>
 			</tr>
 			<tr>
 				<th>이름</th><td colspan="2"><%out.print(session.getAttribute("name")); %></td>
 			</tr>
-			<form action="#" method="post">
 				<tr>
 					<th rowspan="3">비밀번호</th><td> 현재 비밀번호</td>
-					<td> <input type="password" name="inpass" class="inpu"></td>
+					<td> <input type="password" id = "inpass" name="inpass" class="inpu"></td>
 				</tr>
 				<tr>
 					<td>새 비밀번호</td>
-					<td><input type="password" name="newpass" class="inpu"></td>
+					<td><input type="password" id = "newpass" name="newpass" class="inpu"></td>
 				</tr>
 				<tr>
 					<td>새 비밀번호 확인</td>
-					<td><input type="password" name="newpass1" class="inpu">
-					<input type="submit" value="비밀번호 변경" class="pwbtn"></td>
+					<td><input type="password" id = "newpass1" name="newpass1" class="inpu">
+					<button type = "button" id = "passCheck" value="unChecked" class="pwbtn">비밀번호변경</button></td>
 				</tr>
-			</form>
-			<form actiom = "#" method="post">
 				<tr>
 					<th>이메일</th><td colspan="2"><input type="text" class = "inpu" value="<%=session.getAttribute("email") %>"></td>
 				</tr>
@@ -167,6 +215,9 @@
 					<th>전화번호</th><td colspan="2"><%out.print(session.getAttribute("tel")); %></td>
 				</tr>
 		</table>
+		<div>
+			<button type = "button" onlick = "formCheck()">수정하기</button>
+		</div>
 		</form>
 	</div>
 </body>

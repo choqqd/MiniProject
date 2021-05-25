@@ -60,11 +60,14 @@
 				if($('#newpass').val()==$('#newpass1').val()){
 					console.log($('#newpass').val())
 					$.ajax({
-						url: '/ajaxMemberPass',
+						url: '../ajaxMemberPass',
 						data: {id: id, pass: $('#newpass').val()},
 						type: 'post',
 						success: function(data){
-							console.log(data);
+							alert('비밀번호가 변경되었습니다.');
+							$('#inpass').val("");
+							$('#newpass').val("");
+							$('#newpass1').val("");
 						},
 						error: function(err){
 							console.log(err);
@@ -84,23 +87,6 @@
 		})
 	})
 	
-			function formCheck(){
-			if(frm.memberId.value == ""){
-				alert("아이디를 입력하세요.")
-				frm.memberId.focus();
-				return false;
-			}
-			if(frm.idCheck.value == 'unChecked'){
-				alert("중복체크를 하세요.");
-				return false;
-			}
-			if(frm.memberPwd.value == ""){
-				alert("비밀번호를 입력하세요.")
-				frm.memberPwd.focus();
-				return false;
-			}
-			frm.submit();
-		}
 </script>
 </head>
 
@@ -203,7 +189,7 @@
 				<tr>
 					<td>새 비밀번호 확인</td>
 					<td><input type="password" id = "newpass1" name="newpass1" class="inpu">
-					<button type = "button" id = "passCheck" value="unChecked" class="pwbtn">비밀번호변경</button></td>
+					<button type = "button" id = "passCheck" class="pwbtn">비밀번호변경</button></td>
 				</tr>
 				<tr>
 					<th>이메일</th><td colspan="2"><input type="text" class = "inpu" value="<%=session.getAttribute("email") %>"></td>

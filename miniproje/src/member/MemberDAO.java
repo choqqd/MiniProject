@@ -17,7 +17,7 @@ public class MemberDAO {
 		String sql = "update member set member_pwd = ? where member_id=?";
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, id);
+			psmt.setString(1, pass);
 			psmt.setString(2, id);
 			psmt.executeUpdate();
 		} catch (SQLException e) {
